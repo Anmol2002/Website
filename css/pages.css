@@ -524,3 +524,8 @@
 body.pg-thanks:not(.nav-solid) .nav__logo{color:#fff}
 .tx__burst{top:22rem}
 .tx__burst i{transform:rotate(var(--a)) translateY(calc(-17rem * var(--d))) rotate(45deg)}
+/* about CTA: two equal-width buttons side by side */
+.abcta__btns{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:center;flex:none}
+.abcta__b,.abcta__g{justify-content:center;white-space:nowrap}
+@media (max-width:1023px){.abcta__btns{width:100%;grid-template-columns:1fr}}
+@media (max-width:1023px) and (min-width:600px){.abcta__btns{grid-template-columns:1fr 1fr}}
