@@ -504,3 +504,11 @@ html body .cs-fig figcaption{font-size:max(1.7rem,13px);line-height:1.5}
   .rv--stamp{padding-top:4rem!important}
   .rv-bigq{font-size:34rem;bottom:-12rem}
 }
+/* breadcrumbs on project + case study pages (same pattern as the blog) */
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;font-size:max(1.5rem,13px);line-height:1.4}
+.crumbs a{color:inherit;text-decoration:underline;text-underline-offset:.3rem;text-decoration-color:currentColor;text-decoration-thickness:1px;opacity:.85;transition:color .3s,opacity .3s}
+.crumbs a:hover{color:var(--or);opacity:1}
+.crumbs span{opacity:.55}
+.crumbs [aria-current]{opacity:.7}
+.cs-hero .crumbs{margin-bottom:3rem;color:#fff}
+@media (max-width:1023px){.crumbs{font-size:max(2.2rem,13px)}.cs-hero .crumbs{margin-bottom:4rem}}
