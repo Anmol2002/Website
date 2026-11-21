@@ -1,0 +1,209 @@
+/* =========================================================
+   Contact page — builds on style.css (same tokens, 1rem = 10 design px)
+   ========================================================= */
+
+[hidden]{display:none!important}
+
+/* ---------- hero ---------- */
+.chero{position:relative;padding-top:17rem;padding-bottom:6rem;overflow:hidden}
+.chero__loop{position:absolute;left:170rem;top:6rem;width:26rem;transform:rotate(4deg);pointer-events:none;z-index:0}
+.crumbs{margin-bottom:4rem}
+.crumbs a{display:inline-flex;align-items:center;height:4rem;padding:0 2rem;border-radius:10rem;background:#fff;font-size:1.5rem;transition:transform .3s}
+.crumbs a:hover{transform:translateX(-.4rem)}
+.chero__title{font-family:"Anton";font-weight:400;font-size:18rem;line-height:18.5rem;color:var(--ink);margin-top:1.4rem;margin-left:-1rem;position:relative;z-index:2}
+.chero__title .clip{height:18.5rem}
+.chero__line{display:inline-block}
+.chero__line.o{color:var(--or)}
+.chero__h1{font-family:"Familjen Grotesk";font-weight:600;font-size:4.4rem;line-height:5.4rem;width:100rem;margin-top:5rem;position:relative;z-index:2}
+.chero__body{font-weight:400;font-size:2rem;line-height:3.2rem;color:var(--mute);width:84rem;margin-top:2.4rem;position:relative;z-index:2}
+.chero__chips{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:3.6rem;position:relative;z-index:2}
+.chero__chips li{height:4.6rem;padding:0 2.2rem;border-radius:10rem;background:var(--ink);color:#fff;display:flex;align-items:center;font-size:1.6rem}
+.chero__chips li:first-child{background:var(--or)}
+.chero__art{position:absolute;left:122rem;top:28rem;width:58rem;height:auto;overflow:visible}
+.chero__art .ca{will-change:transform}
+
+/* ---------- form + side cards ---------- */
+.cbody{display:grid;grid-template-columns:104rem 1fr;gap:3.2rem;align-items:start;padding-top:4rem;scroll-margin-top:12rem}
+.cform-card{background:var(--card);border-radius:1.4rem;padding:5.6rem 5.6rem 5rem}
+.cform__h{font-family:"Anton";font-weight:400;font-size:6.4rem;line-height:1.1}
+.cform__s{font-weight:400;font-size:1.8rem;line-height:2.8rem;color:var(--mute);margin-top:1.2rem}
+.cform{display:grid;gap:2.6rem;margin-top:4.4rem}
+.cform__row{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+.field{display:grid;gap:1.1rem}
+.field>span{font-size:1.5rem;letter-spacing:.02em}
+.field em{font-style:normal;font-weight:400;color:var(--mute)}
+.field input,.field select,.field textarea{
+  width:100%;font:400 1.8rem/1.5 "Sora",system-ui,sans-serif;color:var(--ink);
+  background:#fff;border:1px solid rgba(20,20,20,.14);border-radius:1rem;padding:0 2rem;height:6.6rem;
+  transition:border-color .25s,box-shadow .25s;-webkit-appearance:none;appearance:none}
+.field textarea{height:auto;min-height:18rem;padding:1.8rem 2rem;resize:vertical}
+.field select{cursor:pointer;padding-right:5rem;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 2rem center;background-size:2rem}
+.field input::placeholder,.field textarea::placeholder{color:#A99A94}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--or);box-shadow:0 0 0 .4rem rgba(255,90,31,.15)}
+.field.bad input,.field.bad select,.field.bad textarea{border-color:#D93A0B}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.cform__foot{display:flex;align-items:center;gap:3rem;margin-top:1rem}
+.cform__btn{all:unset;cursor:pointer;height:6.6rem;padding:0 3.6rem;border-radius:10rem;background:var(--or);color:#fff;display:inline-flex;align-items:center;gap:1.2rem;font-size:1.8rem;font-weight:600;transition:transform .3s,background .3s}
+.cform__btn:hover{transform:translateY(-.3rem)}
+.cform__btn:focus-visible{outline:.3rem solid var(--ink);outline-offset:.3rem}
+.cform__btn[disabled]{background:var(--mute);cursor:wait;transform:none}
+.cform__note{font-weight:400;font-size:1.5rem;line-height:2.2rem;color:var(--mute)}
+.cform__err{font-weight:400;font-size:1.6rem;line-height:2.4rem;color:#D93A0B}
+.cform__err a{text-decoration:underline}
+.cform__done{padding:4rem 0 1rem}
+.cform__done .pill-outline{display:inline-flex;margin-top:3.6rem}
+.cform__tick{display:grid;place-items:center;width:8rem;height:8rem;border-radius:50%;background:var(--or);color:#fff;font-size:3.6rem;margin-bottom:3rem}
+
+.cside{display:grid;gap:2.4rem}
+.cm{position:relative;display:block;background:var(--card);border-radius:1.4rem;padding:3.6rem 3.6rem 3.8rem;transition:transform .3s}
+a.cm:hover{transform:translateY(-.4rem)}
+.cm__k{font-size:1.4rem;letter-spacing:.2em;color:var(--or)}
+.cm__v{font-family:"Familjen Grotesk";font-weight:600;font-size:3.4rem;line-height:4.2rem;margin-top:1.6rem;word-break:break-word}
+.cm__s{font-weight:400;font-size:1.7rem;line-height:2.7rem;color:var(--mute);margin-top:1.2rem;padding-right:4rem}
+.cm__go{position:absolute;right:3rem;top:3rem;width:4.4rem;height:4.4rem;border-radius:50%;display:grid;place-items:center;font-size:2rem;background:var(--or);color:#fff;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+a.cm:hover .cm__go{transform:rotate(45deg)}
+.cm--dark{background:var(--ink);color:#fff}.cm--dark .cm__s{color:#CDBFB9}
+.cm--light{background:#fff;border:1px solid rgba(20,20,20,.1)}
+.cm--hot{background:var(--or);color:#fff}.cm--hot .cm__k,.cm--hot .cm__s{color:#fff}.cm--hot .cm__go{background:var(--ink)}
+
+/* ---------- next steps (3 columns) ---------- */
+.page-contact .process{padding-top:16rem}
+.steps--3{grid-template-columns:repeat(3,50rem);column-gap:9rem}
+
+/* ---------- mobile ---------- */
+@media (max-width:1023px){
+  .chero{padding-top:13rem;padding-bottom:4rem}
+  .chero__loop{display:none}
+  .chero__title{font-size:11rem;line-height:11.5rem}
+  .chero__title .clip{height:11.5rem}
+  .chero__h1{width:auto;font-size:3.8rem;line-height:4.8rem;margin-top:4rem}
+  .chero__body{width:auto;font-size:2.4rem;line-height:3.6rem}
+  .chero__chips li{font-size:2rem;height:5rem}
+  .chero__art{display:none}
+  .cbody{grid-template-columns:1fr}
+  .cform-card{padding:4rem 3rem}
+  .cform__row{grid-template-columns:1fr}
+  .field>span{font-size:2rem}
+  .field input,.field select,.field textarea{font-size:2.4rem;height:7.6rem}
+  .field textarea{height:auto}
+  .cform__foot{flex-direction:column;align-items:flex-start;gap:2rem}
+  .cform__btn{font-size:2.2rem;height:7.4rem}
+  .cform__note,.cform__err{font-size:2rem;line-height:3rem}
+  .cm__s{font-size:2.2rem;line-height:3.4rem}
+  .cm__k{font-size:1.8rem}
+  .cform__s{font-size:2.2rem;line-height:3.2rem}
+  .steps--3{grid-template-columns:1fr}
+}
+
+/* =========================================================
+   DARK CONTACT (v9) — feels different from the cream pages
+   ========================================================= */
+.cdark{background:#0F0E0D;color:#fff}
+.cdark .nav__hours{color:#fff}
+.cdark .crumbs a{background:#1F1C1A;color:#fff}
+.cdark .chero__title{color:#fff}
+.cdark .chero__body{color:#A39792}
+.cdark .chero__chips li{background:#1F1C1A}
+.cdark .chero__chips li:first-child{background:var(--or)}
+.cdark .chero__art{stroke:#F4EDE9}
+.cdark .chero__art [fill="#fff"]{fill:#1F1C1A}
+.cdark .chero__art [fill="#141414"]{fill:#F4EDE9}
+.cdark .chero__art .ca-check{stroke:#141414}
+.cdark .chero__loop{opacity:.9}
+/* need picker */
+.need{padding-top:8rem;padding-bottom:8rem}
+.need__head{display:flex;align-items:baseline;gap:3rem;flex-wrap:wrap}
+.need__h{font-family:"Anton";font-weight:400;font-size:9rem;line-height:1;color:#fff}
+.need__s{font-weight:400;font-size:2rem;color:#A39792}
+.need__grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.6rem;margin-top:4.4rem}
+.nd{all:unset;cursor:pointer;box-sizing:border-box;display:flex;flex-direction:column;gap:.6rem;padding:3rem 2.6rem 3.2rem;border-radius:1.4rem;background:#1B1918;border:.15rem solid #2A2624;min-height:24rem;transition:background .35s,border-color .35s,transform .45s cubic-bezier(.16,1,.3,1)}
+.nd__ic{width:7rem;height:7rem;border-radius:50%;background:#262321;display:grid;place-items:center;margin-bottom:auto;transition:background .35s}
+.nd__ic svg{width:3.4rem;height:3.4rem;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.nd b{font-family:"Familjen Grotesk";font-weight:600;font-size:2.6rem;line-height:1.15;margin-top:5rem}
+.nd small{font-weight:400;font-size:1.5rem;color:#A39792}
+.nd:hover{transform:translateY(-.8rem);border-color:#4A433F}
+.nd.on{background:var(--or);border-color:var(--or)}
+.nd.on .nd__ic{background:#fff}.nd.on .nd__ic svg{stroke:var(--or)}
+.nd.on small{color:#FFE6DC}
+.nd:focus-visible{outline:.3rem solid #fff;outline-offset:.3rem}
+/* form + cards on dark */
+.cdark .cform-card{background:#1B1918;border:.15rem solid #2A2624}
+.cform__k{margin-bottom:1.6rem}
+.cdark .cform__h{color:#fff}
+.cdark .cform__s,.cdark .cform__note,.cdark .field em{color:#A39792}
+.cdark .field input,.cdark .field select,.cdark .field textarea{background:#262321;border-color:#34302D;color:#fff}
+.cdark .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+.cdark .field select option{background:#1B1918;color:#fff}
+.cdark .field input::placeholder,.cdark .field textarea::placeholder{color:#6F6460}
+.cdark .cm{background:#1B1918;border:.15rem solid #2A2624}
+.cdark .cm--dark{background:#F4EDE9;color:#141414;border-color:#F4EDE9}.cdark .cm--dark .cm__s{color:#5B4A44}
+.cdark .cm--light{background:#1B1918}
+.cdark .cm__s{color:#A39792}
+.cdark .cm--hot{background:var(--or);border-color:var(--or)}.cdark .cm--hot .cm__s{color:#fff}
+/* process + faq + footer on dark */
+.cdark .h2{color:#fff}
+.cdark .step__dot{background:#0F0E0D}
+.cdark .step__dot.on{background:var(--or)}
+.cdark .step__time{background:#1F1C1A;color:#fff}
+.cdark .step p,.cdark .fq__a p{color:#A39792}
+.cdark .fq{border-color:#2A2624}
+.cdark .fq.open{background:#1B1918}
+.cdark .fq button{color:#fff}
+.cdark .fq i{background:#fff}.cdark .fq i::before,.cdark .fq i::after{background:#141414}
+.cdark .fq.open i{background:var(--or)}.cdark .fq.open i::before,.cdark .fq.open i::after{background:#fff}
+.cdark .footer__row,.cdark .footer__soc a{color:#fff}
+.cdark .footer__c{color:#A39792}
+.cdark .pill-outline{border-color:#fff;color:#fff}
+@media (max-width:1023px){
+  .need__h{font-size:8rem}.need__s{font-size:2.4rem}
+  .need__grid{grid-template-columns:1fr 1fr}
+  .nd{min-height:26rem;padding:3rem}
+  .nd b{font-size:3rem}.nd small{font-size:2.2rem}
+}
+.cdark .nav__pill{color:#141414}
+.cdark .field select{background-color:#262321;background-repeat:no-repeat;background-position:right 2rem center;background-size:2rem}
+.need__head{flex-direction:column;align-items:flex-start;gap:1.2rem}
+.need__h{margin-top:.4rem}
+
+/* =========================================================
+   LIGHT CONTACT (v10) — light like before, but its own background
+   ========================================================= */
+.clight{background-color:#FFF8F4;background-image:radial-gradient(rgba(255,90,31,.16) .15rem,transparent .17rem);background-size:3.2rem 3.2rem;background-attachment:fixed}
+.clight .need__h{color:var(--ink)}
+.clight .need__s{color:var(--mute)}
+.clight .nd{background:#fff;border-color:rgba(20,20,20,.1);box-shadow:0 1.6rem 4rem -2.4rem rgba(20,20,20,.25)}
+.clight .nd__ic{background:#FCE6E1}
+.clight .nd__ic svg{stroke:var(--or)}
+.clight .nd small{color:var(--mute)}
+.clight .nd:hover{border-color:var(--or)}
+.clight .nd.on{background:var(--or);border-color:var(--or);color:#fff}
+.clight .nd.on .nd__ic{background:#fff}
+.clight .nd.on small{color:#FFE6DC}
+.clight .nd:focus-visible{outline-color:var(--or)}
+.clight .cform-card,.clight .cm--light{box-shadow:0 2rem 6rem -3rem rgba(20,20,20,.25)}
+.clight .fq{background:#fff}
+.clight .fq.open{background:#141414;border-color:#141414}
+.clight .fq.open button{color:#fff}
+.clight .fq.open .fq__a p{color:#CDBFB9}
+.clight .cform-card,.clight .cm--light,.clight .step__time{background-color:#fff}
+.clight .footer{background:#FFF8F4;position:relative;z-index:1}
+.clight main>section,.clight .footer{isolation:isolate}
+
+/* side cards line up with the form card: same top and bottom edge */
+@media (min-width:1024px){
+  .cbody{align-items:stretch}
+  .cside{display:flex;flex-direction:column;gap:2.4rem}
+  .cside>.cm{flex:1;display:flex;flex-direction:column;justify-content:center}
+}
+/* availability card: warm peach with a live "available" dot */
+.cm--avail{background:#FFE6DC;border:.15rem solid rgba(255,90,31,.28)}
+.clight .cm--avail{background:#FFE6DC}
+.cm--avail .cm__s{color:#6B4A3E}
+
+.cform__note a{text-decoration:underline;text-underline-offset:.3rem}
+.cform__note a:hover{color:var(--or)}
+
+/* keep the send button on one line */
+.cform__btn{white-space:nowrap;flex:none}
