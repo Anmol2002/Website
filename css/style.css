@@ -446,3 +446,61 @@ html body .cs-fig figcaption{font-size:max(1.7rem,13px);line-height:1.5}
 /* email-link toast */
 .mtoast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:9999;background:#141414;color:#fff;font:500 14px/1.3 inherit;font-family:inherit;padding:12px 18px;border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:calc(100vw - 32px);overflow:hidden;text-overflow:ellipsis}
 .mtoast.is-on{opacity:1;transform:translate(-50%,0)}
+
+/* ===== creative review cards ===== */
+.rv{overflow:visible}
+.rv mark{background:linear-gradient(transparent 58%,#FFD3C2 58%);color:inherit;padding:0 .2rem}
+.q--dark .rv mark,.rv--score mark{background:linear-gradient(transparent 58%,rgba(255,90,31,.55) 58%)}
+.rv-stars{display:inline-flex;gap:.4rem}.rv-stars svg{width:2.2rem;height:2.2rem;fill:var(--or)}
+.rv-top{display:flex;align-items:center;gap:1.4rem}
+.rv-av{width:5.2rem;height:5.2rem;border-radius:50%;background:var(--or);color:#fff;display:grid;place-items:center;font-family:Anton;font-size:2.2rem;flex:none}
+.rv-av--ink{background:var(--ink)}
+.rv-who b{display:block;font-size:1.7rem}.rv-who span{display:block;font-weight:400;font-size:1.4rem;color:var(--mute);margin-top:.4rem}
+.rv-ver{margin-left:auto;background:#E6F7EC;color:#14804A;font-size:1.4rem;padding:.8rem 1.4rem;border-radius:10rem}
+.rv-bigq{position:absolute;right:3.2rem;bottom:-9rem;font-family:Anton;font-size:26rem;line-height:1;color:var(--or);opacity:.14;pointer-events:none}
+.rv--verified .rv-stars{margin-top:2rem}
+.rv--verified blockquote{margin-top:1.2rem!important}
+.rv-chips{display:flex;gap:.8rem;margin-top:1.6rem}.rv-chips span{font-size:1.4rem;padding:.7rem 1.4rem;border-radius:10rem;border:.15rem solid rgba(20,20,20,.15)}
+.rv--comment{background:var(--card)!important;border-radius:1.4rem 1.4rem 1.4rem .2rem!important}
+.rv-pin{margin-left:auto;width:4rem;height:4rem;border-radius:50% 50% 50% 0;background:var(--or);color:#fff;display:grid;place-items:center;font-size:1.4rem}
+.rv--comment blockquote{margin-top:2rem!important}
+.rv-react{display:flex;gap:1rem;align-items:center;margin-top:1.6rem}.rv-react span{background:#fff;border-radius:10rem;padding:.6rem 1.2rem;font-size:1.5rem;box-shadow:0 .2rem .6rem rgba(0,0,0,.06)}.rv-react em{margin-left:auto}
+.rv-cursor{position:absolute;right:-2.4rem;top:-3.2rem;display:flex;align-items:flex-start;transform:rotate(1.5deg)}
+.rv-cursor svg{width:3.4rem;height:3.4rem;fill:var(--ink);stroke:#fff;stroke-width:1.5}
+.rv-cursor i{font-style:normal;background:var(--ink);color:#fff;font-size:1.4rem;padding:.6rem 1.2rem;border-radius:.6rem;margin:2.6rem 0 0 -.6rem}
+.rv-score{display:flex;align-items:center;gap:1.6rem}.rv-score b{font-family:Anton;font-weight:400;font-size:7rem;line-height:1;color:var(--or)}
+.rv--score blockquote{margin-top:1.6rem!important}
+.rv--score figcaption,.rv--note figcaption,.rv--stamp figcaption{display:flex;align-items:center;gap:1.4rem}
+.rv--note{background:#FFF7D6!important;box-shadow:0 2rem 4rem -2rem rgba(0,0,0,.35)}
+.rv-tape{position:absolute;top:-1.6rem;left:50%;width:14rem;height:3.4rem;transform:translateX(-50%) rotate(-3deg);background:rgba(255,255,255,.6);backdrop-filter:blur(2px);border-radius:.3rem;box-shadow:0 .2rem .4rem rgba(0,0,0,.08)}
+.rv-tag{align-self:flex-start;background:var(--ink);color:#fff;font-size:1.4rem;padding:.7rem 1.4rem;border-radius:10rem}
+.rv--note blockquote{font-family:Anton!important;font-weight:400;font-size:3.8rem!important;line-height:4.4rem!important;text-transform:uppercase;margin-top:1.8rem!important}
+.rv--note figcaption .rv-stars,.rv--stamp figcaption .rv-stars{margin-left:auto}
+.rv-seal{position:absolute;right:-3rem;top:-5rem;width:13rem;height:13rem;background:var(--or);border-radius:50%;color:#fff;fill:#fff;font-family:Sora;font-size:9.4px;letter-spacing:1.4px;font-weight:600;box-shadow:0 1rem 2rem rgba(0,0,0,.2)}
+.rv-seal__c{font-size:26px}
+.rv--stamp blockquote{font-size:3.2rem!important;line-height:4rem!important;padding-right:8rem;margin-top:1rem!important}
+.q{box-shadow:0 3rem 6rem -3rem rgba(80,20,0,.45)}
+.q figcaption .rv-av{display:grid;font-size:2rem;color:#fff;margin:0}
+.q figcaption .rv-who span{display:block}
+.q1{padding:3.2rem 3.6rem!important}
+@keyframes rvspin{to{transform:rotate(360deg)}}
+.rv-seal text:first-of-type{transform-origin:50px 50px;animation:rvspin 14s linear infinite}
+@media (prefers-reduced-motion:reduce){.rv-seal text{animation:none!important}}
+@media (max-width:1023px){
+  .quotes{gap:5rem}
+  .rv-stars svg{width:3rem;height:3rem}
+  .rv-av{width:7rem;height:7rem;font-size:2.8rem}
+  html body .q .rv-who b{font-size:max(2.6rem,14px)}html body .q .rv-who span{font-size:max(2.2rem,12.5px)}
+  .rv-ver,.rv-chips span,.rv-react span,.rv-tag,.rv-cursor i{font-size:2.1rem}
+  .rv-top{flex-wrap:wrap}
+  .rv-ver{margin-left:0}
+  .rv-chips,.rv-react{flex-wrap:wrap}
+  .rv-react em{margin-left:0;width:100%}
+  .rv-cursor{right:1rem;top:-4rem}
+  .rv-seal{right:-1rem;top:-6rem;width:17rem;height:17rem}
+  .rv-score b{font-size:10rem}
+  .rv--note blockquote{font-size:5rem!important;line-height:5.6rem!important}
+  .rv--stamp blockquote{font-size:3.4rem!important;line-height:4.6rem!important;padding-right:17rem}
+  .rv--stamp{padding-top:4rem!important}
+  .rv-bigq{font-size:34rem;bottom:-12rem}
+}
