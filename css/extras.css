@@ -101,7 +101,7 @@ html.pt-enter-from-bottom .pt{transform:translateY(101%)!important;visibility:vi
 .tips{padding-top:14rem;padding-bottom:14rem}
 .tips__head{display:flex;justify-content:space-between;align-items:flex-end;gap:6rem}
 .tips__head p{max-width:60rem;font-weight:400;font-size:2rem;line-height:3.2rem;color:var(--mute)}
-.tips__grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2.4rem;margin-top:7rem}
+.tips__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.4rem;margin-top:7rem}
 .tip{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:46rem;padding:4rem;border-radius:1.6rem;background:var(--card);color:var(--ink);overflow:hidden;transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .tip:hover{transform:translateY(-.6rem)}
 .tip--yt{background:#141414;color:#fff}
@@ -147,7 +147,7 @@ html.pt-enter-from-bottom .pt{transform:translateY(101%)!important;visibility:vi
   .tallshot--in{height:70vh}
   .tips__head{flex-direction:column;align-items:flex-start;gap:3rem}
   .tips__head p{font-size:2.8rem;line-height:4.2rem}
-  .tips__grid{grid-template-columns:1fr}
+  .tips__grid{grid-template-columns:1fr;grid-auto-rows:1fr}
   .tip{min-height:auto;padding:5rem}
   .tip h3{font-size:7rem}
   .tip p,.tip__list li{font-size:2.6rem;line-height:3.8rem}
