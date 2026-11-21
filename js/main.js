@@ -60,6 +60,8 @@ FEAT.forEach(([a, b, m], i) => {
 });
 
 /* --- all-projects grid --- */
+const CS_SET = new Set(['credwise','careerpilot','flowdeck','impact','halcyon','journal','metapixel','nailskillz','nexus','moneo','pinehaven','nova','sihara','traveller']);
+const pageOf = (p) => (CS_SET.has(p) ? 'case-study/' : 'projects/') + p + '.html';
 const PROJ = [
   ['FLOWDECK', 'fd_hero', 'AI SaaS platform', 'Web app · Mobile · Design system', 'flowdeck'],
   ['NEXUS', 'nx_dash', 'Workflow SaaS', 'Dashboard · Workflow builder · AI', 'nexus'],
@@ -70,7 +72,7 @@ const PROJ = [
 ];
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18L18 6M8 6h10v10"/></svg>';
 document.getElementById('projectGrid').innerHTML = PROJ.map(([t, k, a, b, p]) => `
-  <a class="proj" href="projects/${p}.html">
+  <a class="proj" href="${pageOf(p)}">
     <div class="proj__img"><img src="images/${k}.jpg" alt="${t} - ${a}" loading="lazy"><span class="proj__year">2026</span></div>
     <div class="proj__meta"><h3>${t}</h3><p>${a}</p><small>${b}</small><span class="proj__go">${ARROW}</span></div>
   </a>`).join('');
@@ -200,7 +202,7 @@ gsap.from('.proj', { y: 80, opacity: 0, duration: 0.9, ease: EASE_OUT, stagger: 
       gsap.to(next.querySelectorAll('.ft__meta, .ft__num'), { opacity: 1, duration: 0.5, delay: 0.3, overwrite: true });
     }
     gsap.to('.viewcase', { opacity: n >= 0 ? 1 : 0, duration: 0.4, overwrite: true });
-    if (n >= 0) document.getElementById('viewcase').href = 'projects/' + ['halcyon', 'kora', 'vekta', 'cargo'][n] + '.html';
+    if (n >= 0) document.getElementById('viewcase').href = pageOf(['halcyon', 'kora', 'vekta', 'cargo'][n]);
     active = n;
   };
   tl.eventCallback('onUpdate', () => {

@@ -3,26 +3,121 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.uiuxflow.co.in" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.uiuxflow.co.in"
+        }
+      ],
       "destination": "https://uiuxflow.co.in/:path*",
       "permanent": true
     },
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/projects/credwise.html",
+      "destination": "/case-study/credwise.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/careerpilot.html",
+      "destination": "/case-study/careerpilot.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/flowdeck.html",
+      "destination": "/case-study/flowdeck.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/impact.html",
+      "destination": "/case-study/impact.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/halcyon.html",
+      "destination": "/case-study/halcyon.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/journal.html",
+      "destination": "/case-study/journal.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/metapixel.html",
+      "destination": "/case-study/metapixel.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nailskillz.html",
+      "destination": "/case-study/nailskillz.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nexus.html",
+      "destination": "/case-study/nexus.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/moneo.html",
+      "destination": "/case-study/moneo.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/pinehaven.html",
+      "destination": "/case-study/pinehaven.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nova.html",
+      "destination": "/case-study/nova.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sihara.html",
+      "destination": "/case-study/sihara.html",
+      "permanent": true
+    },
+    {
+      "source": "/projects/traveller.html",
+      "destination": "/case-study/traveller.html",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(images|fonts|vendor|svg)/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/(css|js)/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]
