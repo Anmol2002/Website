@@ -600,3 +600,4 @@ body.pg-thanks:not(.nav-solid) .nav__logo{color:#fff}
 .ph__cs svg{width:1.6rem;height:1.6rem}
 .ph__cs:hover{transform:translateY(-.2rem)}
 @media (max-width:1023px){.ph__top{flex-wrap:wrap;gap:2rem}.ph__r{width:100%;justify-content:space-between}.ph__cs{height:6.4rem;padding:0 3rem;font-size:max(2.4rem,14px)}.ph__cs svg{width:2.4rem;height:2.4rem}}
+.ab__body p+p{margin-top:1.4rem}
