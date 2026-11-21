@@ -1,7 +1,7 @@
-/* Work page: round "Click me" cursor over project cards (mouse/trackpad only). */
+/* Work page: round "Click me" cursor over the detailed project cards (not the top strip) (mouse/trackpad only). */
 (() => {
   if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  const cards = document.querySelectorAll('.wc, .hc');
+  const cards = document.querySelectorAll('.wc');
   if (!cards.length) return;
   const c = document.createElement('div');
   c.className = 'ccur'; c.setAttribute('aria-hidden', 'true');
