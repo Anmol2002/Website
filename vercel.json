@@ -39,16 +39,6 @@
       "permanent": true
     },
     {
-      "source": "/projects/flowdeck",
-      "destination": "/case-study/flowdeck",
-      "permanent": true
-    },
-    {
-      "source": "/projects/flowdeck.html",
-      "destination": "/case-study/flowdeck",
-      "permanent": true
-    },
-    {
       "source": "/projects/impact",
       "destination": "/case-study/impact",
       "permanent": true
@@ -56,16 +46,6 @@
     {
       "source": "/projects/impact.html",
       "destination": "/case-study/impact",
-      "permanent": true
-    },
-    {
-      "source": "/projects/halcyon",
-      "destination": "/case-study/halcyon",
-      "permanent": true
-    },
-    {
-      "source": "/projects/halcyon.html",
-      "destination": "/case-study/halcyon",
       "permanent": true
     },
     {
@@ -106,26 +86,6 @@
     {
       "source": "/projects/nexus.html",
       "destination": "/case-study/nexus",
-      "permanent": true
-    },
-    {
-      "source": "/projects/moneo",
-      "destination": "/case-study/moneo",
-      "permanent": true
-    },
-    {
-      "source": "/projects/moneo.html",
-      "destination": "/case-study/moneo",
-      "permanent": true
-    },
-    {
-      "source": "/projects/pinehaven",
-      "destination": "/case-study/pinehaven",
-      "permanent": true
-    },
-    {
-      "source": "/projects/pinehaven.html",
-      "destination": "/case-study/pinehaven",
       "permanent": true
     },
     {

@@ -60,7 +60,8 @@ FEAT.forEach(([a, b, m], i) => {
 });
 
 /* --- all-projects grid --- */
-const CS_SET = new Set(['credwise','careerpilot','flowdeck','impact','halcyon','journal','metapixel','nailskillz','nexus','moneo','pinehaven','nova','sihara','traveller']);
+// case-study-only pages (no separate work project page)
+const CS_SET = new Set(['credwise','careerpilot','impact','journal','metapixel','nailskillz','nexus','nova','sihara','traveller']);
 const pageOf = (p) => (CS_SET.has(p) ? 'case-study/' : 'projects/') + p;
 const PROJ = [
   ['FLOWDECK', 'fd_hero', 'AI SaaS platform', 'Web app · Mobile · Design system', 'flowdeck'],

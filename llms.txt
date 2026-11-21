@@ -85,5 +85,9 @@ Key facts:
 - [Viveren: Activewear E-commerce Website Design](https://uiuxflow.co.in/projects/viveren): Homepage UI/UX for Viveren, a soft, lifestyle e-commerce store for sustainable activewear built around comfort, conscience and confidence.
 - [Yoga Studio Website UI/UX Design](https://uiuxflow.co.in/projects/yoga): A calm, photo-led website for a yoga and wellness studio, with classes, teachers and booking. Homepage UI/UX by freelance designer Manpreet Kaur.
 - [Zipp: Ride Booking App UI/UX Case Study](https://uiuxflow.co.in/projects/zipp): Ride booking app UI/UX case study: city rides, intercity trips and a driver view for iOS and Android, designed in light and dark mode across 8 flows.
+- [Flowdeck: AI SaaS Platform UI/UX Design Project](https://uiuxflow.co.in/projects/flowdeck): AI SaaS case study: Flowdeck reads every request and routes it to the right person or AI agent. Web app, mobile and website UI/UX by Manpreet Kaur.
+- [Halcyon: Sneaker E-commerce UI/UX Design Project](https://uiuxflow.co.in/projects/halcyon): Footwear e-commerce case study: Halcyon, a premium sneaker store with an animated hero, one-page product flow and design system. UI/UX by Manpreet Kaur.
+- [Moneo: AI Personal Finance App UI/UX Design Project](https://uiuxflow.co.in/projects/moneo): AI personal finance app case study: Moneo finds leaks in your spending and turns them into goals. UX research, UI and prototype for iOS and Android.
+- [Pinehaven: Lodge Booking Website UI/UX Design Project](https://uiuxflow.co.in/projects/pinehaven): Hospitality website case study: Pinehaven, a calm, nature-first site for booking cabins and lodges. 8 pages including lodge finder, booking and experiences.
 - [Privacy Policy](https://uiuxflow.co.in/privacy-policy)
 - [Terms of Use](https://uiuxflow.co.in/terms)

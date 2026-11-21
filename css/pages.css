@@ -594,3 +594,9 @@ body.pg-thanks:not(.nav-solid) .nav__logo{color:#fff}
   .ecb__core{width:10rem;height:10rem}
 }
 @media (max-width:1023px) and (min-width:600px){.ecb__h{font-size:6.4rem}.ecb__pts li{font-size:2.2rem}}
+/* project page: link across to the matching case study */
+.ph__r{display:flex;align-items:center;gap:2.4rem}
+.ph__cs{display:inline-flex;align-items:center;gap:.8rem;height:4.4rem;padding:0 2rem;border-radius:10rem;background:var(--or);color:#fff;font-size:max(1.5rem,13px);transition:transform .3s}
+.ph__cs svg{width:1.6rem;height:1.6rem}
+.ph__cs:hover{transform:translateY(-.2rem)}
+@media (max-width:1023px){.ph__top{flex-wrap:wrap;gap:2rem}.ph__r{width:100%;justify-content:space-between}.ph__cs{height:6.4rem;padding:0 3rem;font-size:max(2.4rem,14px)}.ph__cs svg{width:2.4rem;height:2.4rem}}
