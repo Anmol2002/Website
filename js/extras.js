@@ -19,7 +19,7 @@
       if (!a || ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button !== 0) return;
       if (a.target === '_blank' || a.hasAttribute('download')) return;
       const url = new URL(a.href, location.href);
-      if (url.origin !== location.origin || !/\.html?$|\/$/.test(url.pathname)) return;
+      if (url.origin !== location.origin || /\.(?!html?$)[a-z0-9]+$/i.test(url.pathname)) return;
       if (url.pathname === location.pathname && url.hash) return;
       ev.preventDefault();
       root.classList.remove('pt-ready');

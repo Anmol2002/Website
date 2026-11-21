@@ -157,7 +157,7 @@ form.addEventListener('submit', async (e) => {
     const json = await res.json().catch(() => ({}));
     if (!res.ok || String(json.success) === 'false') throw new Error(json.message || 'Request failed');
 
-    window.location.href = 'thanks.html'; return;
+    window.location.href = 'thanks'; return;
     form.hidden = true;
     form.previousElementSibling.hidden = true;               // subtitle
     form.previousElementSibling.previousElementSibling.hidden = true; // heading

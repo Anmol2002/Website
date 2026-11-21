@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/:path*",
@@ -18,73 +19,143 @@
       "permanent": true
     },
     {
+      "source": "/projects/credwise",
+      "destination": "/case-study/credwise",
+      "permanent": true
+    },
+    {
       "source": "/projects/credwise.html",
-      "destination": "/case-study/credwise.html",
+      "destination": "/case-study/credwise",
+      "permanent": true
+    },
+    {
+      "source": "/projects/careerpilot",
+      "destination": "/case-study/careerpilot",
       "permanent": true
     },
     {
       "source": "/projects/careerpilot.html",
-      "destination": "/case-study/careerpilot.html",
+      "destination": "/case-study/careerpilot",
+      "permanent": true
+    },
+    {
+      "source": "/projects/flowdeck",
+      "destination": "/case-study/flowdeck",
       "permanent": true
     },
     {
       "source": "/projects/flowdeck.html",
-      "destination": "/case-study/flowdeck.html",
+      "destination": "/case-study/flowdeck",
+      "permanent": true
+    },
+    {
+      "source": "/projects/impact",
+      "destination": "/case-study/impact",
       "permanent": true
     },
     {
       "source": "/projects/impact.html",
-      "destination": "/case-study/impact.html",
+      "destination": "/case-study/impact",
+      "permanent": true
+    },
+    {
+      "source": "/projects/halcyon",
+      "destination": "/case-study/halcyon",
       "permanent": true
     },
     {
       "source": "/projects/halcyon.html",
-      "destination": "/case-study/halcyon.html",
+      "destination": "/case-study/halcyon",
+      "permanent": true
+    },
+    {
+      "source": "/projects/journal",
+      "destination": "/case-study/journal",
       "permanent": true
     },
     {
       "source": "/projects/journal.html",
-      "destination": "/case-study/journal.html",
+      "destination": "/case-study/journal",
+      "permanent": true
+    },
+    {
+      "source": "/projects/metapixel",
+      "destination": "/case-study/metapixel",
       "permanent": true
     },
     {
       "source": "/projects/metapixel.html",
-      "destination": "/case-study/metapixel.html",
+      "destination": "/case-study/metapixel",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nailskillz",
+      "destination": "/case-study/nailskillz",
       "permanent": true
     },
     {
       "source": "/projects/nailskillz.html",
-      "destination": "/case-study/nailskillz.html",
+      "destination": "/case-study/nailskillz",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nexus",
+      "destination": "/case-study/nexus",
       "permanent": true
     },
     {
       "source": "/projects/nexus.html",
-      "destination": "/case-study/nexus.html",
+      "destination": "/case-study/nexus",
+      "permanent": true
+    },
+    {
+      "source": "/projects/moneo",
+      "destination": "/case-study/moneo",
       "permanent": true
     },
     {
       "source": "/projects/moneo.html",
-      "destination": "/case-study/moneo.html",
+      "destination": "/case-study/moneo",
+      "permanent": true
+    },
+    {
+      "source": "/projects/pinehaven",
+      "destination": "/case-study/pinehaven",
       "permanent": true
     },
     {
       "source": "/projects/pinehaven.html",
-      "destination": "/case-study/pinehaven.html",
+      "destination": "/case-study/pinehaven",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nova",
+      "destination": "/case-study/nova",
       "permanent": true
     },
     {
       "source": "/projects/nova.html",
-      "destination": "/case-study/nova.html",
+      "destination": "/case-study/nova",
+      "permanent": true
+    },
+    {
+      "source": "/projects/sihara",
+      "destination": "/case-study/sihara",
       "permanent": true
     },
     {
       "source": "/projects/sihara.html",
-      "destination": "/case-study/sihara.html",
+      "destination": "/case-study/sihara",
+      "permanent": true
+    },
+    {
+      "source": "/projects/traveller",
+      "destination": "/case-study/traveller",
       "permanent": true
     },
     {
       "source": "/projects/traveller.html",
-      "destination": "/case-study/traveller.html",
+      "destination": "/case-study/traveller",
       "permanent": true
     }
   ],

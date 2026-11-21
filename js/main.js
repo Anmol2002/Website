@@ -61,7 +61,7 @@ FEAT.forEach(([a, b, m], i) => {
 
 /* --- all-projects grid --- */
 const CS_SET = new Set(['credwise','careerpilot','flowdeck','impact','halcyon','journal','metapixel','nailskillz','nexus','moneo','pinehaven','nova','sihara','traveller']);
-const pageOf = (p) => (CS_SET.has(p) ? 'case-study/' : 'projects/') + p + '.html';
+const pageOf = (p) => (CS_SET.has(p) ? 'case-study/' : 'projects/') + p;
 const PROJ = [
   ['FLOWDECK', 'fd_hero', 'AI SaaS platform', 'Web app · Mobile · Design system', 'flowdeck'],
   ['NEXUS', 'nx_dash', 'Workflow SaaS', 'Dashboard · Workflow builder · AI', 'nexus'],

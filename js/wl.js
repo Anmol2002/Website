@@ -105,7 +105,7 @@
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok || String(json.success) === 'false') throw new Error('failed');
-      window.location.href = 'thanks.html';
+      window.location.href = 'thanks';
     } catch (_) {
       err.innerHTML = `Sorry, your message couldn’t be sent. Please email me directly at <a href="mailto:${mail}">${mail}</a>.`;
       err.hidden = false;
