@@ -185,3 +185,6 @@ html body .au .au__btn{font-size:max(1.9rem,15px)}
   .au__foot{margin-top:1.2rem}
   .au__x{top:1.4rem;right:1.4rem}
 }
+/* v6 photo: woman at desk */
+@media (min-width:1024px){.au__vis--photo .au__photo{object-position:42% 50%}}
+@media (max-width:1023px){.au__vis--photo .au__photo{object-position:40% 28%}}
