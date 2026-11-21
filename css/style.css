@@ -512,3 +512,4 @@ html body .cs-fig figcaption{font-size:max(1.7rem,13px);line-height:1.5}
 .crumbs [aria-current]{opacity:.7}
 .cs-hero .crumbs{margin-bottom:3rem;color:#fff}
 @media (max-width:1023px){.crumbs{font-size:max(2.2rem,13px)}.cs-hero .crumbs{margin-bottom:4rem}}
+@media (max-width:1023px){.hero__loop--l{top:41rem}.hero__loop--r{top:39rem}}
