@@ -112,3 +112,37 @@
   });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); else window.addEventListener('load', fit);
 })();
+
+/* ---------- email links: open a compose window everywhere ----------
+   Phones/tablets: the normal mailto: opens the mail app.
+   Desktop: many browsers have no mail app set up, so mailto: does nothing.
+   There we open Gmail's compose window in a new tab and copy the address. */
+(() => {
+  const touch = matchMedia('(pointer: coarse)').matches;
+  let toast, timer;
+  const say = (msg) => {
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'mtoast'; toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg; toast.classList.add('is-on');
+    clearTimeout(timer); timer = setTimeout(() => toast.classList.remove('is-on'), 3200);
+  };
+  document.addEventListener('click', (ev) => {
+    const a = ev.target.closest('a[href^="mailto:"]');
+    if (!a || touch || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+    const raw = a.getAttribute('href').slice(7);
+    const [to, query = ''] = raw.split('?');
+    const p = new URLSearchParams(query);
+    const url = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(decodeURIComponent(to)) +
+      (p.get('subject') ? '&su=' + encodeURIComponent(p.get('subject')) : '') +
+      (p.get('body') ? '&body=' + encodeURIComponent(p.get('body')) : '');
+    ev.preventDefault();
+    const win = window.open(url, '_blank');
+    if (win) win.opener = null;
+    if (navigator.clipboard) navigator.clipboard.writeText(decodeURIComponent(to)).catch(() => {});
+    if (!win) { location.href = a.href; return; }
+    say('Opening Gmail · ' + decodeURIComponent(to) + ' copied');
+  }, true);
+})();

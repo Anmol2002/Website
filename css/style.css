@@ -442,3 +442,7 @@ html body .cs-fig figcaption{font-size:max(1.7rem,13px);line-height:1.5}
   html body .cs-sec .cs-fig--bleed{margin-left:calc(var(--gut) * -1);margin-right:calc(var(--gut) * -1)}
 }
 @media (min-width:600px) and (max-width:1023px){:root{--gut:32px}}
+
+/* email-link toast */
+.mtoast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:9999;background:#141414;color:#fff;font:500 14px/1.3 inherit;font-family:inherit;padding:12px 18px;border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:calc(100vw - 32px);overflow:hidden;text-overflow:ellipsis}
+.mtoast.is-on{opacity:1;transform:translate(-50%,0)}
