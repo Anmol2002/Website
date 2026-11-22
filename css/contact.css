@@ -213,4 +213,4 @@ a.cm:hover .cm__go{transform:rotate(45deg)}
 .cm__meta li::before{content:"";position:absolute;left:0;top:.6em;width:.8rem;height:.8rem;border-radius:50%;background:var(--or)}
 .cdark .cm__meta{border-color:rgba(255,255,255,.14)}.cdark .cm__meta li{color:#bdb3ae}
 @media (max-width:1023px){.cm__meta li{font-size:max(2.2rem,13px);padding-left:3rem}.cm__meta li::before{width:1.2rem;height:1.2rem}}
-a.cm--avail:hover .cm__go{transform:translateY(.3rem)}
+
