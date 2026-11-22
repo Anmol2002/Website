@@ -207,3 +207,10 @@ a.cm:hover .cm__go{transform:rotate(45deg)}
 
 /* keep the send button on one line */
 .cform__btn{white-space:nowrap;flex:none}
+/* call card: availability details */
+.cm__meta{list-style:none;margin:1.6rem 0 0;padding:1.4rem 0 0;border-top:1px solid rgba(20,20,20,.12);display:grid;gap:.6rem}
+.cm__meta li{position:relative;padding-left:2rem;font-size:max(1.4rem,12.5px);line-height:1.45;color:#5B4A44}
+.cm__meta li::before{content:"";position:absolute;left:0;top:.6em;width:.8rem;height:.8rem;border-radius:50%;background:var(--or)}
+.cdark .cm__meta{border-color:rgba(255,255,255,.14)}.cdark .cm__meta li{color:#bdb3ae}
+@media (max-width:1023px){.cm__meta li{font-size:max(2.2rem,13px);padding-left:3rem}.cm__meta li::before{width:1.2rem;height:1.2rem}}
+a.cm--avail:hover .cm__go{transform:translateY(.3rem)}
