@@ -499,3 +499,13 @@ html body .ix-next__a img{position:static;grid-column:2;grid-row:1 / span 3;alig
   html body .ix-next__a b,html body .ix-next__a span{padding-right:0}
   html body .ix-next__a img{grid-column:1;grid-row:auto;margin:22px 0 0;width:100%;-webkit-mask-image:none;mask-image:none}
 }
+
+/* split chapters: phones centred in their column, same size on both sides */
+@media (min-width:1024px){
+  .ix-sp--r{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+}
+.ix-sp__phones{display:flex;justify-content:center;align-items:flex-start;--g:clamp(10px,1.4vw,20px);gap:var(--g)}
+.ix-sp__phones .wphone{flex:0 0 calc((100% - 2 * var(--g)) / 3);min-width:0}
+.ix-sp__phones .wphone:only-child{flex-basis:min(40%,300px)}
+.ix-sp__phones .wphone:first-child:nth-last-child(2),.ix-sp__phones .wphone:first-child:nth-last-child(2) ~ .wphone{flex-basis:calc((100% - var(--g)) / 2.6)}
+@media (max-width:1023px){.ix-sp__phones .wphone:only-child{flex-basis:min(58%,260px)}}
