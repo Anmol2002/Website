@@ -23,7 +23,8 @@
 
   /* ---------- swap button ---------- */
   const sw = document.querySelector('.wswap');
-  const swv = () => sw.classList.toggle('show', scrollY > innerHeight * .7);
+  const ft = document.querySelector('.footer');
+  const swv = () => sw.classList.toggle('show', scrollY > innerHeight * .7 && !(ft && mode === 'read' && ft.getBoundingClientRect().top < innerHeight - 60));
   addEventListener('scroll', swv, { passive: true }); swv();
   document.querySelectorAll('[data-swap]').forEach((b) => b.addEventListener('click', () => go(mode === 'read' ? 'interactive' : 'read')));
 
