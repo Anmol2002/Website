@@ -45,8 +45,8 @@
   const fitNames = () => document.querySelectorAll('.ix-next__a b, .wr-nextcard b').forEach((b) => {
     const card = b.parentElement, cs = getComputedStyle(card);
     const inner = card.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-    const big = b.classList.contains('wr-nc') || card.classList.contains('wr-nextcard');
-    const max = innerWidth < 1024 ? inner : inner * (big ? 1 : .44);
+    const big = false;
+    const max = innerWidth < 1024 ? inner : inner * .46;
     const cap = big ? (innerWidth < 1024 ? 64 : 72) : 150;
     b.style.fontSize = cap + 'px';
     const w = b.scrollWidth; if (w > max) b.style.fontSize = Math.max(28, Math.floor(cap * max / w)) + 'px';
