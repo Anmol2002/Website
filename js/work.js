@@ -28,6 +28,18 @@
   addEventListener('scroll', swv, { passive: true }); swv();
   document.querySelectorAll('[data-swap]').forEach((b) => b.addEventListener('click', () => go(mode === 'read' ? 'interactive' : 'read')));
 
+  /* fit the next-project name to its column (big, but never under the preview) */
+  const fitNames = () => document.querySelectorAll('.ix-next__a b, .wr-nextcard b').forEach((b) => {
+    const card = b.parentElement, cs = getComputedStyle(card);
+    const inner = card.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const big = b.classList.contains('wr-nc') || card.classList.contains('wr-nextcard');
+    const max = innerWidth < 1024 ? inner : inner * (big ? 1 : .44);
+    const cap = big ? (innerWidth < 1024 ? 64 : 72) : 150;
+    b.style.fontSize = cap + 'px';
+    const w = b.scrollWidth; if (w > max) b.style.fontSize = Math.max(28, Math.floor(cap * max / w)) + 'px';
+  });
+  fitNames(); addEventListener('resize', fitNames); document.fonts && document.fonts.ready.then(fitNames);
+
   /* ================= READ ================= */
   if (mode === 'read') {
     B.classList.add('wk-read');
@@ -71,7 +83,7 @@
   /* ================= INTERACTIVE ================= */
   B.classList.add('wk-ix');
   const ix = document.getElementById('interactive');
-  ix.hidden = false;
+  ix.hidden = false; fitNames();
   window.scrollTo(0, 0);
   const chs = [...ix.querySelectorAll('.ix-ch')];
   const N = chs.length;
