@@ -455,3 +455,14 @@ body.wk-choosing{overflow:hidden}
 .wch__opts:hover .wch__o:not(:hover){background:transparent;color:var(--ink)}
 .wch__opts:hover .wch__o:not(:hover)>span:last-child{color:var(--mute)}
 .wch__opts:hover .wch__o:not(:hover) b em{opacity:0;transform:translateX(-12px)}
+
+/* Interactive option: black with the project's colour as a gradient glow */
+.wch__o--ix:hover,.wch__o--ix:focus-visible{background:#0E0E0E}
+.wch__o--ix .wch__ic{inset:0;opacity:0;transition:opacity .5s}
+.wch__o--ix .wch__ic::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 75% at 20% 100%,color-mix(in srgb,var(--pc) 85%,transparent),transparent 70%),
+  radial-gradient(55% 65% at 90% 0%,color-mix(in srgb,var(--pc) 55%,transparent),transparent 70%),
+  linear-gradient(135deg,#0E0E0E 30%,color-mix(in srgb,var(--pc) 35%,#0E0E0E))}
+.wch__o--ix .wch__ic i{display:none}
+.wch__o--ix:hover .wch__ic,.wch__o--ix:focus-visible .wch__ic{opacity:1}
+.wch__o--ix>*:not(.wch__ic){position:relative;z-index:1}
