@@ -601,3 +601,20 @@ body.pg-thanks:not(.nav-solid) .nav__logo{color:#fff}
 .ph__cs:hover{transform:translateY(-.2rem)}
 @media (max-width:1023px){.ph__top{flex-wrap:wrap;gap:2rem}.ph__r{width:100%;justify-content:space-between}.ph__cs{height:6.4rem;padding:0 3rem;font-size:max(2.4rem,14px)}.ph__cs svg{width:2.4rem;height:2.4rem}}
 .ab__body p+p{margin-top:1.4rem}
+
+/* Work page: project groups (as in the project sheet) */
+.wgh{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;align-items:end;column-gap:3rem;row-gap:1rem;padding-top:5rem;border-top:.15rem solid rgba(20,20,20,.14);margin-bottom:-3rem}
+.wgh:first-child{border-top:0;padding-top:0}
+.wgh__n{font:600 1.6rem/1 Sora,sans-serif;color:var(--or);letter-spacing:.1em;align-self:start;padding-top:1.2rem}
+.wgh__t{font-family:Anton,sans-serif;font-weight:400;font-size:8rem;line-height:.95;text-transform:uppercase;color:var(--ink)}
+.wgh__d{grid-column:2;font:400 1.8rem/1.5 Sora,sans-serif;color:var(--mute);max-width:70rem}
+.wgh__c{grid-column:3;grid-row:1;align-self:end;font:600 1.5rem/1 Sora,sans-serif;color:var(--mute);border:.15rem solid rgba(20,20,20,.15);border-radius:10rem;padding:1.1rem 1.8rem;white-space:nowrap}
+.wgh.is-hidden{display:none}
+.filters button sup{font-size:.7em;margin-left:.4em;opacity:.55;font-weight:400}
+@media (max-width:1023px){
+  .wgh{grid-template-columns:auto 1fr;padding-top:7rem;margin-bottom:-4rem}
+  .wgh__t{font-size:11rem}
+  .wgh__d{grid-column:1/-1;font-size:max(3.4rem,14px)}
+  .wgh__c{grid-column:1/-1;grid-row:auto;justify-self:start;font-size:max(2.8rem,12px)}
+  .wgh__n{font-size:max(2.8rem,12px)}
+}
