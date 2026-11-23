@@ -517,3 +517,6 @@ html body .cs:hover .cs__go svg,html body .tip:hover .tip__go svg,html body .pro
 html body .nav__item:hover .nav__ar,html body .nav__item:focus-visible .nav__ar,html body .wc:hover .wc__go{transform:none}
 html body .ctabar:hover .ctabar__ar,html body .ecb__seal:hover .ecb__core{transform:scale(1.08)}
 @media (max-width:1023px){html body .wc:hover .wc__go{transform:translateY(-50%)}}
+/* text arrows: keep them on the same line as their label inside grid/flex buttons */
+html body .pack__btn{display:flex;align-items:center;justify-content:center;gap:.45em}
+.tarr{margin-left:.15em}

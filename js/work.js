@@ -200,7 +200,6 @@
       gsap.from('.ix-sys__sw i', { scaleY: 0, transformOrigin: 'bottom', duration: 1.1, ease: 'expo.out', stagger: .07, scrollTrigger: { trigger: '.ix-sys__sw', start: 'top 82%', once: true } });
       gsap.from('.ix-read', { y: 60, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.ix-read', start: 'top 85%', once: true } });
       gsap.from('.ix-next__a', { y: 100, opacity: 0, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: '.ix-next', start: 'top 75%', once: true } });
-      gsap.from('.ix-next__a img', { x: 120, y: 80, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.ix-next', start: 'top 75%', once: true } });
     }
 
     /* chapter tracker (after pins so starts are correct) */

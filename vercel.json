@@ -699,6 +699,46 @@
       "permanent": true
     },
     {
+      "source": "/work/dropp",
+      "destination": "/work/dropp-parcel-delivery-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/dropp.html",
+      "destination": "/work/dropp-parcel-delivery-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/moneo",
+      "destination": "/work/moneo-ai-finance-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/moneo.html",
+      "destination": "/work/moneo-ai-finance-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/flowdeck",
+      "destination": "/work/flowdeck-ai-workspace-saas",
+      "permanent": true
+    },
+    {
+      "source": "/work/flowdeck.html",
+      "destination": "/work/flowdeck-ai-workspace-saas",
+      "permanent": true
+    },
+    {
+      "source": "/work/simpler",
+      "destination": "/work/simpler-one-click-checkout",
+      "permanent": true
+    },
+    {
+      "source": "/work/simpler.html",
+      "destination": "/work/simpler-one-click-checkout",
+      "permanent": true
+    },
+    {
       "source": "/work/hok",
       "destination": "/work/hok-beauty-animated-website",
       "permanent": true

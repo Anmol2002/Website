@@ -473,3 +473,15 @@ html body .wch__o--ix .wch__ic{opacity:1}
 html body .wch__o--ix>span:last-child,html body .wch__opts:hover .wch__o--ix:not(:hover)>span:last-child{color:rgba(255,255,255,.72)}
 html body .wch__o--ix b em{opacity:1;transform:none}
 html body .wch__opts .wch__o.wch__o--ix b em,html body .wch__opts:hover .wch__o.wch__o--ix:not(:hover) b em{opacity:1;transform:none}
+
+/* Interactive back button: a fixed, straight left arrow (no tilt, no hover motion) */
+html body .ix-hud__b svg{transform:rotate(180deg)}
+html body .ix-hud__b path,html body .ix-hud__b:hover path,html body .ix-hud__b:focus-visible path{transform:none!important;transition:none}
+html body .ix-hud__b{transition:none}
+
+/* Next-project banner: preview image stays still and melts into the card colour */
+html body .ix-next__a:hover img,html body .wr-nextcard:hover img{transform:none}
+html body .ix-next__a img{border-radius:0;box-shadow:none;transition:none;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%),linear-gradient(to bottom,transparent 0,#000 26%);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 30%),linear-gradient(to bottom,transparent 0,#000 26%);mask-composite:intersect}
+@media (max-width:1023px){html body .ix-next__a img{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 28%);mask-image:linear-gradient(to bottom,transparent 0,#000 28%)}}
