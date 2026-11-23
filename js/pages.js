@@ -156,7 +156,7 @@ if (wh) {
     gsap.to(grid, { opacity: 0, y: 30, duration: 0.3, ease: 'power2.in', onComplete: () => {
       all.forEach((c) => c.classList.toggle('is-hidden', !show.includes(c)));
       document.querySelectorAll('.wgh').forEach((h) => h.classList.toggle('is-hidden', f !== 'all' && h.dataset.g !== f));
-      count.textContent = f === 'all' ? `[ ${show.length} projects in ${document.querySelectorAll('.wgh').length || 1} groups ]` : `[ ${show.length} projects · ${b.dataset.label || b.textContent} ]`;
+      count.textContent = f === "all" ? `[ ${show.length} projects ]` : `[ ${show.length} projects · ${b.dataset.label || b.textContent} ]`;
       gsap.set(show, { opacity: 1, y: 0 });
       ScrollTrigger.refresh();
       gsap.to(grid, { opacity: 1, y: 0, duration: 0.6, ease: EASE_OUT });
