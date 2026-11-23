@@ -19,9 +19,16 @@
   document.addEventListener('click', (e) => {
     const a = e.target.closest('.ix-hud__b, .wch__back, .wr-ghost, .ix-ghost, .crumbs a[href="../work"]');
     if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-    let ref; try { ref = new URL(document.referrer); } catch (_) { return; }
-    if (ref.origin === location.origin && /^\/(work)?\/?$/.test(ref.pathname) && history.length > 1) { e.preventDefault(); history.back(); }
+    let fl = null; try { fl = sessionStorage.getItem('wk:fromlist'); } catch (_) {}
+    if (fl === location.pathname && history.length > 1) { e.preventDefault(); history.back(); }
   }, true);
+  // remember that this case study was opened from the work list / home, so the back arrow returns to the same spot
+  // (choosing a mode replaces the history entry, which hides the original referrer)
+  try {
+    const ref = new URL(document.referrer);
+    if (ref.origin === location.origin && /^\/(work|index(\.html)?)?\/?$/.test(ref.pathname)) sessionStorage.setItem('wk:fromlist', location.pathname);
+    else if (!/\/work\//.test(ref.pathname)) sessionStorage.removeItem('wk:fromlist');
+  } catch (_) { try { if (!document.referrer) sessionStorage.removeItem('wk:fromlist'); } catch (_) {} }
 
   /* ---------- chooser ---------- */
   const ch = document.getElementById('choose');
