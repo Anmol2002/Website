@@ -30,12 +30,12 @@
     },
     {
       "source": "/projects/bacix",
-      "destination": "/work/bacix",
+      "destination": "/work/bacix-shopify-apparel-store",
       "permanent": true
     },
     {
       "source": "/projects/bacix.html",
-      "destination": "/work/bacix",
+      "destination": "/work/bacix-shopify-apparel-store",
       "permanent": true
     },
     {
@@ -60,12 +60,12 @@
     },
     {
       "source": "/projects/crypto",
-      "destination": "/work/metapixel",
+      "destination": "/work/metapixel-crypto-banking-app",
       "permanent": true
     },
     {
       "source": "/projects/crypto.html",
-      "destination": "/work/metapixel",
+      "destination": "/work/metapixel-crypto-banking-app",
       "permanent": true
     },
     {
@@ -80,12 +80,12 @@
     },
     {
       "source": "/projects/floara",
-      "destination": "/work/floara",
+      "destination": "/work/flowora-ai-form-builder-saas",
       "permanent": true
     },
     {
       "source": "/projects/floara.html",
-      "destination": "/work/floara",
+      "destination": "/work/flowora-ai-form-builder-saas",
       "permanent": true
     },
     {
@@ -120,22 +120,22 @@
     },
     {
       "source": "/projects/halcyon",
-      "destination": "/work/halcyon",
+      "destination": "/work/halcyon-sneaker-ecommerce-website",
       "permanent": true
     },
     {
       "source": "/projects/halcyon.html",
-      "destination": "/work/halcyon",
+      "destination": "/work/halcyon-sneaker-ecommerce-website",
       "permanent": true
     },
     {
       "source": "/projects/hok",
-      "destination": "/work/hok",
+      "destination": "/work/hok-beauty-animated-website",
       "permanent": true
     },
     {
       "source": "/projects/hok.html",
-      "destination": "/work/hok",
+      "destination": "/work/hok-beauty-animated-website",
       "permanent": true
     },
     {
@@ -150,12 +150,12 @@
     },
     {
       "source": "/projects/kora",
-      "destination": "/work/kora",
+      "destination": "/work/kora-headphones-launch-website",
       "permanent": true
     },
     {
       "source": "/projects/kora.html",
-      "destination": "/work/kora",
+      "destination": "/work/kora-headphones-launch-website",
       "permanent": true
     },
     {
@@ -180,32 +180,32 @@
     },
     {
       "source": "/projects/pinehaven",
-      "destination": "/work/pinehaven",
+      "destination": "/work/pinehaven-lodge-booking-website",
       "permanent": true
     },
     {
       "source": "/projects/pinehaven.html",
-      "destination": "/work/pinehaven",
+      "destination": "/work/pinehaven-lodge-booking-website",
       "permanent": true
     },
     {
       "source": "/projects/pulse",
-      "destination": "/work/pulse",
+      "destination": "/work/pulse-fitness-app",
       "permanent": true
     },
     {
       "source": "/projects/pulse.html",
-      "destination": "/work/pulse",
+      "destination": "/work/pulse-fitness-app",
       "permanent": true
     },
     {
       "source": "/projects/puresmile",
-      "destination": "/work/puresmile",
+      "destination": "/work/puresmile-dental-clinic-landing-page",
       "permanent": true
     },
     {
       "source": "/projects/puresmile.html",
-      "destination": "/work/puresmile",
+      "destination": "/work/puresmile-dental-clinic-landing-page",
       "permanent": true
     },
     {
@@ -220,32 +220,32 @@
     },
     {
       "source": "/projects/trailo",
-      "destination": "/work/trailo",
+      "destination": "/work/trailo-trek-booking-platform",
       "permanent": true
     },
     {
       "source": "/projects/trailo.html",
-      "destination": "/work/trailo",
+      "destination": "/work/trailo-trek-booking-platform",
       "permanent": true
     },
     {
       "source": "/projects/vekta",
-      "destination": "/work/vekta",
+      "destination": "/work/vekta-running-shoe-website",
       "permanent": true
     },
     {
       "source": "/projects/vekta.html",
-      "destination": "/work/vekta",
+      "destination": "/work/vekta-running-shoe-website",
       "permanent": true
     },
     {
       "source": "/projects/vela",
-      "destination": "/work/vela",
+      "destination": "/work/vela-luxury-travel-website",
       "permanent": true
     },
     {
       "source": "/projects/vela.html",
-      "destination": "/work/vela",
+      "destination": "/work/vela-luxury-travel-website",
       "permanent": true
     },
     {
@@ -270,32 +270,32 @@
     },
     {
       "source": "/projects/zipp",
-      "destination": "/work/zipp",
+      "destination": "/work/zipp-ride-booking-app",
       "permanent": true
     },
     {
       "source": "/projects/zipp.html",
-      "destination": "/work/zipp",
+      "destination": "/work/zipp-ride-booking-app",
       "permanent": true
     },
     {
       "source": "/projects/credwise",
-      "destination": "/work/finora",
+      "destination": "/work/finora-personal-finance-app",
       "permanent": true
     },
     {
       "source": "/projects/credwise.html",
-      "destination": "/work/finora",
+      "destination": "/work/finora-personal-finance-app",
       "permanent": true
     },
     {
       "source": "/projects/careerpilot",
-      "destination": "/work/careerpilot",
+      "destination": "/work/careerpilot-ai-career-coach-app",
       "permanent": true
     },
     {
       "source": "/projects/careerpilot.html",
-      "destination": "/work/careerpilot",
+      "destination": "/work/careerpilot-ai-career-coach-app",
       "permanent": true
     },
     {
@@ -320,22 +320,22 @@
     },
     {
       "source": "/case-study/careerpilot",
-      "destination": "/work/careerpilot",
+      "destination": "/work/careerpilot-ai-career-coach-app",
       "permanent": true
     },
     {
       "source": "/case-study/careerpilot.html",
-      "destination": "/work/careerpilot",
+      "destination": "/work/careerpilot-ai-career-coach-app",
       "permanent": true
     },
     {
       "source": "/case-study/credwise",
-      "destination": "/work/finora",
+      "destination": "/work/finora-personal-finance-app",
       "permanent": true
     },
     {
       "source": "/case-study/credwise.html",
-      "destination": "/work/finora",
+      "destination": "/work/finora-personal-finance-app",
       "permanent": true
     },
     {
@@ -350,12 +350,12 @@
     },
     {
       "source": "/case-study/halcyon",
-      "destination": "/work/halcyon",
+      "destination": "/work/halcyon-sneaker-ecommerce-website",
       "permanent": true
     },
     {
       "source": "/case-study/halcyon.html",
-      "destination": "/work/halcyon",
+      "destination": "/work/halcyon-sneaker-ecommerce-website",
       "permanent": true
     },
     {
@@ -380,12 +380,12 @@
     },
     {
       "source": "/case-study/metapixel",
-      "destination": "/work/metapixel",
+      "destination": "/work/metapixel-crypto-banking-app",
       "permanent": true
     },
     {
       "source": "/case-study/metapixel.html",
-      "destination": "/work/metapixel",
+      "destination": "/work/metapixel-crypto-banking-app",
       "permanent": true
     },
     {
@@ -400,52 +400,52 @@
     },
     {
       "source": "/case-study/nailskillz",
-      "destination": "/work/nailskillz",
+      "destination": "/work/nailskillz-beauty-ecommerce-website",
       "permanent": true
     },
     {
       "source": "/case-study/nailskillz.html",
-      "destination": "/work/nailskillz",
+      "destination": "/work/nailskillz-beauty-ecommerce-website",
       "permanent": true
     },
     {
       "source": "/case-study/nexus",
-      "destination": "/work/nexus",
+      "destination": "/work/nexusflow-workflow-saas-dashboard",
       "permanent": true
     },
     {
       "source": "/case-study/nexus.html",
-      "destination": "/work/nexus",
+      "destination": "/work/nexusflow-workflow-saas-dashboard",
       "permanent": true
     },
     {
       "source": "/case-study/nova",
-      "destination": "/work/nova",
+      "destination": "/work/nova-fashion-ecommerce-website",
       "permanent": true
     },
     {
       "source": "/case-study/nova.html",
-      "destination": "/work/nova",
+      "destination": "/work/nova-fashion-ecommerce-website",
       "permanent": true
     },
     {
       "source": "/case-study/pinehaven",
-      "destination": "/work/pinehaven",
+      "destination": "/work/pinehaven-lodge-booking-website",
       "permanent": true
     },
     {
       "source": "/case-study/pinehaven.html",
-      "destination": "/work/pinehaven",
+      "destination": "/work/pinehaven-lodge-booking-website",
       "permanent": true
     },
     {
       "source": "/case-study/sihara",
-      "destination": "/work/sihara",
+      "destination": "/work/sihara-ai-saas-landing-page",
       "permanent": true
     },
     {
       "source": "/case-study/sihara.html",
-      "destination": "/work/sihara",
+      "destination": "/work/sihara-ai-saas-landing-page",
       "permanent": true
     },
     {
@@ -476,6 +476,206 @@
     {
       "source": "/case-study",
       "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/work/metapixel",
+      "destination": "/work/metapixel-crypto-banking-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/metapixel.html",
+      "destination": "/work/metapixel-crypto-banking-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/nova",
+      "destination": "/work/nova-fashion-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/nova.html",
+      "destination": "/work/nova-fashion-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/nexus",
+      "destination": "/work/nexusflow-workflow-saas-dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/work/nexus.html",
+      "destination": "/work/nexusflow-workflow-saas-dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/work/pinehaven",
+      "destination": "/work/pinehaven-lodge-booking-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/pinehaven.html",
+      "destination": "/work/pinehaven-lodge-booking-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/halcyon",
+      "destination": "/work/halcyon-sneaker-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/halcyon.html",
+      "destination": "/work/halcyon-sneaker-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/finora",
+      "destination": "/work/finora-personal-finance-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/finora.html",
+      "destination": "/work/finora-personal-finance-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/careerpilot",
+      "destination": "/work/careerpilot-ai-career-coach-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/careerpilot.html",
+      "destination": "/work/careerpilot-ai-career-coach-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/nailskillz",
+      "destination": "/work/nailskillz-beauty-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/nailskillz.html",
+      "destination": "/work/nailskillz-beauty-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/sihara",
+      "destination": "/work/sihara-ai-saas-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/sihara.html",
+      "destination": "/work/sihara-ai-saas-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/trailo",
+      "destination": "/work/trailo-trek-booking-platform",
+      "permanent": true
+    },
+    {
+      "source": "/work/trailo.html",
+      "destination": "/work/trailo-trek-booking-platform",
+      "permanent": true
+    },
+    {
+      "source": "/work/pulse",
+      "destination": "/work/pulse-fitness-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/pulse.html",
+      "destination": "/work/pulse-fitness-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/bacix",
+      "destination": "/work/bacix-shopify-apparel-store",
+      "permanent": true
+    },
+    {
+      "source": "/work/bacix.html",
+      "destination": "/work/bacix-shopify-apparel-store",
+      "permanent": true
+    },
+    {
+      "source": "/work/floara",
+      "destination": "/work/flowora-ai-form-builder-saas",
+      "permanent": true
+    },
+    {
+      "source": "/work/floara.html",
+      "destination": "/work/flowora-ai-form-builder-saas",
+      "permanent": true
+    },
+    {
+      "source": "/work/kora",
+      "destination": "/work/kora-headphones-launch-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/kora.html",
+      "destination": "/work/kora-headphones-launch-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/zipp",
+      "destination": "/work/zipp-ride-booking-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/zipp.html",
+      "destination": "/work/zipp-ride-booking-app",
+      "permanent": true
+    },
+    {
+      "source": "/work/clubhouse",
+      "destination": "/work/clubhouse-skincare-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/clubhouse.html",
+      "destination": "/work/clubhouse-skincare-ecommerce-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/puresmile",
+      "destination": "/work/puresmile-dental-clinic-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/puresmile.html",
+      "destination": "/work/puresmile-dental-clinic-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/vekta",
+      "destination": "/work/vekta-running-shoe-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/vekta.html",
+      "destination": "/work/vekta-running-shoe-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/vela",
+      "destination": "/work/vela-luxury-travel-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/vela.html",
+      "destination": "/work/vela-luxury-travel-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/hok",
+      "destination": "/work/hok-beauty-animated-website",
+      "permanent": true
+    },
+    {
+      "source": "/work/hok.html",
+      "destination": "/work/hok-beauty-animated-website",
       "permanent": true
     }
   ],

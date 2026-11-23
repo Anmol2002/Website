@@ -60,7 +60,8 @@ FEAT.forEach(([a, b, m], i) => {
 });
 
 /* --- all-projects grid --- */
-const pageOf = (p) => 'work/' + p;
+const SLUG = {"metapixel": "metapixel-crypto-banking-app", "nova": "nova-fashion-ecommerce-website", "nexus": "nexusflow-workflow-saas-dashboard", "pinehaven": "pinehaven-lodge-booking-website", "halcyon": "halcyon-sneaker-ecommerce-website", "finora": "finora-personal-finance-app", "careerpilot": "careerpilot-ai-career-coach-app", "nailskillz": "nailskillz-beauty-ecommerce-website", "sihara": "sihara-ai-saas-landing-page", "trailo": "trailo-trek-booking-platform", "pulse": "pulse-fitness-app", "bacix": "bacix-shopify-apparel-store", "floara": "flowora-ai-form-builder-saas", "kora": "kora-headphones-launch-website", "zipp": "zipp-ride-booking-app", "clubhouse": "clubhouse-skincare-ecommerce-website", "puresmile": "puresmile-dental-clinic-landing-page", "vekta": "vekta-running-shoe-website", "vela": "vela-luxury-travel-website", "hok": "hok-beauty-animated-website"};
+const pageOf = (p) => 'work/' + (SLUG[p] || p);
 const PROJ = [
   ['METAPIXEL', 'work/metapixel/card', 'Fintech mobile app', 'Banking · Cards · Crypto · 190+ screens', 'metapixel'],
   ['NEXUSFLOW', 'work/nexus/card', 'Enterprise workflow SaaS', 'Dashboard · Requests · AI assistant', 'nexus'],
