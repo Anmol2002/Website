@@ -10,6 +10,7 @@
     pt.setAttribute('aria-hidden', 'true');
     pt.innerHTML = '<span class="pt__t">MANPREET KAUR</span>';
     document.body.appendChild(pt);
+    root.classList.remove('pt-in'); // hand over from the first-paint cover to the animated overlay
     // reveal the new page
     requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('pt-ready')));
     addEventListener('pageshow', (ev) => { if (ev.persisted) { root.classList.remove('pt-leave'); root.classList.add('pt-ready'); } });
