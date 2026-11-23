@@ -404,3 +404,8 @@ body.wk-choosing{overflow:hidden}
 .ix-read i svg{width:42%;height:42%}
 .ix-read:hover i{transform:rotate(-45deg)}
 @media (max-width:600px){.ix-read{grid-template-columns:1fr}.ix-read i{grid-column:1;grid-row:auto;width:48px;margin-top:12px}}
+
+/* breathing room between the article (and sticky contents) and the closing cards */
+.wr-body{padding-bottom:clamp(30px,4vw,60px)}
+.wr-end{margin-top:clamp(40px,5vw,80px);padding-top:clamp(40px,5vw,72px);border-top:1px solid rgba(20,20,20,.1)}
+.wr-main>.wr-sec:last-child{padding-bottom:0}
