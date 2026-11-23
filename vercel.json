@@ -3,6 +3,32 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.uiuxflow.co.in"
+        }
+      ],
+      "destination": "https://uiuxflow.co.in/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/index.php",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/index.html",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
