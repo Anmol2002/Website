@@ -8,7 +8,20 @@
   let mode = qs.get('mode');
   if (mode !== 'interactive' && mode !== 'read') mode = null;
   const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const go = (m) => { const u = new URL(location.href); u.searchParams.set('mode', m); u.hash = ''; location.href = u.toString(); };
+  const go = (m) => { const u = new URL(location.href); u.searchParams.set('mode', m); u.hash = ''; location.replace(u.toString()); };
+  // switching mode replaces the history entry, so Back returns straight to the page the visitor came from
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="?mode="]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault(); go(new URLSearchParams(a.getAttribute('href').slice(1)).get('mode'));
+  }, true);
+  // "All work" / back arrow: go back in history when we came from the list, so its scroll spot is kept
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('.ix-hud__b, .wch__back, .wr-ghost, .ix-ghost, .crumbs a[href="../work"]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    let ref; try { ref = new URL(document.referrer); } catch (_) { return; }
+    if (ref.origin === location.origin && /^\/(work)?\/?$/.test(ref.pathname) && history.length > 1) { e.preventDefault(); history.back(); }
+  }, true);
 
   /* ---------- chooser ---------- */
   const ch = document.getElementById('choose');
