@@ -425,8 +425,14 @@ body.wk-choosing{overflow:hidden}
 /* next project: one full-width card in both modes, with a View project button */
 .wr-end{display:block;max-width:calc(1400px + 2*var(--gx))}
 .wr-end>.wr-k{margin-bottom:18px}
-.wr-next{width:100%;margin-top:0;color:#fff}
+.wr-ncard{width:100%;margin-top:0;color:#fff}
 .nc-btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 22px;margin-top:26px;border-radius:99px;background:#fff;color:var(--ink);font:600 15px/1 Sora,sans-serif;transition:gap .3s,background .3s}
 .nc-btn svg{width:17px;height:17px}
 .ix-next__a:hover .nc-btn{gap:14px}
 .ix-next{padding-bottom:clamp(60px,9vh,110px)}
+
+/* readable accents: white text always sits on the contrast-safe project colour */
+.wr-chip b,.wr-steps li::before,.ix-dec__c i,.ix-read i{background:var(--pcd,var(--pc))}
+.wr-k span{background:color-mix(in srgb,var(--pc) 14%,#fff);color:var(--ph)}
+.wr-next{color:var(--ink)}
+.wr-next li::before{background:var(--ph)}
