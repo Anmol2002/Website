@@ -252,7 +252,7 @@ body.nav-dark .nav__talk{background:#fff;color:var(--ink)}
 
 /* ---------- MOBILE ---------- */
 @media (max-width:1023px){
-  html{font-size:calc(100vw / 80)}
+  html{font-size:min(calc(100vw / 80), 7.2px)}
   .wrap{padding-left:2.4rem;padding-right:2.4rem}
   .nav{height:8rem}
   .nav__left,.nav__hours{display:none}

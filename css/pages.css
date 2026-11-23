@@ -624,3 +624,6 @@ body.pg-thanks:not(.nav-solid) .nav__logo{color:#fff}
   .wc--wide .wc__media{aspect-ratio:1680/640}
   .wc--wide .shot{width:54%}
 }
+/* work hero: keep clear space between the button and the card row on phones/tablets */
+@media (max-width:1023px){ .wh__cards{margin-top:max(6rem,30px)} .wh__right{gap:max(2.4rem,16px)} }
+.wc__ghost{white-space:nowrap}

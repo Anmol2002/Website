@@ -436,3 +436,16 @@ body.wk-choosing{overflow:hidden}
 .wr-k span{background:color-mix(in srgb,var(--pc) 14%,#fff);color:var(--ph)}
 .wr-next{color:var(--ink)}
 .wr-next li::before{background:var(--ph)}
+
+/* chooser on short screens (phones in landscape): both options visible without scrolling */
+@media (max-height:560px){
+  .wch__back{top:14px}
+  .wch__top{padding:44px var(--gx) 12px}
+  .wch__t{font-size:clamp(24px,4vw,34px);margin-top:8px}
+  .wch__p{display:none}
+  .wch h2{margin-top:8px}
+  .wch__opts{min-height:0}
+  .wch__o{padding:18px 16px;min-height:0;gap:6px}
+  .wch__o b{font-size:clamp(34px,6vw,56px)}
+}
+@media (max-height:560px) and (max-width:700px){.wch__opts{grid-template-columns:1fr 1fr}.wch__o+.wch__o{border-top:0;border-left:1px solid rgba(20,20,20,.12)}}
