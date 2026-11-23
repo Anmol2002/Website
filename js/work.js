@@ -23,8 +23,8 @@
 
   /* ---------- swap button ---------- */
   const sw = document.querySelector('.wswap');
-  const ft = document.querySelector('.footer');
-  const swv = () => sw.classList.toggle('show', scrollY > innerHeight * .7 && !(ft && mode === 'read' && ft.getBoundingClientRect().top < innerHeight - 60));
+  const ft = mode === 'read' ? document.querySelector('.footer') : document.querySelector('.ix-read');
+  const swv = () => sw.classList.toggle('show', scrollY > innerHeight * .7 && !(ft && ft.getBoundingClientRect().top < innerHeight - 60));
   addEventListener('scroll', swv, { passive: true }); swv();
   document.querySelectorAll('[data-swap]').forEach((b) => b.addEventListener('click', () => go(mode === 'read' ? 'interactive' : 'read')));
 
@@ -173,6 +173,7 @@
       gsap.from('.ix-dec__c', { y: 80, opacity: 0, rotate: 2, duration: 1.1, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: '.ix-dec__g', start: 'top 80%', once: true } });
       gsap.from('.ix-sys__sw > div', { y: 60, opacity: 0, duration: 1, ease: 'expo.out', stagger: .07, scrollTrigger: { trigger: '.ix-sys__sw', start: 'top 82%', once: true } });
       gsap.from('.ix-sys__sw i', { scaleY: 0, transformOrigin: 'bottom', duration: 1.1, ease: 'expo.out', stagger: .07, scrollTrigger: { trigger: '.ix-sys__sw', start: 'top 82%', once: true } });
+      gsap.from('.ix-read', { y: 60, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.ix-read', start: 'top 85%', once: true } });
       gsap.from('.ix-next__a', { y: 100, opacity: 0, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: '.ix-next', start: 'top 75%', once: true } });
       gsap.from('.ix-next__a img', { x: 120, y: 80, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.ix-next', start: 'top 75%', once: true } });
     }
