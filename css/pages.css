@@ -618,3 +618,9 @@ body.pg-thanks:not(.nav-solid) .nav__logo{color:#fff}
   .wgh__c{grid-column:1/-1;grid-row:auto;justify-self:start;font-size:max(2.8rem,12px)}
   .wgh__n{font-size:max(2.8rem,12px)}
 }
+/* odd-sized groups: first project spans the full row so no half-empty rows */
+@media (min-width:1024px){
+  .wc--wide{grid-column:1/-1}
+  .wc--wide .wc__media{aspect-ratio:1680/640}
+  .wc--wide .shot{width:54%}
+}
