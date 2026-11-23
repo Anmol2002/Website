@@ -6,7 +6,7 @@
   document.addEventListener('click', (e) => {
     const a = e.target.closest(sel);
     if (!a || /images\//.test(a.getAttribute('href'))) return;
-    try { sessionStorage.setItem(KEY, JSON.stringify({ y: Math.round(scrollY), t: Date.now() })); } catch (_) {}
+    try { sessionStorage.setItem(KEY, JSON.stringify({ y: Math.round(scrollY), h: a.getAttribute('href'), off: Math.round(a.getBoundingClientRect().top), t: Date.now() })); } catch (_) {}
   }, true);
   let saved = null;
   try { saved = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (_) {}
@@ -15,7 +15,10 @@
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   const go = () => {
     if (window.ScrollTrigger) ScrollTrigger.refresh();
-    const y = Math.min(saved.y, document.documentElement.scrollHeight - innerHeight);
+    let y = saved.y;
+    const el = saved.h && [...document.querySelectorAll('a[href]')].find((x) => x.getAttribute('href') === saved.h);
+    if (el) y = el.getBoundingClientRect().top + (typeof lenis !== 'undefined' ? lenis.scroll : scrollY) - saved.off;
+    y = Math.max(0, Math.min(y, document.documentElement.scrollHeight - innerHeight));
     if (typeof lenis !== 'undefined') lenis.scrollTo(y, { immediate: true, force: true }); else scrollTo(0, y);
     if (window.ScrollTrigger) ScrollTrigger.update();
   };
