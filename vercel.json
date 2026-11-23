@@ -669,6 +669,36 @@
       "permanent": true
     },
     {
+      "source": "/work/nerds",
+      "destination": "/work/nerds-custom-merch-store-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/nerds.html",
+      "destination": "/work/nerds-custom-merch-store-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/treeyoga",
+      "destination": "/work/tree-yoga-studio-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/treeyoga.html",
+      "destination": "/work/tree-yoga-studio-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/vikings",
+      "destination": "/work/luxury-kitchen-arabic-product-landing-page",
+      "permanent": true
+    },
+    {
+      "source": "/work/vikings.html",
+      "destination": "/work/luxury-kitchen-arabic-product-landing-page",
+      "permanent": true
+    },
+    {
       "source": "/work/hok",
       "destination": "/work/hok-beauty-animated-website",
       "permanent": true
