@@ -28,7 +28,7 @@
   if (!mode) {
     ch.hidden = false; B.classList.add('wk-choosing');
     if (typeof lenis !== 'undefined') lenis.stop();
-    ch.querySelector('.wch__o').focus({ preventScroll: true });
+    ch.setAttribute('tabindex', '-1'); ch.focus({ preventScroll: true });
     ch.addEventListener('keydown', (e) => { if (e.key === 'Escape') go('read'); });
     // read content stays in the page underneath (for search engines + no-JS)
     return;

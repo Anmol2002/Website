@@ -449,3 +449,9 @@ body.wk-choosing{overflow:hidden}
   .wch__o b{font-size:clamp(34px,6vw,56px)}
 }
 @media (max-height:560px) and (max-width:700px){.wch__opts{grid-template-columns:1fr 1fr}.wch__o+.wch__o{border-top:0;border-left:1px solid rgba(20,20,20,.12)}}
+
+/* chooser: only the option under the pointer (or keyboard focus) turns dark */
+.wch:focus{outline:none}
+.wch__opts:hover .wch__o:not(:hover){background:transparent;color:var(--ink)}
+.wch__opts:hover .wch__o:not(:hover)>span:last-child{color:var(--mute)}
+.wch__opts:hover .wch__o:not(:hover) b em{opacity:0;transform:translateX(-12px)}
