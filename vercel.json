@@ -19,103 +19,463 @@
       "permanent": true
     },
     {
+      "source": "/projects/arabic",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/arabic.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/bacix",
+      "destination": "/work/bacix",
+      "permanent": true
+    },
+    {
+      "source": "/projects/bacix.html",
+      "destination": "/work/bacix",
+      "permanent": true
+    },
+    {
+      "source": "/projects/cargo",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/cargo.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/clickherbs",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/clickherbs.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/crypto",
+      "destination": "/work/metapixel",
+      "permanent": true
+    },
+    {
+      "source": "/projects/crypto.html",
+      "destination": "/work/metapixel",
+      "permanent": true
+    },
+    {
+      "source": "/projects/dropp",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/dropp.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/floara",
+      "destination": "/work/floara",
+      "permanent": true
+    },
+    {
+      "source": "/projects/floara.html",
+      "destination": "/work/floara",
+      "permanent": true
+    },
+    {
+      "source": "/projects/flowdeck",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/flowdeck.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/forma",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/forma.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/guada",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/guada.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/halcyon",
+      "destination": "/work/halcyon",
+      "permanent": true
+    },
+    {
+      "source": "/projects/halcyon.html",
+      "destination": "/work/halcyon",
+      "permanent": true
+    },
+    {
+      "source": "/projects/hok",
+      "destination": "/work/hok",
+      "permanent": true
+    },
+    {
+      "source": "/projects/hok.html",
+      "destination": "/work/hok",
+      "permanent": true
+    },
+    {
+      "source": "/projects/idea",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/idea.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/kora",
+      "destination": "/work/kora",
+      "permanent": true
+    },
+    {
+      "source": "/projects/kora.html",
+      "destination": "/work/kora",
+      "permanent": true
+    },
+    {
+      "source": "/projects/moneo",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/moneo.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nerds",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/nerds.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/pinehaven",
+      "destination": "/work/pinehaven",
+      "permanent": true
+    },
+    {
+      "source": "/projects/pinehaven.html",
+      "destination": "/work/pinehaven",
+      "permanent": true
+    },
+    {
+      "source": "/projects/pulse",
+      "destination": "/work/pulse",
+      "permanent": true
+    },
+    {
+      "source": "/projects/pulse.html",
+      "destination": "/work/pulse",
+      "permanent": true
+    },
+    {
+      "source": "/projects/puresmile",
+      "destination": "/work/puresmile",
+      "permanent": true
+    },
+    {
+      "source": "/projects/puresmile.html",
+      "destination": "/work/puresmile",
+      "permanent": true
+    },
+    {
+      "source": "/projects/skincare",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/skincare.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/trailo",
+      "destination": "/work/trailo",
+      "permanent": true
+    },
+    {
+      "source": "/projects/trailo.html",
+      "destination": "/work/trailo",
+      "permanent": true
+    },
+    {
+      "source": "/projects/vekta",
+      "destination": "/work/vekta",
+      "permanent": true
+    },
+    {
+      "source": "/projects/vekta.html",
+      "destination": "/work/vekta",
+      "permanent": true
+    },
+    {
+      "source": "/projects/vela",
+      "destination": "/work/vela",
+      "permanent": true
+    },
+    {
+      "source": "/projects/vela.html",
+      "destination": "/work/vela",
+      "permanent": true
+    },
+    {
+      "source": "/projects/viveren",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/viveren.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/yoga",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/yoga.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/zipp",
+      "destination": "/work/zipp",
+      "permanent": true
+    },
+    {
+      "source": "/projects/zipp.html",
+      "destination": "/work/zipp",
+      "permanent": true
+    },
+    {
       "source": "/projects/credwise",
-      "destination": "/case-study/credwise",
+      "destination": "/work/finora",
       "permanent": true
     },
     {
       "source": "/projects/credwise.html",
-      "destination": "/case-study/credwise",
+      "destination": "/work/finora",
       "permanent": true
     },
     {
       "source": "/projects/careerpilot",
-      "destination": "/case-study/careerpilot",
+      "destination": "/work/careerpilot",
       "permanent": true
     },
     {
       "source": "/projects/careerpilot.html",
-      "destination": "/case-study/careerpilot",
+      "destination": "/work/careerpilot",
       "permanent": true
     },
     {
       "source": "/projects/impact",
-      "destination": "/case-study/impact",
+      "destination": "/work",
       "permanent": true
     },
     {
       "source": "/projects/impact.html",
-      "destination": "/case-study/impact",
+      "destination": "/work",
       "permanent": true
     },
     {
       "source": "/projects/journal",
-      "destination": "/case-study/journal",
+      "destination": "/work",
       "permanent": true
     },
     {
       "source": "/projects/journal.html",
-      "destination": "/case-study/journal",
+      "destination": "/work",
       "permanent": true
     },
     {
-      "source": "/projects/metapixel",
-      "destination": "/case-study/metapixel",
+      "source": "/case-study/careerpilot",
+      "destination": "/work/careerpilot",
       "permanent": true
     },
     {
-      "source": "/projects/metapixel.html",
-      "destination": "/case-study/metapixel",
+      "source": "/case-study/careerpilot.html",
+      "destination": "/work/careerpilot",
       "permanent": true
     },
     {
-      "source": "/projects/nailskillz",
-      "destination": "/case-study/nailskillz",
+      "source": "/case-study/credwise",
+      "destination": "/work/finora",
       "permanent": true
     },
     {
-      "source": "/projects/nailskillz.html",
-      "destination": "/case-study/nailskillz",
+      "source": "/case-study/credwise.html",
+      "destination": "/work/finora",
       "permanent": true
     },
     {
-      "source": "/projects/nexus",
-      "destination": "/case-study/nexus",
+      "source": "/case-study/flowdeck",
+      "destination": "/work",
       "permanent": true
     },
     {
-      "source": "/projects/nexus.html",
-      "destination": "/case-study/nexus",
+      "source": "/case-study/flowdeck.html",
+      "destination": "/work",
       "permanent": true
     },
     {
-      "source": "/projects/nova",
-      "destination": "/case-study/nova",
+      "source": "/case-study/halcyon",
+      "destination": "/work/halcyon",
       "permanent": true
     },
     {
-      "source": "/projects/nova.html",
-      "destination": "/case-study/nova",
+      "source": "/case-study/halcyon.html",
+      "destination": "/work/halcyon",
       "permanent": true
     },
     {
-      "source": "/projects/sihara",
-      "destination": "/case-study/sihara",
+      "source": "/case-study/impact",
+      "destination": "/work",
       "permanent": true
     },
     {
-      "source": "/projects/sihara.html",
-      "destination": "/case-study/sihara",
+      "source": "/case-study/impact.html",
+      "destination": "/work",
       "permanent": true
     },
     {
-      "source": "/projects/traveller",
-      "destination": "/case-study/traveller",
+      "source": "/case-study/journal",
+      "destination": "/work",
       "permanent": true
     },
     {
-      "source": "/projects/traveller.html",
-      "destination": "/case-study/traveller",
+      "source": "/case-study/journal.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/metapixel",
+      "destination": "/work/metapixel",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/metapixel.html",
+      "destination": "/work/metapixel",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/moneo",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/moneo.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/nailskillz",
+      "destination": "/work/nailskillz",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/nailskillz.html",
+      "destination": "/work/nailskillz",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/nexus",
+      "destination": "/work/nexus",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/nexus.html",
+      "destination": "/work/nexus",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/nova",
+      "destination": "/work/nova",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/nova.html",
+      "destination": "/work/nova",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/pinehaven",
+      "destination": "/work/pinehaven",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/pinehaven.html",
+      "destination": "/work/pinehaven",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/sihara",
+      "destination": "/work/sihara",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/sihara.html",
+      "destination": "/work/sihara",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/traveller",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/traveller.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-study",
+      "destination": "/work",
       "permanent": true
     }
   ],

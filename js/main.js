@@ -28,7 +28,7 @@ const IMG = (n) => `images/mkp-${n}.jpg`;
    BUILD DYNAMIC MARKUP
    ========================================================= */
 /* --- selected work wall (6 × 5 tiles, each at its own depth) --- */
-const WALL = ['fd_hero','ph_hero','mkp-kora','nv_home_c','zp_dark','gd_home_c','ps_hero','nx_dash','skx_hero','tr_home','mkp-oddpaper','cw_ds_c','vl_1','bx_home_c','mkp-halcyon','ns_home_c','mkp-idea','fl_home_c','ch_home_c','mkp-vekta','hk_2','yg_home_c','mo_cover','nd_home_c','mkp-cargo','uf_home_c','zp_city','sh_home_c','mkp-forma','nx_analytics'];  // one screen per project, no repeats
+const WALL = Array.from({ length: 30 }, (_, i) => 'work/home/w' + String(i).padStart(2, '0'));  // one screen per project, no repeats
 const Z = [-420,-120,-300,-60,-480,-200,-260,-40,-360,-150,-90,-310,-220,-380,0,-170,-450,-80,-280,-130,-400,-240,-60,-340,-190,-500,-110,-270,-30,-390];
 const TL = 400, TH = 225, G = 40, X0 = -360, Y0 = -122, TARGET = 14;
 const wall = document.getElementById('wall');
@@ -46,10 +46,10 @@ WALL.forEach((n, i) => {
 
 /* --- featured project titles --- */
 const FEAT = [
-  ['HALCYON', 'FOOTWEAR E-COMMERCE', 'Animated hero  ·  Product page  ·  Cart'],
+  ['HALCYON', 'SNEAKER E-COMMERCE', 'Loader  ·  Colourways  ·  Bag drawer'],
   ['KORA', 'HEADPHONES LAUNCH', 'Product storytelling  ·  Colourways'],
-  ['VEKTA', 'RUNNING-SHOE BRAND', 'Product showcase  ·  Size picker'],
-  ['CARGO', 'LOGISTICS SAAS', 'Tracking dashboard  ·  Animated hero'],
+  ['VEKTA', 'RUNNING-SHOE BRAND', 'Zoom callouts  ·  Size picker'],
+  ['VELA', 'LUXURY TRAVEL', 'Altitude story  ·  Journeys'],
 ];
 const ftWrap = document.getElementById('ftitles');
 FEAT.forEach(([a, b, m], i) => {
@@ -60,21 +60,19 @@ FEAT.forEach(([a, b, m], i) => {
 });
 
 /* --- all-projects grid --- */
-// case-study-only pages (no separate work project page)
-const CS_SET = new Set(['credwise','careerpilot','impact','journal','metapixel','nailskillz','nexus','nova','sihara','traveller']);
-const pageOf = (p) => (CS_SET.has(p) ? 'case-study/' : 'projects/') + p;
+const pageOf = (p) => 'work/' + p;
 const PROJ = [
-  ['FLOWDECK', 'fd_hero', 'AI SaaS platform', 'Web app · Mobile · Design system', 'flowdeck'],
-  ['NEXUS', 'nx_dash', 'Workflow SaaS', 'Dashboard · Workflow builder · AI', 'nexus'],
-  ['HALCYON', 'mkp-halcyon', 'Footwear e-commerce', 'Animated hero · Product page · Cart', 'halcyon'],
-  ['PINEHAVEN', 'ph_hero', 'Hospitality website', 'Lodge finder · Booking · Experiences', 'pinehaven'],
-  ['KORA', 'mkp-kora', 'Headphones launch site', 'Product storytelling · Colourways', 'kora'],
-  ['TRAILO', 'tr_shot', 'Trek booking platform', 'Explore · Trek detail · Booking', 'trailo'],
+  ['METAPIXEL', 'work/metapixel/card', 'Fintech mobile app', 'Banking · Cards · Crypto · 190+ screens', 'metapixel'],
+  ['NEXUSFLOW', 'work/nexus/card', 'Enterprise workflow SaaS', 'Dashboard · Requests · AI assistant', 'nexus'],
+  ['NOVA', 'work/nova/card', 'Fashion e-commerce website', 'Home · Listing · Product · Checkout', 'nova'],
+  ['PINEHAVEN', 'work/pinehaven/card', 'Lodge booking website', 'Lodge finder · Booking · Experiences', 'pinehaven'],
+  ['CAREERPILOT AI', 'work/careerpilot/card', 'AI career coaching app', 'Career score · Skill gaps · Interview prep', 'careerpilot'],
+  ['HALCYON', 'work/halcyon/card', 'Animated sneaker website', 'Loader · Colourways · Product · Bag', 'halcyon'],
 ];
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18L18 6M8 6h10v10"/></svg>';
 document.getElementById('projectGrid').innerHTML = PROJ.map(([t, k, a, b, p]) => `
   <a class="proj" href="${pageOf(p)}">
-    <div class="proj__img"><img src="images/${k}.jpg" alt="${t} - ${a}" loading="lazy"><span class="proj__year">2026</span></div>
+    <div class="proj__img"><img src="images/${k}.webp" alt="${t} - ${a}" loading="lazy"><span class="proj__year">2026</span></div>
     <div class="proj__meta"><h3>${t}</h3><p>${a}</p><small>${b}</small><span class="proj__go">${ARROW}</span></div>
   </a>`).join('');
 
@@ -203,7 +201,7 @@ gsap.from('.proj', { y: 80, opacity: 0, duration: 0.9, ease: EASE_OUT, stagger: 
       gsap.to(next.querySelectorAll('.ft__meta, .ft__num'), { opacity: 1, duration: 0.5, delay: 0.3, overwrite: true });
     }
     gsap.to('.viewcase', { opacity: n >= 0 ? 1 : 0, duration: 0.4, overwrite: true });
-    if (n >= 0) document.getElementById('viewcase').href = pageOf(['halcyon', 'kora', 'vekta', 'cargo'][n]);
+    if (n >= 0) document.getElementById('viewcase').href = pageOf(['halcyon', 'kora', 'vekta', 'vela'][n]);
     active = n;
   };
   tl.eventCallback('onUpdate', () => {
