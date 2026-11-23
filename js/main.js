@@ -60,15 +60,15 @@ FEAT.forEach(([a, b, m], i) => {
 });
 
 /* --- all-projects grid --- */
-const SLUG = {"metapixel": "metapixel-crypto-banking-app", "nova": "nova-fashion-ecommerce-website", "nexus": "nexusflow-workflow-saas-dashboard", "pinehaven": "pinehaven-lodge-booking-website", "halcyon": "halcyon-sneaker-ecommerce-website", "finora": "finora-personal-finance-app", "careerpilot": "careerpilot-ai-career-coach-app", "nailskillz": "nailskillz-beauty-ecommerce-website", "sihara": "sihara-ai-saas-landing-page", "trailo": "trailo-trek-booking-platform", "pulse": "pulse-fitness-app", "bacix": "bacix-shopify-apparel-store", "floara": "flowora-ai-form-builder-saas", "kora": "kora-headphones-launch-website", "zipp": "zipp-ride-booking-app", "clubhouse": "clubhouse-skincare-ecommerce-website", "puresmile": "puresmile-dental-clinic-landing-page", "vekta": "vekta-running-shoe-website", "vela": "vela-luxury-travel-website", "hok": "hok-beauty-animated-website"};
+const SLUG = {"metapixel": "metapixel-crypto-banking-app", "nova": "nova-fashion-ecommerce-website", "nexus": "nexusflow-workflow-saas-dashboard", "pinehaven": "pinehaven-lodge-booking-website", "halcyon": "halcyon-sneaker-ecommerce-website", "finora": "finora-personal-finance-app", "careerpilot": "careerpilot-ai-career-coach-app", "nailskillz": "nailskillz-beauty-ecommerce-website", "sihara": "sihara-ai-saas-landing-page", "trailo": "trailo-trek-booking-platform", "pulse": "pulse-fitness-app", "bacix": "bacix-shopify-apparel-store", "floara": "flowora-ai-form-builder-saas", "kora": "kora-headphones-launch-website", "zipp": "zipp-ride-booking-app", "clubhouse": "clubhouse-skincare-ecommerce-website", "puresmile": "puresmile-dental-clinic-landing-page", "vekta": "vekta-running-shoe-website", "vela": "vela-luxury-travel-website", "nerds": "nerds-custom-merch-store-landing-page", "treeyoga": "tree-yoga-studio-landing-page", "vikings": "luxury-kitchen-arabic-product-landing-page", "dropp": "dropp-parcel-delivery-app", "moneo": "moneo-ai-finance-app", "flowdeck": "flowdeck-ai-workspace-saas", "simpler": "simpler-one-click-checkout", "hok": "hok-beauty-animated-website"};
 const pageOf = (p) => 'work/' + (SLUG[p] || p);
 const PROJ = [
   ['METAPIXEL', 'work/metapixel/card', 'Fintech mobile app', 'Banking · Cards · Crypto · 190+ screens', 'metapixel'],
-  ['NEXUSFLOW', 'work/nexus/card', 'Enterprise workflow SaaS', 'Dashboard · Requests · AI assistant', 'nexus'],
   ['NOVA', 'work/nova/card', 'Fashion e-commerce website', 'Home · Listing · Product · Checkout', 'nova'],
-  ['PINEHAVEN', 'work/pinehaven/card', 'Lodge booking website', 'Lodge finder · Booking · Experiences', 'pinehaven'],
-  ['CAREERPILOT AI', 'work/careerpilot/card', 'AI career coaching app', 'Career score · Skill gaps · Interview prep', 'careerpilot'],
-  ['HALCYON', 'work/halcyon/card', 'Animated sneaker website', 'Loader · Colourways · Product · Bag', 'halcyon'],
+  ['NEXUSFLOW', 'work/nexus/card', 'Enterprise workflow SaaS', 'Dashboard · Requests · AI assistant', 'nexus'],
+  ['TREE YOGA', 'work/treeyoga/card', 'Yoga studio landing page', 'Hero · Classes · Teachers · Reviews', 'treeyoga'],
+  ['MONEO', 'work/moneo/card', 'AI money coach app', 'Balance · AI chat · Budgets · Cards', 'moneo'],
+  ['LUXURY KITCHEN', 'work/vikings/card', 'Arabic RTL product landing page', 'Order panel · Product video · Reviews · RTL', 'vikings'],
 ];
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18L18 6M8 6h10v10"/></svg>';
 document.getElementById('projectGrid').innerHTML = PROJ.map(([t, k, a, b, p]) => `
