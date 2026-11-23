@@ -64,16 +64,16 @@ const SLUG = {"metapixel": "metapixel-crypto-banking-app", "nova": "nova-fashion
 const pageOf = (p) => 'work/' + (SLUG[p] || p);
 const PROJ = [
   ['METAPIXEL', 'work/metapixel/card', 'Fintech mobile app', 'Banking · Cards · Crypto · 190+ screens', 'metapixel'],
-  ['NOVA', 'work/nova/card', 'Fashion e-commerce website', 'Home · Listing · Product · Checkout', 'nova'],
+  ['FLOWDECK', 'work/flowdeck/card', 'AI workspace SaaS', 'Dashboard · AI agents · Mobile app · Website', 'flowdeck'],
+  ['HALCYON', 'work/halcyon/card', 'Animated sneaker website', 'Loader · Colourways · Product · Bag', 'halcyon'],
   ['NEXUSFLOW', 'work/nexus/card', 'Enterprise workflow SaaS', 'Dashboard · Requests · AI assistant', 'nexus'],
-  ['TREE YOGA', 'work/treeyoga/card', 'Yoga studio landing page', 'Hero · Classes · Teachers · Reviews', 'treeyoga'],
+  ['NOVA', 'work/nova/card', 'Fashion e-commerce website', 'Home · Listing · Product · Checkout', 'nova'],
   ['MONEO', 'work/moneo/card', 'AI money coach app', 'Balance · AI chat · Budgets · Cards', 'moneo'],
-  ['LUXURY KITCHEN', 'work/vikings/card', 'Arabic RTL product landing page', 'Order panel · Product video · Reviews · RTL', 'vikings'],
 ];
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18L18 6M8 6h10v10"/></svg>';
 document.getElementById('projectGrid').innerHTML = PROJ.map(([t, k, a, b, p]) => `
   <a class="proj" href="${pageOf(p)}">
-    <div class="proj__img"><img src="images/${k}.webp" alt="${t} - ${a}" loading="lazy"><span class="proj__year">2026</span></div>
+    <div class="proj__img"><img src="images/${k}.webp" alt="${t} - ${a}" loading="lazy"></div>
     <div class="proj__meta"><h3>${t}</h3><p>${a}</p><small>${b}</small><span class="proj__go">${ARROW}</span></div>
   </a>`).join('');
 
