@@ -421,3 +421,12 @@ body.wk-choosing{overflow:hidden}
 .ix-next{padding-bottom:clamp(90px,12vh,140px)}
 @media (max-width:1023px){.ix-sp{min-height:0}}
 .ix-dec__c i{font:600 15px/1 Sora,sans-serif;color:#fff}
+
+/* next project: one full-width card in both modes, with a View project button */
+.wr-end{display:block;max-width:calc(1400px + 2*var(--gx))}
+.wr-end>.wr-k{margin-bottom:18px}
+.wr-next{width:100%;margin-top:0;color:#fff}
+.nc-btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 22px;margin-top:26px;border-radius:99px;background:#fff;color:var(--ink);font:600 15px/1 Sora,sans-serif;transition:gap .3s,background .3s}
+.nc-btn svg{width:17px;height:17px}
+.ix-next__a:hover .nc-btn{gap:14px}
+.ix-next{padding-bottom:clamp(60px,9vh,110px)}
