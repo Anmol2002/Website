@@ -627,3 +627,10 @@ body.pg-thanks:not(.nav-solid) .nav__logo{color:#fff}
 /* work hero: keep clear space between the button and the card row on phones/tablets */
 @media (max-width:1023px){ .wh__cards{margin-top:max(6rem,30px)} .wh__right{gap:max(2.4rem,16px)} }
 .wc__ghost{white-space:nowrap}
+/* Work page on phones: lead text, then "Start a project with me", then straight into the projects */
+@media (max-width:767px){
+  .wh .wh__cta,.wh .wh__cards,.wh .wh__since,section.stmt{display:none}
+  .wh .wh__stage{margin-top:0;padding-top:0;height:auto;min-height:0}
+  .wh .ctabar{margin-top:max(5rem,24px)}
+  .wh{padding-bottom:max(4rem,20px)}
+}
