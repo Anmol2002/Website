@@ -409,3 +409,11 @@ body.wk-choosing{overflow:hidden}
 .wr-body{padding-bottom:clamp(30px,4vw,60px)}
 .wr-end{margin-top:clamp(40px,5vw,80px);padding-top:clamp(40px,5vw,72px);border-top:1px solid rgba(20,20,20,.1)}
 .wr-main>.wr-sec:last-child{padding-bottom:0}
+
+/* interactive: chapters size to their content (no empty half-screens between them) */
+.ix-ch:not(.ix-hero):not(.ix-hs):not(.ix-seq):not(.ix-br){min-height:0;padding-top:clamp(60px,9vh,110px);padding-bottom:clamp(60px,9vh,110px)}
+.ix-sp{min-height:min(88vh,820px)}
+.ix-brief{padding-top:clamp(90px,14vh,150px)}
+.ix-next{padding-bottom:clamp(90px,12vh,140px)}
+@media (max-width:1023px){.ix-sp{min-height:0}}
+.ix-dec__c i{font:600 15px/1 Sora,sans-serif;color:#fff}
