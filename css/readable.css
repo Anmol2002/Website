@@ -496,3 +496,24 @@
   html body .wrap .wlh__btns .wl-ghost{font-size:max(1.900rem,13.6px)}
   html body .wrap .wlstats div > span{font-size:max(1.700rem,13.0px)}
 }
+
+/* =========================================================
+   Arrows on every button/link: tilted up-right at rest,
+   straighten to point right on hover / keyboard focus
+   ========================================================= */
+path[d="M5 12h14M13 6l6 6-6 6"]{transform-box:fill-box;transform-origin:50% 50%;transform:rotate(-45deg);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+:is(a,button,[role="button"],summary,label):is(:hover,:focus-visible) path[d="M5 12h14M13 6l6 6-6 6"]{transform:rotate(0deg)}
+/* icons drawn as diagonal arrows: already up-right, turn straight on hover */
+:is(path[d="M3 13 13 3M5 3h8v8"],path[d="M6 18L18 6M8 6h10v10"],path[d="M7 17 17 7M8 7h9v9"]){transform-box:fill-box;transform-origin:50% 50%;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+:is(a,button,[role="button"]):is(:hover,:focus-visible) :is(path[d="M3 13 13 3M5 3h8v8"],path[d="M6 18L18 6M8 6h10v10"],path[d="M7 17 17 7M8 7h9v9"]){transform:rotate(45deg)}
+/* text arrows */
+.tarr{display:inline-block;transform:rotate(-45deg);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+:is(a,button,[role="button"]):is(:hover,:focus-visible) .tarr{transform:rotate(0deg)}
+.cm__go{transform:rotate(0deg)}
+/* the arrow itself turns now, so the round holders no longer spin */
+html body .wh__cta:hover span,html body .endcta__a:hover .endcta__ar,html body .cl:hover i,html body .txw__c:hover i,
+html body .wlw__t i,html body .wlw:hover .wlw__t i,html body .sr__go,html body .sr:hover .sr__go,html body .ix-read:hover i,
+html body .cs:hover .cs__go svg,html body .tip:hover .tip__go svg,html body .proj:hover .proj__go,
+html body .nav__item:hover .nav__ar,html body .nav__item:focus-visible .nav__ar,html body .wc:hover .wc__go{transform:none}
+html body .ctabar:hover .ctabar__ar,html body .ecb__seal:hover .ecb__core{transform:scale(1.08)}
+@media (max-width:1023px){html body .wc:hover .wc__go{transform:translateY(-50%)}}
