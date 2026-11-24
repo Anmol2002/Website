@@ -379,3 +379,11 @@ body.qz-playing .footer{opacity:.35;filter:grayscale(1);transition:opacity .4s}
 .qz__fixes li{padding-left:max(5.6rem,52px)}
 .qz__fixes li::before{left:max(1.6rem,14px);top:max(1.6rem,14px)}
 .qz__pts em{white-space:nowrap;display:inline-block}
+/* result score: sized to the ring and optically centred (trim the line box to the digits' cap height) */
+.qz__ring{--rw:max(26rem,180px);width:var(--rw)}
+.qz__ring b{display:grid!important;place-items:center;font-size:calc(var(--rw) * .27)}
+.qz__num{display:block;line-height:1;white-space:nowrap;text-box:trim-both cap alphabetic}
+.qz__num small{font-size:.42em;margin-left:.06em;color:var(--mute);position:static}
+@supports not (text-box:trim-both cap alphabetic){ .qz__num{line-height:.74;padding-top:.02em} }
+.qz__ring .qz__num{font-size:inherit;font-weight:inherit;text-transform:none;letter-spacing:-.01em;color:var(--ink);margin:0}
+.qz__ring .qz__num small{color:var(--mute)}

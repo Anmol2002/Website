@@ -273,7 +273,7 @@
       <div class="qz__report">
         <div class="qz__rhead">
           <p class="kicker">UX REPORT CARD · ${P.label.toUpperCase()}</p>
-          <div class="qz__ring" style="--p:${meter}"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle class="qz__ringfg" cx="60" cy="60" r="52"/></svg><b>${meter}<small>%</small></b><span>${P.meter}</span></div>
+          <div class="qz__ring" style="--p:${meter}"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle class="qz__ringfg" cx="60" cy="60" r="52"/></svg><b><span class="qz__num">${meter}<small>%</small></span></b><span>${P.meter}</span></div>
           <h2 class="qz__rank">${rank}</h2>
           <p class="qz__pts">${right} of ${N} good decisions${isBest ? ' · <em>New best!</em>' : ''}</p>
         </div>
