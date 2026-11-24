@@ -73,7 +73,7 @@ const PROJ = [
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18L18 6M8 6h10v10"/></svg>';
 document.getElementById('projectGrid').innerHTML = PROJ.map(([t, k, a, b, p]) => `
   <a class="proj" href="${pageOf(p)}">
-    <div class="proj__img"><img src="images/${k}.webp" alt="${t} - ${a}" loading="lazy"></div>
+    <div class="proj__img"><img src="images/${k}.webp?v=2" alt="${t} - ${a}" loading="lazy"></div>
     <div class="proj__meta"><h3>${t}</h3><p>${a}</p><small>${b}</small><span class="proj__go">${ARROW}</span></div>
   </a>`).join('');
 
