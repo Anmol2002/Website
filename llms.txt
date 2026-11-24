@@ -73,6 +73,9 @@ Key facts:
 - [UX Audit Checklist: 25 Things to Check](https://uiuxflow.co.in/blog/ux-audit-checklist): A practical UX audit checklist for websites, SaaS products and apps: navigation, forms, mobile, accessibility, speed and conversion. 25 checks to run today.
 - [White-Label UI/UX Design Partner: Guide for Agencies](https://uiuxflow.co.in/blog/white-label-ui-ux-design-partner): How white-label UI/UX design works for agencies: NDAs, branding, tools, pricing models and how to choose a partner who stays invisible to your clients.
 
+## Play
+- [UI/UX Quiz: How UX Are You?](https://uiuxflow.co.in/quiz): A free 12-round UI/UX design quiz: spot the better screen, find the UX mistake and name the design law, with a level at the end.
+
 ## Optional
 
 - [Privacy Policy](https://uiuxflow.co.in/privacy-policy)
