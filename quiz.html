@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UI/UX Quiz: How UX Are You? | Manpreet Kaur</title>
-<meta name="description" content="Play a free 12-round UI/UX design quiz. Spot the better screen, find the UX mistake and test your knowledge of Fitts’s, Hick’s and Jakob’s laws.">
+<meta name="description" content="A free UX game for store owners, agency owners, SaaS founders and designers. Make 8 real decisions and unlock a UX report card with what to fix first.">
 <meta name="author" content="Manpreet Kaur">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#FF5A1F">
@@ -28,13 +28,13 @@
 <meta property="og:site_name" content="Manpreet Kaur — UI/UX Designer">
 <meta property="og:locale" content="en_IN">
 <meta property="og:title" content="UI/UX Quiz: How UX Are You? | Manpreet Kaur">
-<meta property="og:description" content="Play a free 12-round UI/UX design quiz. Spot the better screen, find the UX mistake and test your knowledge of Fitts’s, Hick’s and Jakob’s laws.">
+<meta property="og:description" content="A free UX game for store owners, agency owners, SaaS founders and designers. Make 8 real decisions and unlock a UX report card with what to fix first.">
 <meta property="og:url" content="https://uiuxflow.co.in/quiz">
 <meta property="og:image" content="https://uiuxflow.co.in/images/og.jpg">
 <meta property="og:image:alt" content="Manpreet Kaur, freelance UI/UX designer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="UI/UX Quiz: How UX Are You? | Manpreet Kaur">
-<meta name="twitter:description" content="Play a free 12-round UI/UX design quiz. Spot the better screen, find the UX mistake and test your knowledge of Fitts’s, Hick’s and Jakob’s laws.">
+<meta name="twitter:description" content="A free UX game for store owners, agency owners, SaaS founders and designers. Make 8 real decisions and unlock a UX report card with what to fix first.">
 <meta name="twitter:image" content="https://uiuxflow.co.in/images/og.jpg">
 <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
@@ -47,7 +47,7 @@
       "@id": "https://uiuxflow.co.in/quiz#page",
       "url": "https://uiuxflow.co.in/quiz",
       "name": "UI/UX Quiz: How UX Are You? | Manpreet Kaur",
-      "description": "Play a free 12-round UI/UX design quiz. Spot the better screen, find the UX mistake and test your knowledge of Fitts’s, Hick’s and Jakob’s laws.",
+      "description": "A free UX game for store owners, agency owners, SaaS founders and designers. Make 8 real decisions and unlock a UX report card with what to fix first.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://uiuxflow.co.in/#website"
@@ -102,7 +102,7 @@
 <link rel="stylesheet" href="css/pages.css?v=20261124b">
 <script>(function(){var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("pt-in");setTimeout(function(){d.classList.remove("pt-in")},4000)}})();</script>
 <link rel="stylesheet" href="css/extras.css?v=20261124g">
-<link rel="stylesheet" href="css/quiz.css?v=3">
+<link rel="stylesheet" href="css/quiz.css?v=7">
 <link rel="stylesheet" href="css/readable.css?v=20261124p">
 </head>
 <body class="pg-quiz">
@@ -142,32 +142,30 @@
 <main>
 <section class="qz" id="quiz" aria-live="polite">
   <div class="qz__in wrap">
-    <!-- intro -->
     <div class="qz__screen qz__intro is-on" data-screen="intro">
-      <p class="kicker">FREE UI/UX GAME · 12 ROUNDS · ~3 MIN</p>
+      <p class="kicker">FREE UX GAME · 8 DECISIONS · ~3 MIN · NO SIGN-UP</p>
       <h1 class="qz__h1"><span>HOW UX</span><span>ARE YOU<em>?</em></span></h1>
-      <p class="qz__lead">Spot the better screen, find the mistake and name the law. Twelve quick rounds made from real design decisions I make every week.</p>
-      <ul class="qz__modes">
-        <li><b>A/B</b><span>Spot the better UI</span></li>
-        <li><b>TAP</b><span>Find the UX mistake</span></li>
-        <li><b>?</b><span>Know the laws</span></li>
-        <li><b>🔥</b><span>Streaks score extra</span></li>
-      </ul>
-      <button type="button" class="qz__start" data-start>Start the quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="qz__lead">Make 8 real decisions. Every good call raises your meter. At the end you unlock a personal <b>UX report card</b> with what to fix first.</p>
+      <p class="qz__pick">Who are you playing as?</p>
+      <div class="qz__roles" data-roles></div>
       <p class="qz__best" data-best hidden></p>
     </div>
-    <!-- game -->
     <div class="qz__screen qz__game" data-screen="game">
       <div class="qz__hud">
-        <div class="qz__prog" data-prog></div>
-        <div class="qz__stats"><span class="qz__score">Score <b data-score>0</b></span><span class="qz__streak" data-streak>🔥 <b>0</b></span></div>
+        <div class="qz__meter" data-meter><span class="qz__mlbl" data-mlbl>Conversion</span><span class="qz__mbar"><i data-mfill></i></span><b data-mval>20%</b></div>
+        <div class="qz__stats"><span class="qz__streak" data-streak>🔥 <b>0</b></span><button type="button" class="qz__hint" data-hint>💡 Ask Manpreet <small>1 left</small></button></div>
       </div>
+      <div class="qz__prog" data-prog></div>
       <div class="qz__card" data-card></div>
+      <div class="qz__lock" data-lock><span>🔒</span><p><b>Your UX report card</b><small data-lockt>Unlocks after round 8</small></p></div>
     </div>
-    <!-- result -->
     <div class="qz__screen qz__res" data-screen="result"></div>
   </div>
   <div class="qz__confetti" aria-hidden="true"></div>
+  <div class="qz__leave" data-leave hidden role="dialog" aria-modal="true" aria-labelledby="qz-leave-t">
+    <div class="qz__lbox"><p class="qz__lemo">🫣</p><h2 id="qz-leave-t">Leave before your report?</h2><p data-leavet>You are only a few decisions away from your UX report card. Your progress will be lost.</p>
+      <div class="qz__lbtns"><button type="button" class="qz__stay" data-stay>Keep playing</button><a class="qz__go" data-go href="#">Leave anyway</a></div></div>
+  </div>
 </section>
 <footer class="footer">
   <p class="footer__big">MANPREET KAUR</p>
@@ -186,6 +184,6 @@
 <script src="js/menu.js?v=20261123a"></script>
 <script src="js/nav.js?v=20261123a"></script>
 <script src="js/extras.js?v=20261124t"></script>
-<script src="js/quiz.js?v=2"></script>
+<script src="js/quiz.js?v=6"></script>
 </body>
 </html>
