@@ -76,7 +76,7 @@
 
   const N = chs.length, SEG = 10;
   const pct = (el, k) => () => (k === 'x' ? board.clientWidth : board.clientHeight) * parseFloat(el.dataset[k === 'x' ? 'cx' : 'cy']) / 100;
-  const pinXY = (cm, k) => () => (k === 'x' ? cm.offsetLeft + 6 : cm.offsetTop + cm.offsetHeight + 4); // just under the comment, so the name tag never covers its text
+  const pinXY = (cm, k) => () => { const th = cm.parentElement, p = cm.querySelector('.cm__pin'); return k === 'x' ? th.offsetLeft + cm.offsetLeft + p.offsetWidth * 0.5 : th.offsetTop + cm.offsetTop + p.offsetHeight * 0.6; }; // on the comment's pin
 
   const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 1 } });
   // fromTo with explicit end states: plain .from() tweens get stuck after ScrollTrigger re-measures (invalidateOnRefresh)
@@ -123,7 +123,6 @@
     if (rb) {
       tl.fromTo(rb, { autoAlpha: 0, scale: 0.6, transformOrigin: 'left top' }, { autoAlpha: 1, scale: 1, ease: 'back.out(1.8)', duration: 0.8 }, t + 3.6)
         .to(cur, { x: pinXY(rb, 'x'), y: pinXY(rb, 'y'), duration: 1.2, ease: 'power2.inOut' }, t + 4.6)
-        .to(rb, { autoAlpha: () => (innerWidth < 1024 ? 0 : 1), duration: 0.4 }, t + 6.2) // phones: the answered roadblock steps aside
         .to(rb.querySelector('.cm__b'), { opacity: 0.45, duration: 0.4 }, t + 6.2)
         .fromTo(ln, { autoAlpha: 0, scale: 0.6, transformOrigin: 'left bottom' }, { autoAlpha: 1, scale: 1, ease: 'back.out(1.8)', duration: 0.8 }, t + 6.2)
         .to(cur, { x: pinXY(ln, 'x'), y: pinXY(ln, 'y'), duration: 1.2, ease: 'power2.inOut' }, t + 7);

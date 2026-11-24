@@ -83,8 +83,10 @@
 .abx-js__cur span{margin:2.4rem 0 0 -.6rem;background:var(--or);color:#fff;border-radius:.6rem .6rem .6rem .2rem;padding:.6rem 1.2rem;font-size:max(1.4rem,11px);white-space:nowrap}
 
 /* Figma-style comments: roadblock (red) then what I learned (green, resolved) */
-.cm{position:absolute;right:4%;z-index:10;display:flex;align-items:flex-start;gap:1rem;max-width:min(44%,34rem)}
-.cm--rb{top:7%}.cm--ln{bottom:7%}
+/* the two comments sit together as one thread on the right, centred: roadblock, then the reply with what I learned */
+.cmt{position:absolute;top:0;bottom:0;right:4%;width:min(40%,34rem);z-index:10;display:flex;flex-direction:column;justify-content:center;gap:1.4rem;pointer-events:none}
+.cm{position:relative;display:flex;align-items:flex-start;gap:1rem}
+.cm--ln{margin-left:3rem}
 .cm__pin{flex:none;display:grid;place-items:center;width:3.6rem;height:3.6rem;min-width:26px;min-height:26px;border-radius:50% 50% 50% .4rem;color:#fff;font-size:max(1.6rem,12px);font-weight:700;box-shadow:0 .6rem 1.4rem -.4rem rgba(0,0,0,.35)}
 .cm--rb .cm__pin{background:#E5484D}.cm--ln .cm__pin{background:#2F9E5B}
 .cm__b{background:#fff;border-radius:1.2rem;padding:1.2rem 1.4rem;font-size:max(1.45rem,12px);line-height:1.45;font-weight:500;box-shadow:0 1.6rem 3rem -1.6rem rgba(0,0,0,.4)}
@@ -165,7 +167,8 @@
   .abx-js__bar{height:max(5rem,34px)}
   .abx-js__bar span{display:none}
   .abx-js__cur span{display:none}
-  .cm{max-width:50%}
+  .cmt{width:50%;right:3%;gap:1rem}
+  .cm--ln{margin-left:1.6rem}
   .abx-js__sc > :not(.cm){scale:.84;transform-origin:left center}
   .cm__b{font-size:max(1.45rem,11px)}
   .cm__b{padding:.9rem 1.1rem}
