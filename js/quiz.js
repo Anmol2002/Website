@@ -12,7 +12,7 @@
   /* ---------- tiny mockup kit ---------- */
   const phone = (x, c = '') => `<div class="mk mk--phone ${c}"><i class="mk__notch"></i>${x}</div>`;
   const panel = (x, c = '') => `<div class="mk mk--panel ${c}">${x}</div>`;
-  const img = (h = 34, t = '') => `<i class="mk__img" style="height:${h}%">${t}</i>`;
+  const img = (h = 34, t = '') => `<i class="mk__img" style="height:${h}%;--h:${h}">${t}</i>`;
   const ln = (...w) => w.map((v) => `<i class="mk__ln" style="width:${v}%"></i>`).join('');
   const mods = (b, c) => c.split(' ').filter(Boolean).map((m) => ` ${b}--${m}`).join('');
   const t = (x, c = '') => `<span class="mk__tx${mods('mk__tx', c)}">${x}</span>`;

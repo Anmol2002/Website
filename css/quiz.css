@@ -319,3 +319,10 @@ body.qz-playing .footer{opacity:.35;filter:grayscale(1);transition:opacity .4s}
 }
 .qz__swap{display:inline-flex;align-items:center;border-radius:10rem;font-size:max(1.8rem,14px);font-weight:600;transition:transform .25s}
 .qz__role{text-align:left}.qz__role b,.qz__role small{text-align:left}
+/* keep the A/B/C/D badges perfectly round whatever the answer length */
+.qz__key{flex:none;aspect-ratio:1;line-height:1}
+.qz__opt--mc{line-height:1.35}
+.qz__ricon,.qz__rgo,.qz__fixes li::before,.qz__recap li{flex:none;aspect-ratio:1}
+/* phones: phone mockups grow with their content instead of cutting it off */
+@media (max-width:1023px){ .mk--phone{aspect-ratio:auto;min-height:230px} .qz__opt--ab{justify-content:flex-start} }
+@media (max-width:1023px){ .mk--phone .mk__img{height:auto!important;aspect-ratio:calc(60 / var(--h,36));flex:none} }
