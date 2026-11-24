@@ -81,20 +81,23 @@
     const H = stage.clientHeight;
     let pts = [];
     if (desktop) {
-      const cw = 34 * r, gap = 10 * r, x0 = 14 * r;
+      const cw = 42 * r, gap = 12 * r, x0 = 14 * r;
       cards.forEach((c, i) => {
-        const top = i % 2 ? H * 0.5 : H * 0.12;
+        const h = c.offsetHeight;
+        const mid = (H - h) / 2, off = Math.min(H * 0.1, Math.max(0, mid - 3 * r));
         c.style.left = x0 + i * (cw + gap) + 'px';
-        c.style.top = Math.min(top, H - c.offsetHeight - 3 * r) + 'px';
+        c.style.top = Math.max(3 * r, mid + (i % 2 ? off : -off)) + 'px';
       });
       track.style.width = x0 * 2 + cards.length * (cw + gap) + 'px';
-      pts = cards.map((c) => [c.offsetLeft + c.offsetWidth * 0.8, c.offsetTop + c.offsetHeight * 0.86]); // cursor lands near each frame's corner, clear of the text
-      pts.unshift([2 * r, H * 0.5]);
+      // the line enters each card at the middle of its left side and leaves from the middle of its right side
+      pts = [];
+      cards.forEach((c) => { const y = c.offsetTop + c.offsetHeight / 2; pts.push([c.offsetLeft, y], [c.offsetLeft + c.offsetWidth, y]); });
+      pts.unshift([2 * r, pts[0][1]]);
     } else {
       cards.forEach((c) => { c.style.left = ''; c.style.top = ''; });
       track.style.width = '';
       const x = 4.5 * r;
-      pts = cards.map((c) => [x, c.offsetTop + Math.min(c.offsetHeight * 0.5, 6 * r)]);
+      pts = cards.map((c) => [x, c.offsetTop + c.offsetHeight / 2]); // level with the middle of each card
       pts.unshift([x, 1.5 * r]);
     }
     svg.setAttribute('width', track.offsetWidth); svg.setAttribute('height', track.offsetHeight);
@@ -103,7 +106,7 @@
     const segs = [];
     for (let i = 1; i < pts.length; i++) {
       const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
-      const seg = desktop ? ` C${x0 + (x1 - x0) * 0.5} ${y0} ${x0 + (x1 - x0) * 0.5} ${y1} ${x1} ${y1}` : ` L${x1} ${y1}`;
+      const seg = desktop && y0 !== y1 ? ` C${x0 + (x1 - x0) * 0.5} ${y0} ${x0 + (x1 - x0) * 0.5} ${y1} ${x1} ${y1}` : ` L${x1} ${y1}`;
       d += seg; segs.push(d);
     }
     bg.setAttribute('d', d); fg.setAttribute('d', d);
@@ -111,7 +114,8 @@
     // where along the path each card sits
     const tmp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     svg.appendChild(tmp);
-    stops = segs.map((sd) => { tmp.setAttribute('d', sd); return tmp.getTotalLength() / L; });
+    const lens = segs.map((sd) => { tmp.setAttribute('d', sd); return tmp.getTotalLength() / L; });
+    stops = desktop ? cards.map((_, i) => lens[2 * i]) : lens;
     tmp.remove();
     fg.style.strokeDasharray = L; fg.style.strokeDashoffset = L;
   }
