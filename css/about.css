@@ -299,3 +299,5 @@ a.abx-by__c:hover{translate:0 -.4rem}
 .sc-tiles small::before{content:"✓ "}
 @media (min-width:1024px){ .abx-js__sc > *{scale:1.16} .abx-js__sc > .sc-frame,.abx-js__sc > .sc-wire,.abx-js__sc > .sc-next{scale:1.06} }
 @media (max-width:1023px){ .sc-badge{top:6%} .sc-chat{top:8%;gap:1rem} .sc-tiles{top:62%} .sc-lvl{top:8%} }
+/* plot twist / level up: labels share one column so both lines of text start at the same point */
+@media (min-width:1024px){ .tw{grid-template-columns:11.5rem 1fr} .tw b{justify-self:start} }
