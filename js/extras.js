@@ -148,7 +148,7 @@
   }, true);
 })();
 
-/* Soft click sound on every button and link press (made with Web Audio, no file to load). */
+/* Sweet chime on every button and link press (made with Web Audio, no file to load). */
 (() => {
   const AC = window.AudioContext || window.webkitAudioContext;
   if (!AC) return;
@@ -160,16 +160,21 @@
     try {
       ctx = ctx || new AC();
       if (ctx.state === 'suspended') ctx.resume();
+      // a sweet two-note chime (E6 then B6), soft bell tone with a gentle fade
       const t = ctx.currentTime;
-      const o = ctx.createOscillator(), g = ctx.createGain();
-      o.type = 'sine';
-      o.frequency.setValueAtTime(1500, t);
-      o.frequency.exponentialRampToValueAtTime(650, t + 0.045);
-      g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(0.12, t + 0.004);
-      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.07);
-      o.connect(g).connect(ctx.destination);
-      o.start(t); o.stop(t + 0.08);
+      const out = ctx.createGain(); out.gain.value = 0.9; out.connect(ctx.destination);
+      const bell = (f, at, vol) => {
+        [[1, vol], [2, vol * 0.18]].forEach(([m, v]) => {
+          const o = ctx.createOscillator(), g = ctx.createGain();
+          o.type = 'sine'; o.frequency.value = f * m;
+          g.gain.setValueAtTime(0.0001, t + at);
+          g.gain.exponentialRampToValueAtTime(v, t + at + 0.008);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + at + 0.42);
+          o.connect(g).connect(out); o.start(t + at); o.stop(t + at + 0.45);
+        });
+      };
+      bell(1318.5, 0, 0.06);
+      bell(1975.5, 0.06, 0.045);
     } catch (_) {}
   };
   document.addEventListener('pointerdown', (e) => {
