@@ -5,7 +5,7 @@
   if (!cards.length) return;
   const c = document.createElement('div');
   c.className = 'ccur'; c.setAttribute('aria-hidden', 'true');
-  c.innerHTML = '<span>Click me<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
+  c.innerHTML = '<span>Click me</span>';
   document.body.appendChild(c);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const gs = typeof gsap !== 'undefined' && !reduce;
