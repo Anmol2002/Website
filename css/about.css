@@ -269,3 +269,18 @@ a.abx-by__c:hover{translate:0 -.4rem}
   .abx-js__in{grid-template-rows:auto auto;align-content:center;row-gap:max(3rem,20px);padding-top:max(9rem,64px)}
   .abx-js__txt{height:auto}
 }
+
+/* plot twist / level up: plain readable lines under each chapter's story (no comments on the canvas) */
+.abx-js__tw{display:grid;gap:1.4rem;margin-top:3rem;max-width:52ch}
+.tw{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:baseline;font-size:max(1.7rem,13.5px);line-height:1.5;color:rgba(255,255,255,.86);font-weight:500;padding-top:1.4rem;border-top:.1rem solid rgba(255,255,255,.12)}
+.tw b{font-size:max(1.2rem,10.5px);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;padding:.5rem 1rem;border-radius:10rem}
+.tw--pt b{background:rgba(229,72,77,.16);color:#FF7A7E}
+.tw--lu b{background:rgba(47,158,91,.18);color:#5FD08E}
+@media (max-width:1023px){
+  .abx-js__tw{margin-top:max(1.6rem,10px);gap:max(.8rem,6px)}
+  .tw{grid-template-columns:1fr;gap:.4rem;padding-top:max(.8rem,6px);font-size:max(1.8rem,12.5px)}
+  .tw b{justify-self:start;padding:.3rem .8rem}
+  .abx-js__cv{aspect-ratio:1.5}
+}
+@media (max-width:1023px){ .abx-js__tw{max-width:none} }
+@media (max-width:1023px) and (max-height:760px){ .abx-js__cv{aspect-ratio:1.8} }

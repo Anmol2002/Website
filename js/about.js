@@ -119,13 +119,10 @@
     // the cursor works on the scene, then on the comments
     const target = sc.querySelector('[data-cx]');
     tl.to(cur, { x: pct(target, 'x'), y: pct(target, 'y'), duration: 1.8, ease: 'power2.inOut' }, t + 1);
-    const rb = sc.querySelector('.cm--rb'), ln = sc.querySelector('.cm--ln');
-    if (rb) {
-      tl.fromTo(rb, { autoAlpha: 0, scale: 0.6, transformOrigin: 'left top' }, { autoAlpha: 1, scale: 1, ease: 'back.out(1.8)', duration: 0.8 }, t + 3.6)
-        .to(cur, { x: pinXY(rb, 'x'), y: pinXY(rb, 'y'), duration: 1.2, ease: 'power2.inOut' }, t + 4.6)
-        .to(rb.querySelector('.cm__b'), { opacity: 0.45, duration: 0.4 }, t + 6.2)
-        .fromTo(ln, { autoAlpha: 0, scale: 0.6, transformOrigin: 'left bottom' }, { autoAlpha: 1, scale: 1, ease: 'back.out(1.8)', duration: 0.8 }, t + 6.2)
-        .to(cur, { x: pinXY(ln, 'x'), y: pinXY(ln, 'y'), duration: 1.2, ease: 'power2.inOut' }, t + 7);
+    const tws = ch.querySelectorAll('.tw');
+    if (tws.length) {
+      F(tws[0], { autoAlpha: 0, x: -24 }, t + 3.4);
+      F(tws[1], { autoAlpha: 0, x: -24 }, t + 5.4);
     } else {
       tl.to(cur, { x: () => { const g = sc.querySelector('.sc-go'); return g.offsetLeft + sc.querySelector('.sc-next').offsetLeft + g.offsetWidth * 0.7; }, y: () => { const g = sc.querySelector('.sc-go'); return g.offsetTop + sc.querySelector('.sc-next').offsetTop + g.offsetHeight * 0.6; }, duration: 1.4, ease: 'power2.inOut' }, t + 3.2);
     }
