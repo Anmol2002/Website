@@ -121,13 +121,27 @@
     tl.to(cur, { x: pct(target, 'x'), y: pct(target, 'y'), duration: 1.8, ease: 'power2.inOut' }, t + 1);
     const tws = ch.querySelectorAll('.tw');
     if (tws.length) {
-      F(tws[0], { autoAlpha: 0, x: -24 }, t + 3.4);
-      F(tws[1], { autoAlpha: 0, x: -24 }, t + 5.4);
+      F(tws[0], { autoAlpha: 0, y: 14 }, t + 3.4);
+      F(tws[1], { autoAlpha: 0, y: 14 }, t + 5.4);
     } else {
       tl.to(cur, { x: () => { const g = sc.querySelector('.sc-go'); return g.offsetLeft + sc.querySelector('.sc-next').offsetLeft + g.offsetWidth * 0.7; }, y: () => { const g = sc.querySelector('.sc-go'); return g.offsetTop + sc.querySelector('.sc-next').offsetTop + g.offsetHeight * 0.6; }, duration: 1.4, ease: 'power2.inOut' }, t + 3.2);
     }
   });
   tl.to({}, { duration: 1.5 }); // a beat on the last chapter before the page moves on
+
+  // phones: shrink and centre each scene so it always fits inside the canvas (larger system fonts included)
+  const fit = () => {
+    const small = innerWidth < 1024, W = board.clientWidth, H = board.clientHeight, pad = 12;
+    scs.forEach((sc) => {
+      if (!small) { sc.style.scale = ''; sc.style.translate = ''; return; }
+      let l = Infinity, t = Infinity, r = -Infinity, b = -Infinity;
+      [...sc.children].forEach((c) => { l = Math.min(l, c.offsetLeft); t = Math.min(t, c.offsetTop); r = Math.max(r, c.offsetLeft + c.offsetWidth); b = Math.max(b, c.offsetTop + c.offsetHeight); });
+      const k = Math.min(1, (W - pad * 2) / (r - l), (H - pad * 2) / (b - t));
+      sc.style.scale = k.toFixed(3);
+      sc.style.translate = `${(-k * ((l + r) / 2 - W / 2)).toFixed(1)}px ${(-k * ((t + b) / 2 - H / 2)).toFixed(1)}px`;
+    });
+  };
+  fit(); addEventListener('resize', fit); addEventListener('load', fit); document.fonts && document.fonts.ready.then(fit);
 
   const total = tl.duration();
   let lastOn = -1;
