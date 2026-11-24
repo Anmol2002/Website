@@ -148,7 +148,7 @@
   }, true);
 })();
 
-/* Sweet chime on every button and link press (made with Web Audio, no file to load). */
+/* Bold tick on every button and link press (made with Web Audio, no file to load). */
 (() => {
   const AC = window.AudioContext || window.webkitAudioContext;
   if (!AC) return;
@@ -160,21 +160,22 @@
     try {
       ctx = ctx || new AC();
       if (ctx.state === 'suspended') ctx.resume();
-      // a sweet two-note chime (E6 then B6), soft bell tone with a gentle fade
+      // a bold "tick": a crisp click on top of a short, punchy low knock
       const t = ctx.currentTime;
-      const out = ctx.createGain(); out.gain.value = 0.9; out.connect(ctx.destination);
-      const bell = (f, at, vol) => {
-        [[1, vol], [2, vol * 0.18]].forEach(([m, v]) => {
-          const o = ctx.createOscillator(), g = ctx.createGain();
-          o.type = 'sine'; o.frequency.value = f * m;
-          g.gain.setValueAtTime(0.0001, t + at);
-          g.gain.exponentialRampToValueAtTime(v, t + at + 0.008);
-          g.gain.exponentialRampToValueAtTime(0.0001, t + at + 0.42);
-          o.connect(g).connect(out); o.start(t + at); o.stop(t + at + 0.45);
-        });
-      };
-      bell(1318.5, 0, 0.06);
-      bell(1975.5, 0.06, 0.045);
+      const n = Math.floor(ctx.sampleRate * 0.03), buf = ctx.createBuffer(1, n, ctx.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 6);
+      const src = ctx.createBufferSource(); src.buffer = buf;
+      const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 3200; bp.Q.value = 1.4;
+      const gc = ctx.createGain(); gc.gain.value = 0.55;
+      src.connect(bp).connect(gc).connect(ctx.destination); src.start(t);
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(420, t);
+      o.frequency.exponentialRampToValueAtTime(140, t + 0.05);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.32, t + 0.003);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.07);
+      o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + 0.08);
     } catch (_) {}
   };
   document.addEventListener('pointerdown', (e) => {
