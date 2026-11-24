@@ -58,103 +58,94 @@
   });
 })();
 
-/* Journey: a Figma-like canvas. Desktop pins the section and scrolls the canvas sideways; on phones the steps stack.
-   Either way a "Manpreet" cursor follows the path, the path fills in orange, and each step gets selected as she reaches it. */
+/* Journey · story mode. The section pins and one scroll-scrubbed timeline plays 8 chapters:
+   the chapter text changes on the left while "Manpreet" works on a Figma-like canvas on the right,
+   a red comment raises the roadblock and a green one answers it with what she learned. */
 (() => {
-  const root = document.querySelector('.abx-jr2');
+  const root = document.querySelector('.abx-js');
   if (!root) return;
-  const stage = root.querySelector('.abx-jr2__stage');
-  const track = root.querySelector('.abx-jr2__track');
-  const svg = root.querySelector('.abx-jr2__path');
-  const bg = root.querySelector('.abx-jr2__bg');
-  const fg = root.querySelector('.abx-jr2__fg');
-  const cur = root.querySelector('.abx-jr2__cur');
-  const cards = [...root.querySelectorAll('.abx-jr2__card')];
+  const chs = [...root.querySelectorAll('.abx-js__ch')];
+  const scs = [...root.querySelectorAll('.abx-js__sc')];
+  const rail = [...root.querySelectorAll('.abx-js__rail li')];
+  const board = root.querySelector('.abx-js__board');
+  const cur = root.querySelector('.abx-js__cur');
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) { root.classList.add('is-static'); return; }
 
-  let L = 0, stops = [], last = -1;
-  const rem = () => parseFloat(getComputedStyle(document.documentElement).fontSize);
+  // split chapter titles into words for the reveal
+  chs.forEach((c) => { const h = c.querySelector('h3'); h.innerHTML = h.textContent.split(' ').map((w) => `<span class="w"><span>${w}</span></span>`).join(' '); });
 
-  // place the cards (desktop zigzag) and build the path through them
-  function layout(desktop) {
-    const r = rem();
-    const H = stage.clientHeight;
-    let pts = [];
-    if (desktop) {
-      const cw = 42 * r, gap = 12 * r, x0 = 14 * r;
-      cards.forEach((c, i) => {
-        const h = c.offsetHeight;
-        const mid = (H - h) / 2, off = Math.min(H * 0.1, Math.max(0, mid - 3 * r));
-        c.style.left = x0 + i * (cw + gap) + 'px';
-        c.style.top = Math.max(3 * r, mid + (i % 2 ? off : -off)) + 'px';
-      });
-      track.style.width = x0 * 2 + cards.length * (cw + gap) + 'px';
-      // the line enters each card at the middle of its left side and leaves from the middle of its right side
-      pts = [];
-      cards.forEach((c) => { const y = c.offsetTop + c.offsetHeight / 2; pts.push([c.offsetLeft, y], [c.offsetLeft + c.offsetWidth, y]); });
-      pts.unshift([2 * r, pts[0][1]]);
+  const N = chs.length, SEG = 10;
+  const pct = (el, k) => () => (k === 'x' ? board.clientWidth : board.clientHeight) * parseFloat(el.dataset[k === 'x' ? 'cx' : 'cy']) / 100;
+  const pinXY = (cm, k) => () => (k === 'x' ? cm.offsetLeft + 6 : cm.offsetTop + cm.offsetHeight + 4); // just under the comment, so the name tag never covers its text
+
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 1 } });
+  // fromTo with explicit end states: plain .from() tweens get stuck after ScrollTrigger re-measures (invalidateOnRefresh)
+  const NEUTRAL = { autoAlpha: 1, opacity: 1, x: 0, y: 0, yPercent: 0, rotate: 0, scale: 1, scaleX: 1 };
+  const F = (targets, vars, at) => {
+    const to = {}; Object.keys(vars).forEach((k) => { if (k in NEUTRAL) to[k] = NEUTRAL[k]; else if (k !== 'transformOrigin') to[k] = vars[k]; });
+    ['stagger', 'ease', 'duration'].forEach((k) => { if (k in vars) { to[k] = vars[k]; delete vars[k]; } });
+    return tl.fromTo(targets, vars, to, at);
+  };
+  gsap.set(chs.slice(1), { autoAlpha: 0 }); gsap.set(scs.slice(1), { autoAlpha: 0 });
+  gsap.set(cur, { x: () => board.clientWidth * 0.5, y: () => board.clientHeight * 0.5 });
+
+  chs.forEach((ch, i) => {
+    const t = i * SEG, sc = scs[i], q = (sel) => sc.querySelectorAll(sel);
+    const words = ch.querySelectorAll('h3 .w > span');
+    if (i > 0) {
+      tl.to(chs[i - 1], { autoAlpha: 0, y: -40, duration: 0.8, ease: 'power2.in' }, t - 0.4)
+        .to(scs[i - 1], { autoAlpha: 0, scale: 0.96, duration: 0.8, ease: 'power2.in' }, t - 0.4);
+    }
+    if (i === 0) gsap.set([ch, sc], { autoAlpha: 1 }); // chapter 1 is already there when the section arrives
+    else {
+      tl.fromTo(ch, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 1 }, t + 0.4);
+      F(words, { yPercent: 110, stagger: 0.08, duration: 0.9 }, t + 0.5);
+      tl.fromTo(sc, { autoAlpha: 0, scale: 0.96 }, { autoAlpha: 1, scale: 1, duration: 1 }, t + 0.4);
+    }
+
+    // what happens on the canvas in this chapter
+    const A = t + 1.4;
+    ({
+      0: () => { F(q('.sc-aa'), { scale: 0.3, autoAlpha: 0, transformOrigin: 'left top' }, A); F(q('.sc-sw i'), { scale: 0, stagger: 0.15 }, A + 0.6); F(q('.sc-line'), { scaleX: 0, transformOrigin: 'left', stagger: 0.2 }, A + 1.2); },
+      1: () => { F(q('.sc-wire i'), { autoAlpha: 0, y: 20, stagger: 0.15 }, A); F(q('.sc-sticky'), { scale: 0.4, rotate: 20, autoAlpha: 0, ease: 'back.out(2)' }, A + 1.2); },
+      2: () => { F(q('.sc-prof'), { y: 40, autoAlpha: 0 }, A); F(q('.sc-tag'), { scale: 0, stagger: 0.15, ease: 'back.out(2)' }, A + 0.8); tl.to(q('.r0'), { autoAlpha: 0, duration: 0.5 }, t + 6.8); tl.to(q('.r1'), { autoAlpha: 1, duration: 0.6 }, t + 7); },
+      3: () => { F(q('.ck'), { y: 30, autoAlpha: 0, stagger: 0.15 }, A); F(q('.sc-file'), { x: -30, autoAlpha: 0 }, A + 0.9); },
+      4: () => { F(q('.sc-stamp'), { scale: 2.2, rotate: -25, autoAlpha: 0, ease: 'back.out(1.6)' }, A); F(q('.sc-kpi'), { y: 30, autoAlpha: 0, stagger: 0.15 }, A + 0.8); },
+      5: () => { F(q('.bub--u'), { x: 40, autoAlpha: 0 }, A); F(q('.bub--ai'), { x: -40, autoAlpha: 0 }, A + 0.8); tl.to(q('.dots'), { autoAlpha: 0, duration: 0.3 }, A + 2.2); tl.to(q('.bub--ai em'), { opacity: 1, duration: 0.5 }, A + 2.3); F(q('.sc-why'), { autoAlpha: 0, y: 10 }, t + 7); },
+      6: () => { F(q('.sc-lvl'), { y: 30, autoAlpha: 0 }, A); tl.to(q('.bar i'), { scaleX: 1, duration: 4, ease: 'none' }, A + 0.6); F(q('.sc-chips em'), { scale: 0, stagger: 0.15, ease: 'back.out(2)' }, A + 2); },
+      7: () => { F(q('.sc-next'), { scale: 0.9, autoAlpha: 0 }, A); F(q('.sc-go'), { y: 20, autoAlpha: 0 }, A + 0.7); },
+    })[i]();
+
+    // the cursor works on the scene, then on the comments
+    const target = sc.querySelector('[data-cx]');
+    tl.to(cur, { x: pct(target, 'x'), y: pct(target, 'y'), duration: 1.8, ease: 'power2.inOut' }, t + 1);
+    const rb = sc.querySelector('.cm--rb'), ln = sc.querySelector('.cm--ln');
+    if (rb) {
+      tl.fromTo(rb, { autoAlpha: 0, scale: 0.6, transformOrigin: 'left top' }, { autoAlpha: 1, scale: 1, ease: 'back.out(1.8)', duration: 0.8 }, t + 3.6)
+        .to(cur, { x: pinXY(rb, 'x'), y: pinXY(rb, 'y'), duration: 1.2, ease: 'power2.inOut' }, t + 4.6)
+        .to(rb, { autoAlpha: () => (innerWidth < 1024 ? 0 : 1), duration: 0.4 }, t + 6.2) // phones: the answered roadblock steps aside
+        .to(rb.querySelector('.cm__b'), { opacity: 0.45, duration: 0.4 }, t + 6.2)
+        .fromTo(ln, { autoAlpha: 0, scale: 0.6, transformOrigin: 'left bottom' }, { autoAlpha: 1, scale: 1, ease: 'back.out(1.8)', duration: 0.8 }, t + 6.2)
+        .to(cur, { x: pinXY(ln, 'x'), y: pinXY(ln, 'y'), duration: 1.2, ease: 'power2.inOut' }, t + 7);
     } else {
-      cards.forEach((c) => { c.style.left = ''; c.style.top = ''; });
-      track.style.width = '';
-      const x = 4.5 * r;
-      pts = cards.map((c) => [x, c.offsetTop + c.offsetHeight / 2]); // level with the middle of each card
-      pts.unshift([x, 1.5 * r]);
+      tl.to(cur, { x: () => { const g = sc.querySelector('.sc-go'); return g.offsetLeft + sc.querySelector('.sc-next').offsetLeft + g.offsetWidth * 0.7; }, y: () => { const g = sc.querySelector('.sc-go'); return g.offsetTop + sc.querySelector('.sc-next').offsetTop + g.offsetHeight * 0.6; }, duration: 1.4, ease: 'power2.inOut' }, t + 3.2);
     }
-    svg.setAttribute('width', track.offsetWidth); svg.setAttribute('height', track.offsetHeight);
-    // smooth curve through the points
-    let d = `M${pts[0][0]} ${pts[0][1]}`;
-    const segs = [];
-    for (let i = 1; i < pts.length; i++) {
-      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
-      const seg = desktop && y0 !== y1 ? ` C${x0 + (x1 - x0) * 0.5} ${y0} ${x0 + (x1 - x0) * 0.5} ${y1} ${x1} ${y1}` : ` L${x1} ${y1}`;
-      d += seg; segs.push(d);
-    }
-    bg.setAttribute('d', d); fg.setAttribute('d', d);
-    L = fg.getTotalLength();
-    // where along the path each card sits
-    const tmp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    svg.appendChild(tmp);
-    const lens = segs.map((sd) => { tmp.setAttribute('d', sd); return tmp.getTotalLength() / L; });
-    stops = desktop ? cards.map((_, i) => lens[2 * i]) : lens;
-    tmp.remove();
-    fg.style.strokeDasharray = L; fg.style.strokeDashoffset = L;
-  }
-
-  let follow = null; // desktop: keep the cursor in view by sliding the canvas
-  function at(p) {
-    p = Math.max(0, Math.min(1, p));
-    const pt = fg.getPointAtLength(p * L);
-    if (follow) follow(pt.x);
-    gsap.set(cur, { x: pt.x - 4, y: pt.y - 4 });
-    fg.style.strokeDashoffset = L * (1 - p);
-    let on = -1;
-    stops.forEach((s, i) => { if (p >= s - 0.015) on = i; });
-    if (on !== last) { cards.forEach((c, i) => c.classList.toggle('is-on', i === on)); last = on; }
-  }
-
-  const mm = gsap.matchMedia();
-  mm.add('(min-width: 1024px)', () => {
-    layout(true);
-    const dist = () => Math.max(0, track.offsetWidth - stage.clientWidth);
-    const st = ScrollTrigger.create({
-      trigger: root, start: () => 'top top+=' + Math.max(0, (innerHeight - root.offsetHeight) / 2), end: () => '+=' + (dist() + innerHeight * 0.6),
-      pin: true, pinSpacing: true, scrub: 0.8, invalidateOnRefresh: true,
-      onRefresh: () => layout(true),
-      onUpdate: (self) => at(self.progress),
-    });
-    follow = (x) => gsap.set(track, { x: Math.max(-dist(), Math.min(0, stage.clientWidth * 0.5 - x)) });
-    at(0);
-    return () => { st.kill(); follow = null; gsap.set(track, { x: 0 }); };
   });
-  mm.add('(max-width: 1023px)', () => {
-    layout(false);
-    const st = ScrollTrigger.create({
-      trigger: stage, start: 'top 60%', end: 'bottom 60%', scrub: 0.6, invalidateOnRefresh: true,
-      onRefresh: () => layout(false),
-      onUpdate: (self) => at(self.progress),
-    });
-    at(0);
-    return () => st.kill();
+  tl.to({}, { duration: 1.5 }); // a beat on the last chapter before the page moves on
+
+  const total = tl.duration();
+  let lastOn = -1;
+  ScrollTrigger.create({
+    trigger: root, start: 'top top', end: () => '+=' + innerHeight * N * 0.85,
+    pin: true, scrub: 0.7, animation: tl, invalidateOnRefresh: true,
+    onUpdate: (self) => {
+      const t = self.progress * total, on = Math.min(N - 1, Math.max(0, Math.floor((t + 0.4) / SEG)));
+      root.style.setProperty('--p', Math.min(1, self.progress * total / (N * SEG - SEG + 8)));
+      if (on !== lastOn) { rail.forEach((li, k) => { li.classList.toggle('is-on', k === on); li.classList.toggle('is-done', k < on); }); lastOn = on; }
+    },
   });
+  // chapter 1 is on screen as soon as the section arrives
+  tl.progress(0.0001).progress(0);
+  rail.forEach((li, k) => li.classList.toggle('is-on', k === 0));
   addEventListener('load', () => ScrollTrigger.refresh());
 })();
