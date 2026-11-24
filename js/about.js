@@ -47,6 +47,6 @@
 /* Location: the map zooms from the world in on Mohali as the section scrolls into view. */
 (() => {
   const z = document.querySelector('.abx-loc__zoom');
-  if (!z || typeof gsap === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) { if (z) z.style.transform = 'scale(5)'; return; }
-  gsap.fromTo(z, { scale: 1 }, { scale: 5, ease: 'none', scrollTrigger: { trigger: '.abx-loc__map', start: 'top 85%', end: 'center 45%', scrub: 0.6 } });
+  if (!z || typeof gsap === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) { if (z) z.style.transform = 'scale(1)'; return; }
+  gsap.fromTo(z, { scale: 0.25 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.abx-loc__map', start: 'top 85%', end: 'center 45%', scrub: 0.6 } });
 })();
