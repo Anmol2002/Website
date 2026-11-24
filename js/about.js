@@ -44,9 +44,16 @@
   } catch (_) {}
 })();
 
-/* Location: the map zooms from the world in on Mohali as the section scrolls into view. */
+/* Location: the map zooms from the world to India (full map, centred) when it comes into view; the pin then marks Mohali. */
 (() => {
-  const z = document.querySelector('.abx-loc__zoom');
-  if (!z || typeof gsap === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) { if (z) z.style.transform = 'scale(1)'; return; }
-  gsap.fromTo(z, { scale: 0.25 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.abx-loc__map', start: 'top 85%', end: 'center 45%', scrub: 0.6 } });
+  const map = document.querySelector('.abx-loc__map');
+  const svg = map && map.querySelector('.abx-loc__svg');
+  if (!svg) return;
+  const india = svg.dataset.vbIndia;
+  const done = () => map.classList.add('is-zoomed');
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) { svg.setAttribute('viewBox', india); done(); return; }
+  ScrollTrigger.create({
+    trigger: map, start: 'top 70%', once: true,
+    onEnter: () => gsap.to(svg, { attr: { viewBox: india }, duration: 2.2, ease: 'power3.inOut', delay: 0.2, onComplete: done }),
+  });
 })();

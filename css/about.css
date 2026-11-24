@@ -109,24 +109,23 @@ a.abx-by__c:hover{translate:0 -.4rem}
 .abx-loc__lang b{font-family:"Anton";font-weight:400;font-size:3.4rem;line-height:1.1;text-transform:uppercase}
 .abx-loc__lang span{font-size:max(1.5rem,12px);color:var(--mute);font-weight:500;text-align:right}
 .abx-loc__map{position:relative;border-radius:1.6rem;overflow:hidden;background:#141210;min-height:60rem;isolation:isolate}
-.abx-loc__zoom{position:absolute;width:400%;height:400%;left:-213.93%;top:-152.4%;transform-origin:71.31% 50.8%;transform:scale(.25);will-change:transform} /* drawn at full zoom size and scaled down, so the zoomed-in map stays sharp */
-.abx-loc__zoom img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:71.31% 50.8%}
-.abx-loc__pin{position:absolute;left:71.31%;top:50.8%;width:0;height:0;z-index:2}
-.abx-loc__pin i,.abx-loc__pin::before,.abx-loc__pin::after{content:"";position:absolute;left:0;top:0;border-radius:50%;transform:translate(-50%,-50%)}
-.abx-loc__pin i{width:1.8rem;height:1.8rem;min-width:12px;min-height:12px;background:#fff;border:.4rem solid var(--ink);box-shadow:0 0 0 .3rem #fff}
-.abx-loc__pin::before,.abx-loc__pin::after{width:9rem;height:9rem;min-width:60px;min-height:60px;border:.2rem solid #fff;animation:abxpulse 2.4s ease-out infinite}
-.abx-loc__pin::after{animation-delay:1.2s}
-@keyframes abxpulse{0%{transform:translate(-50%,-50%) scale(.15);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+.abx-loc__svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.abx-loc__mk{opacity:0;transition:opacity .6s}
+.abx-loc__map.is-zoomed .abx-loc__mk{opacity:1}
+.abx-loc__ring{transform-box:fill-box;transform-origin:center;animation:abxring 2.4s ease-out infinite}
+.abx-loc__ring--2{animation-delay:1.2s}
+@keyframes abxring{0%{transform:scale(.3);opacity:1}100%{transform:scale(2.6);opacity:0}}
 .abx-loc__tag{position:absolute;left:3rem;bottom:3rem;z-index:2;background:#fff;color:var(--ink);border-radius:1.2rem;padding:1.4rem 1.8rem;font-size:max(1.7rem,13px)}
 .abx-loc__tag small{color:var(--mute);letter-spacing:0;text-transform:none;font-weight:500;margin-top:.4rem}
-@media (prefers-reduced-motion:reduce){.abx-loc__pin::before,.abx-loc__pin::after{animation:none;opacity:.5}}
+@media (prefers-reduced-motion:reduce){.abx-loc__ring{animation:none;opacity:.6}}
 @media (max-width:1023px){
   .abx-loc{grid-template-columns:1fr;gap:3rem}
   .abx-loc .h2{font-size:max(9rem,44px);margin-bottom:3rem}
   .abx-loc__t{font-size:max(10rem,64px)}
   .abx-loc__t em{font-size:max(3.6rem,22px)}
   .abx-loc__lang b{font-size:max(3.6rem,22px)}
-  .abx-loc__map{min-height:0;aspect-ratio:4/3}
+  .abx-loc__map{min-height:0;aspect-ratio:1/1.05}
+  .abx-loc__tag{left:auto;right:2rem;bottom:2rem;padding:1.2rem 1.6rem}
 }
 /* dark tools band without the project slider above it */
 .abd{padding-top:12rem}
