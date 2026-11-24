@@ -524,3 +524,11 @@ html body .pack__btn{display:flex;align-items:center;justify-content:center;gap:
 @media (max-width:1023px){
   html body .reviews .reviews__head .badge{height:auto;min-height:4.4rem;padding:1rem 2rem;line-height:1.35;max-width:100%;width:fit-content;white-space:normal}
 }
+/* phones: CTA box breathing room */
+@media (max-width:767px){
+  html body .abcta{padding-top:max(8rem,40px);padding-bottom:max(8rem,40px)}
+  html body .abcta__box{padding:max(6rem,34px) max(4.4rem,22px) max(4.4rem,24px);gap:max(4rem,22px)}
+  html body .abcta__h{line-height:1.06}
+  html body .abcta__btns{gap:max(1.6rem,10px)}
+}
+@media (max-width:767px){ html body .footer__row{padding-left:0} html body .footer__soc{column-gap:max(2rem,14px);row-gap:max(1rem,8px)} }

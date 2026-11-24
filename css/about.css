@@ -258,3 +258,14 @@ a.abx-by__c:hover{translate:0 -.4rem}
 /* dark tools band without the project slider above it */
 .abd{padding-top:12rem}
 .abd__in{border-top:0;padding-top:0}
+/* phones: even gaps between stacked cards; story mode content sits together in the middle */
+@media (max-width:767px){
+  .abx-how,.abx-by{gap:max(1.6rem,12px)}
+  .abx-good__r{padding:max(3.6rem,22px) 0}
+  .abx-loc__lang{margin-top:max(2rem,12px)}
+  .abx-loc__map{margin-top:max(1rem,8px)}
+}
+@media (max-width:1023px){
+  .abx-js__in{grid-template-rows:auto auto;align-content:center;row-gap:max(3rem,20px);padding-top:max(9rem,64px)}
+  .abx-js__txt{height:auto}
+}
