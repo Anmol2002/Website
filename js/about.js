@@ -111,8 +111,8 @@
       2: () => { F(q('.sc-prof'), { y: 40, autoAlpha: 0 }, A); F(q('.sc-tag'), { scale: 0, stagger: 0.15, ease: 'back.out(2)' }, A + 0.8); tl.to(q('.r0'), { autoAlpha: 0, duration: 0.5 }, t + 6.8); tl.to(q('.r1'), { autoAlpha: 1, duration: 0.6 }, t + 7); },
       3: () => { F(q('.ck'), { y: 30, autoAlpha: 0, stagger: 0.15 }, A); F(q('.sc-file'), { x: -30, autoAlpha: 0 }, A + 0.9); },
       4: () => { F(q('.sc-stamp'), { scale: 2.2, rotate: -25, autoAlpha: 0, ease: 'back.out(1.6)' }, A); F(q('.sc-kpi'), { y: 30, autoAlpha: 0, stagger: 0.15 }, A + 0.8); },
-      5: () => { F(q('.bub--u'), { x: 40, autoAlpha: 0 }, A); F(q('.bub--ai'), { x: -40, autoAlpha: 0 }, A + 0.8); tl.to(q('.dots'), { autoAlpha: 0, duration: 0.3 }, A + 2.2); tl.to(q('.bub--ai em'), { opacity: 1, duration: 0.5 }, A + 2.3); F(q('.sc-why'), { autoAlpha: 0, y: 10 }, t + 7); },
-      6: () => { F(q('.sc-lvl'), { y: 30, autoAlpha: 0 }, A); tl.to(q('.bar i'), { scaleX: 1, duration: 4, ease: 'none' }, A + 0.6); F(q('.sc-chips em'), { scale: 0, stagger: 0.15, ease: 'back.out(2)' }, A + 2); },
+      5: () => { F(q('.bub--u'), { x: 40, autoAlpha: 0 }, A); F(q('.bub--ai'), { x: -40, autoAlpha: 0 }, A + 0.8); tl.to(q('.dots'), { autoAlpha: 0, duration: 0.3 }, A + 2.2); tl.to(q('.bub--ai em'), { opacity: 1, duration: 0.5 }, A + 2.3); F(q('.sc-sum'), { autoAlpha: 0, y: 20 }, A + 3); F(q('.sc-sum .r i'), { scaleX: 0, stagger: 0.2, duration: 1.2 }, A + 3.4); F(q('.sc-why'), { autoAlpha: 0, y: 10 }, t + 7); },
+      6: () => { F(q('.sc-lvl'), { y: 30, autoAlpha: 0 }, A); tl.to(q('.bar i'), { scaleX: 1, duration: 4, ease: 'none' }, A + 0.6); F(q('.sc-chips em'), { scale: 0, stagger: 0.15, ease: 'back.out(2)' }, A + 2); F(q('.sc-tiles span'), { autoAlpha: 0, y: 24, stagger: 0.25 }, A + 3.2); },
       7: () => { F(q('.sc-next'), { scale: 0.9, autoAlpha: 0 }, A); F(q('.sc-go'), { y: 20, autoAlpha: 0 }, A + 0.7); },
     })[i]();
 
