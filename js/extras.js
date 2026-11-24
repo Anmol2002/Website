@@ -147,3 +147,36 @@
     say('Opening Gmail · ' + decodeURIComponent(to) + ' copied');
   }, true);
 })();
+
+/* Soft click sound on every button and link press (made with Web Audio, no file to load). */
+(() => {
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  let ctx = null, last = 0;
+  const play = () => {
+    const now = performance.now();
+    if (now - last < 60) return; // one sound per press
+    last = now;
+    try {
+      ctx = ctx || new AC();
+      if (ctx.state === 'suspended') ctx.resume();
+      const t = ctx.currentTime;
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(1500, t);
+      o.frequency.exponentialRampToValueAtTime(650, t + 0.045);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.12, t + 0.004);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.07);
+      o.connect(g).connect(ctx.destination);
+      o.start(t); o.stop(t + 0.08);
+    } catch (_) {}
+  };
+  document.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    if (e.target.closest('a[href], button, [role="button"], [role="tab"], summary, label[for], input[type="submit"], input[type="button"], input[type="checkbox"], input[type="radio"]')) play();
+  }, { capture: true, passive: true });
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest && e.target.closest('a[href], button, [role="button"], [role="tab"], summary')) play();
+  }, true);
+})();
