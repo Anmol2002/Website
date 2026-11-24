@@ -5,7 +5,7 @@
   if (!cards.length) return;
   const c = document.createElement('div');
   c.className = 'ccur'; c.setAttribute('aria-hidden', 'true');
-  c.innerHTML = '<span>Click me</span>';
+  c.innerHTML = '<span>Explore</span>';
   document.body.appendChild(c);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const gs = typeof gsap !== 'undefined' && !reduce;
