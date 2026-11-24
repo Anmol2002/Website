@@ -177,7 +177,7 @@
   /* ---------- state ---------- */
   let P, key, i = 0, meter = 20, streak, right, answers, hints, playing = false, pendingHref = null;
   const N = 8;
-  let bests = {}; try { bests = JSON.parse(localStorage.getItem('qz-best2') || '{}'); } catch (_) {}
+  let bests = {}; try { bests = JSON.parse(localStorage.getItem('qz-best3') || '{}'); } catch (_) {}
 
   const roles = $('[data-roles]');
   roles.innerHTML = Object.entries(PATHS).map(([k, p]) => `<button type="button" class="qz__role" data-role="${k}"><span class="qz__ricon">${p.icon}</span><b>${p.label}</b><small>${p.sub}</small>${bests[k] ? `<em>Best ${bests[k]}%</em>` : ''}<span class="qz__rgo">${ARW}</span></button>`).join('');
@@ -194,7 +194,7 @@
 
   function start(k) {
     key = k; P = PATHS[k]; i = 0; streak = 0; right = 0; answers = []; hints = 1; playing = true;
-    mLbl.textContent = P.meter; setMeter(20);
+    mLbl.textContent = P.meter; setMeter(0);
     streakEl.querySelector('b').textContent = '0'; streakEl.classList.remove('is-hot');
     hintBtn.disabled = true; hintBtn.querySelector('small').textContent = '1 left';
     prog.innerHTML = P.q.map(() => '<i></i>').join('');
@@ -203,7 +203,7 @@
   }
 
   function intro() {
-    card.innerHTML = `<div class="qz__story"><span class="qz__ricon big">${P.icon}</span><p class="qz__meta"><span>Playing as</span><em>${P.label}</em></p><h2 class="qz__q">${P.story}</h2><p class="qz__rules">Each good decision raises your <b>${P.meter}</b> meter. Streaks add a bonus. You get one hint. Finish all 8 to unlock your <b>UX report card</b>.</p><button type="button" class="qz__next">Let’s go ${ARW}</button></div>`;
+    card.innerHTML = `<div class="qz__story"><span class="qz__ricon big">${P.icon}</span><p class="qz__meta"><span>Playing as</span><em>${P.label}</em></p><h2 class="qz__q">${P.story}</h2><p class="qz__rules">Each good decision fills your <b>${P.meter}</b> meter. Get them in a row for a 🔥 streak. You get one hint. Finish all 8 to unlock your <b>UX report card</b>.</p><button type="button" class="qz__next">Let’s go ${ARW}</button></div>`;
     anim(); card.querySelector('.qz__next').addEventListener('click', render);
     updLock();
   }
@@ -240,9 +240,10 @@
     card.classList.add('is-done');
     const q = P.q[i], val = b.dataset.k ?? b.dataset.t, ok = String(val) === String(q.ok);
     answers.push(ok);
-    let d;
-    if (ok) { streak++; right++; d = 10 + (streak >= 2 ? Math.min(streak, 4) : 0); } else { streak = 0; d = -5; }
-    setMeter(meter + d, d);
+    // the meter is simply the share of good decisions so far: 7 of 8 right = 88%, never 100% with a mistake
+    if (ok) { streak++; right++; } else streak = 0;
+    const before = meter, now = Math.round((right / N) * 100), d = now - before;
+    setMeter(now, ok ? d : 0);
     streakEl.querySelector('b').textContent = streak; streakEl.classList.toggle('is-hot', streak >= 2);
     b.classList.add(ok ? 'is-ok' : 'is-no');
     const good = card.querySelector(`[data-k="${q.ok}"], [data-t="${q.ok}"]`); if (good && !ok) good.classList.add('is-ok');
@@ -252,7 +253,7 @@
     const left = N - i - 1;
     const nudge = left === 0 ? 'Your report card is ready' : left <= 2 ? `Only ${left} to go — your report is almost unlocked` : '';
     const fb = card.querySelector('[data-fb]');
-    fb.innerHTML = `<p class="qz__verdict ${ok ? 'ok' : 'no'}">${ok ? `✓ ${yes}` : '✕ Costly choice'} <small>${d > 0 ? '+' : ''}${d}% ${P.meter.toLowerCase()}${streak >= 2 ? ` · 🔥 ${streak} in a row` : ''}</small></p><p class="qz__note"><b>Why</b>${q.note}</p><div class="qz__fbend">${nudge ? `<span class="qz__nudge">${nudge}</span>` : ''}<button type="button" class="qz__next">${left === 0 ? 'Unlock my report card 🔓' : `Next decision ${ARW}`}</button></div>`;
+    fb.innerHTML = `<p class="qz__verdict ${ok ? 'ok' : 'no'}">${ok ? `✓ ${yes}` : '✕ Costly choice'} <small>${ok ? `+${d}% ${P.meter.toLowerCase()}` : `no ${P.meter.toLowerCase()} gained`}${streak >= 2 ? ` · 🔥 ${streak} in a row` : ''}</small></p><p class="qz__note"><b>Why</b>${q.note}</p><div class="qz__fbend">${nudge ? `<span class="qz__nudge">${nudge}</span>` : ''}<button type="button" class="qz__next">${left === 0 ? 'Unlock my report card 🔓' : `Next decision ${ARW}`}</button></div>`;
     fb.hidden = false; refresh();
     fb.querySelector('.qz__next').addEventListener('click', next);
     fb.querySelector('.qz__next').focus({ preventScroll: true });
@@ -266,7 +267,7 @@
     const tier = right >= 8 ? 3 : right >= 6 ? 2 : right >= 4 ? 1 : 0;
     const rank = P.ranks[tier];
     const isBest = !bests[key] || meter > bests[key];
-    if (isBest) { bests[key] = meter; try { localStorage.setItem('qz-best2', JSON.stringify(bests)); } catch (_) {} }
+    if (isBest) { bests[key] = meter; try { localStorage.setItem('qz-best3', JSON.stringify(bests)); } catch (_) {} }
     const cats = P.cats.map((c) => { const qs = P.q.map((q, k) => [q, answers[k]]).filter(([q]) => q.cat === c); const ok = qs.filter(([, a]) => a).length; return [c, ok, qs.length]; });
     const fixes = P.q.filter((q, k) => !answers[k]);
     S.result.innerHTML = `
@@ -275,7 +276,7 @@
           <p class="kicker">UX REPORT CARD · ${P.label.toUpperCase()}</p>
           <div class="qz__ring" style="--p:${meter}"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle class="qz__ringfg" cx="60" cy="60" r="52"/></svg><b><span class="qz__num">${meter}<small>%</small></span></b><span>${P.meter}</span></div>
           <h2 class="qz__rank">${rank}</h2>
-          <p class="qz__pts">${right} of ${N} good decisions${isBest ? ' · <em>New best!</em>' : ''}</p>
+          <p class="qz__pts">${right} of ${N} good decisions${isBest && meter > 0 ? ' · <em>New best!</em>' : ''}</p>
         </div>
         <div class="qz__rbody">
           <h3>Your scores</h3>
