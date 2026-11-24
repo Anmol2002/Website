@@ -57,3 +57,100 @@
     onEnter: () => gsap.to(svg, { attr: { viewBox: india }, duration: 2.2, ease: 'power3.inOut', delay: 0.2, onComplete: done }),
   });
 })();
+
+/* Journey: a Figma-like canvas. Desktop pins the section and scrolls the canvas sideways; on phones the steps stack.
+   Either way a "Manpreet" cursor follows the path, the path fills in orange, and each step gets selected as she reaches it. */
+(() => {
+  const root = document.querySelector('.abx-jr2');
+  if (!root) return;
+  const stage = root.querySelector('.abx-jr2__stage');
+  const track = root.querySelector('.abx-jr2__track');
+  const svg = root.querySelector('.abx-jr2__path');
+  const bg = root.querySelector('.abx-jr2__bg');
+  const fg = root.querySelector('.abx-jr2__fg');
+  const cur = root.querySelector('.abx-jr2__cur');
+  const cards = [...root.querySelectorAll('.abx-jr2__card')];
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) { root.classList.add('is-static'); return; }
+
+  let L = 0, stops = [], last = -1;
+  const rem = () => parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+  // place the cards (desktop zigzag) and build the path through them
+  function layout(desktop) {
+    const r = rem();
+    const H = stage.clientHeight;
+    let pts = [];
+    if (desktop) {
+      const cw = 34 * r, gap = 10 * r, x0 = 14 * r;
+      cards.forEach((c, i) => {
+        const top = i % 2 ? H * 0.5 : H * 0.12;
+        c.style.left = x0 + i * (cw + gap) + 'px';
+        c.style.top = Math.min(top, H - c.offsetHeight - 3 * r) + 'px';
+      });
+      track.style.width = x0 * 2 + cards.length * (cw + gap) + 'px';
+      pts = cards.map((c) => [c.offsetLeft + c.offsetWidth * 0.8, c.offsetTop + c.offsetHeight * 0.86]); // cursor lands near each frame's corner, clear of the text
+      pts.unshift([2 * r, H * 0.5]);
+    } else {
+      cards.forEach((c) => { c.style.left = ''; c.style.top = ''; });
+      track.style.width = '';
+      const x = 4.5 * r;
+      pts = cards.map((c) => [x, c.offsetTop + Math.min(c.offsetHeight * 0.5, 6 * r)]);
+      pts.unshift([x, 1.5 * r]);
+    }
+    svg.setAttribute('width', track.offsetWidth); svg.setAttribute('height', track.offsetHeight);
+    // smooth curve through the points
+    let d = `M${pts[0][0]} ${pts[0][1]}`;
+    const segs = [];
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
+      const seg = desktop ? ` C${x0 + (x1 - x0) * 0.5} ${y0} ${x0 + (x1 - x0) * 0.5} ${y1} ${x1} ${y1}` : ` L${x1} ${y1}`;
+      d += seg; segs.push(d);
+    }
+    bg.setAttribute('d', d); fg.setAttribute('d', d);
+    L = fg.getTotalLength();
+    // where along the path each card sits
+    const tmp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    svg.appendChild(tmp);
+    stops = segs.map((sd) => { tmp.setAttribute('d', sd); return tmp.getTotalLength() / L; });
+    tmp.remove();
+    fg.style.strokeDasharray = L; fg.style.strokeDashoffset = L;
+  }
+
+  let follow = null; // desktop: keep the cursor in view by sliding the canvas
+  function at(p) {
+    p = Math.max(0, Math.min(1, p));
+    const pt = fg.getPointAtLength(p * L);
+    if (follow) follow(pt.x);
+    gsap.set(cur, { x: pt.x - 4, y: pt.y - 4 });
+    fg.style.strokeDashoffset = L * (1 - p);
+    let on = -1;
+    stops.forEach((s, i) => { if (p >= s - 0.015) on = i; });
+    if (on !== last) { cards.forEach((c, i) => c.classList.toggle('is-on', i === on)); last = on; }
+  }
+
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 1024px)', () => {
+    layout(true);
+    const dist = () => Math.max(0, track.offsetWidth - stage.clientWidth);
+    const st = ScrollTrigger.create({
+      trigger: root, start: () => 'top top+=' + Math.max(0, (innerHeight - root.offsetHeight) / 2), end: () => '+=' + (dist() + innerHeight * 0.6),
+      pin: true, pinSpacing: true, scrub: 0.8, invalidateOnRefresh: true,
+      onRefresh: () => layout(true),
+      onUpdate: (self) => at(self.progress),
+    });
+    follow = (x) => gsap.set(track, { x: Math.max(-dist(), Math.min(0, stage.clientWidth * 0.5 - x)) });
+    at(0);
+    return () => { st.kill(); follow = null; gsap.set(track, { x: 0 }); };
+  });
+  mm.add('(max-width: 1023px)', () => {
+    layout(false);
+    const st = ScrollTrigger.create({
+      trigger: stage, start: 'top 60%', end: 'bottom 60%', scrub: 0.6, invalidateOnRefresh: true,
+      onRefresh: () => layout(false),
+      onUpdate: (self) => at(self.progress),
+    });
+    at(0);
+    return () => st.kill();
+  });
+  addEventListener('load', () => ScrollTrigger.refresh());
+})();
