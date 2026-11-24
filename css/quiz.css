@@ -326,3 +326,6 @@ body.qz-playing .footer{opacity:.35;filter:grayscale(1);transition:opacity .4s}
 /* phones: phone mockups grow with their content instead of cutting it off */
 @media (max-width:1023px){ .mk--phone{aspect-ratio:auto;min-height:230px} .qz__opt--ab{justify-content:flex-start} }
 @media (max-width:1023px){ .mk--phone .mk__img{height:auto!important;aspect-ratio:calc(60 / var(--h,36));flex:none} }
+/* score sits in the exact centre of the circle (the label below the ring no longer shifts it) */
+.qz__ring b{inset:auto;top:0;left:0;right:0;aspect-ratio:1;flex-wrap:nowrap;align-items:center;justify-content:center;line-height:1;white-space:nowrap;letter-spacing:-.01em}
+.qz__ring b small{margin:0 0 0 .1em;align-self:center}
