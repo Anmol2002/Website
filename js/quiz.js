@@ -183,7 +183,8 @@
   roles.innerHTML = Object.entries(PATHS).map(([k, p]) => `<button type="button" class="qz__role" data-role="${k}"><span class="qz__ricon">${p.icon}</span><b>${p.label}</b><small>${p.sub}</small>${bests[k] ? `<em>Best ${bests[k]}%</em>` : ''}<span class="qz__rgo">${ARW}</span></button>`).join('');
   roles.querySelectorAll('[data-role]').forEach((b) => b.addEventListener('click', () => start(b.dataset.role)));
 
-  const show = (k) => { Object.values(S).forEach((s) => s.classList.remove('is-on')); S[k].classList.add('is-on'); toTop(); };
+  const refresh = () => { if (typeof ScrollTrigger !== 'undefined') requestAnimationFrame(() => ScrollTrigger.refresh()); }; // page height changes, keep the solid header in sync
+  const show = (k) => { Object.values(S).forEach((s) => s.classList.remove('is-on')); S[k].classList.add('is-on'); toTop(); refresh(); };
   const toTop = () => { const y = root.getBoundingClientRect().top + scrollY - 80; if (Math.abs(scrollY - y) > 40) (typeof lenis !== 'undefined' ? lenis.scrollTo(y, { duration: 0.6 }) : scrollTo({ top: y, behavior: 'smooth' })); };
   const setMeter = (v, delta) => {
     meter = Math.max(0, Math.min(100, v));
@@ -221,7 +222,7 @@
       if (b.tagName !== 'BUTTON') { b.tabIndex = 0; b.setAttribute('role', 'button'); b.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(b); } }); }
     });
     hintBtn.disabled = hints < 1;
-    updLock();
+    updLock(); refresh();
   }
   const anim = () => { card.classList.remove('is-in', 'is-done'); void card.offsetWidth; card.classList.add('is-in'); };
   const updLock = () => { const left = N - i; lockT.textContent = left <= 0 ? 'Unlocked!' : left === 1 ? 'Unlocks after this decision' : `Unlocks in ${left} decisions`; $('[data-lock]').classList.toggle('is-near', left <= 3); };
@@ -252,7 +253,7 @@
     const nudge = left === 0 ? 'Your report card is ready' : left <= 2 ? `Only ${left} to go — your report is almost unlocked` : '';
     const fb = card.querySelector('[data-fb]');
     fb.innerHTML = `<p class="qz__verdict ${ok ? 'ok' : 'no'}">${ok ? `✓ ${yes}` : '✕ Costly choice'} <small>${d > 0 ? '+' : ''}${d}% ${P.meter.toLowerCase()}${streak >= 2 ? ` · 🔥 ${streak} in a row` : ''}</small></p><p class="qz__note"><b>Why</b>${q.note}</p><div class="qz__fbend">${nudge ? `<span class="qz__nudge">${nudge}</span>` : ''}<button type="button" class="qz__next">${left === 0 ? 'Unlock my report card 🔓' : `Next decision ${ARW}`}</button></div>`;
-    fb.hidden = false;
+    fb.hidden = false; refresh();
     fb.querySelector('.qz__next').addEventListener('click', next);
     fb.querySelector('.qz__next').focus({ preventScroll: true });
     if (innerWidth < 1024) setTimeout(() => { const y = fb.getBoundingClientRect().bottom - innerHeight + 24; if (y > 0) (typeof lenis !== 'undefined' ? lenis.scrollTo(scrollY + y, { duration: 0.5 }) : scrollBy({ top: y, behavior: 'smooth' })); }, 80);

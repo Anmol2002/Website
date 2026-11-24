@@ -329,3 +329,53 @@ body.qz-playing .footer{opacity:.35;filter:grayscale(1);transition:opacity .4s}
 /* score sits in the exact centre of the circle (the label below the ring no longer shifts it) */
 .qz__ring b{inset:auto;top:0;left:0;right:0;aspect-ratio:1;flex-wrap:nowrap;align-items:center;justify-content:center;line-height:1;white-space:nowrap;letter-spacing:-.01em}
 .qz__ring b small{margin:0 0 0 .1em;align-self:center}
+
+/* ===== phones & tablets: px floors so nothing collapses when rem gets small ===== */
+@media (max-width:1023px){
+  .qz{padding:110px 0 70px}
+  .qz__intro .kicker{font-size:11px;line-height:1.5}
+  .qz__lead{margin-top:18px}
+  .qz__pick{margin-top:30px}
+  .qz__roles{margin-top:16px}
+  .qz__card{padding:22px 18px}
+  .qz__q{margin:12px 0 20px}
+  .qz__meta{gap:10px}
+  .qz__meta em{padding:4px 10px;white-space:nowrap}
+  .qz__ab{gap:10px}
+  .qz__opt{border-radius:14px}
+  .qz__opt--mc{padding:14px 14px;gap:12px}
+  .qz__mc{gap:10px}
+  .qz__fb{margin-top:18px;padding:20px 18px;gap:12px;border-radius:14px}
+  .qz__hintx{margin-top:14px;padding:12px 14px}
+  .qz__next{padding:13px 22px}
+  .qz__hud{gap:10px;margin-bottom:10px}
+  .qz__meter{padding:10px 16px;gap:12px}
+  .qz__score,.qz__streak,.qz__hint{padding:8px 14px}
+  .qz .qz__prog{gap:4px;margin-bottom:14px}
+  .qz__lock{padding:14px 16px;gap:12px;margin-top:14px;border-radius:14px}
+  .qz__rules{margin:-4px 0 20px}
+  .qz__story .qz__next{padding:14px 24px}
+  .qz__ricon.big{margin-bottom:14px}
+  /* report */
+  .qz__report{padding:24px 18px;gap:24px;border-radius:20px;margin-top:10px}
+  .qz__rhead{padding-bottom:22px}
+  .qz__ring{margin-top:14px}
+  .qz__rank{margin-top:14px}
+  .qz__rbody h3{margin-bottom:12px}
+  .qz__cats{gap:10px;margin-bottom:26px}
+  .qz__cats li{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto;gap:10px}
+  .qz__fixes{gap:10px}
+  .qz__fixes li{padding:14px 14px 14px 52px;border-radius:12px}
+  .qz__fixes li::before{left:14px;top:14px;width:26px;height:26px}
+  .qz__btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  .qz__btns > *{justify-content:center;padding:14px 12px;text-align:center}
+  .qz__btns .qz__share{grid-column:1 / -1}
+  .qz__cta{margin-top:28px;padding:24px 20px;gap:16px;border-radius:20px}
+  .qz__cta p{font-size:26px}
+  .qz__cta a{padding:13px 20px;white-space:normal}
+  .qz__lbtns{gap:10px}
+}
+@media (max-width:767px){ .qz__ab .qz__key{width:26px;height:26px} }
+.qz__fixes li{padding-left:max(5.6rem,52px)}
+.qz__fixes li::before{left:max(1.6rem,14px);top:max(1.6rem,14px)}
+.qz__pts em{white-space:nowrap;display:inline-block}
