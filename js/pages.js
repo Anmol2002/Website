@@ -47,6 +47,7 @@ if (heroMedia) {
 gsap.set('.reveal', { opacity: 0 });
 ScrollTrigger.batch('.reveal', {
   start: 'top 90%',
+  once: true, // reveal each element a single time; re-entering must not replay it (that made shown text jump down and rise again)
   onEnter: (els) => gsap.fromTo(els, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: EASE_OUT, stagger: 0.08, overwrite: true, clearProps: 'transform' }),
 });
 if (document.querySelector('.stats')) gsap.from('.stat', { y: 60, opacity: 0, duration: 0.8, ease: EASE_OUT, stagger: 0.1, scrollTrigger: { trigger: '.stats', start: 'top 88%' } });
