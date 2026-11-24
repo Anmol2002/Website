@@ -94,7 +94,8 @@ if (wh) {
   /* intro (0–1.9s in the Figma timeline) */
   const intro = gsap.timeline({ delay: 0.1 });
   intro.from(line, { yPercent: 100, duration: 1.3, ease: EASE_OUT })
-    .from('.wh__lbl, .wh__lead, .wh__cta, .wh__since', { y: 24, opacity: 0, duration: 0.9, ease: EASE_OUT, stagger: 0.08, clearProps: 'transform' }, 0.35)
+    .from('.wh__lbl, .wh__lead, .wh__since', { y: 24, opacity: 0, duration: 0.9, ease: EASE_OUT, stagger: 0.08, clearProps: 'transform' }, 0.35)
+    .from('.wh__cta', { opacity: 0, duration: 0.9, ease: EASE_OUT }, 0.51) // fade in place, no upward slide
     .from(cards, { y: 260, opacity: 0, duration: 1.3, ease: EASE_OUT, stagger: 0.1 }, 0.35)
     ;
 
