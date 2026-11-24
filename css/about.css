@@ -301,3 +301,9 @@ a.abx-by__c:hover{translate:0 -.4rem}
 @media (max-width:1023px){ .sc-badge{top:6%} .sc-chat{top:8%;gap:1rem} .sc-tiles{top:62%} .sc-lvl{top:8%} }
 /* plot twist / level up: labels share one column so both lines of text start at the same point */
 @media (min-width:1024px){ .tw{grid-template-columns:11.5rem 1fr} .tw b{justify-self:start} }
+/* phones: chapter dots sit right under the story instead of at the bottom of the screen */
+@media (max-width:1023px){
+  .abx-js{justify-content:center}
+  .abx-js__in{flex:none;padding-bottom:0}
+  .abx-js__rail{padding-top:max(2rem,14px);padding-bottom:max(2rem,14px);margin-top:max(2.4rem,16px)}
+}
