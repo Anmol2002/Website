@@ -22,7 +22,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener('cli
 
 /* stage unit: 1 Figma px inside the 16:9 pinned scenes */
 const su = () => document.querySelector('.work3d__stage').clientWidth / 1920;
-const IMG = (n) => `images/mkp-${n}.jpg`;
+const IMG = (n) => `images/mkp-${n}.webp`;
 
 /* =========================================================
    BUILD DYNAMIC MARKUP
@@ -36,7 +36,7 @@ WALL.forEach((n, i) => {
   const c = i % 6, r = Math.floor(i / 6);
   const t = document.createElement('div');
   t.className = 'tile';
-  t.style.backgroundImage = `url(images/${n}.jpg)`;
+  t.style.backgroundImage = `url(images/${n}.webp)`;
   t.style.left = `calc(${X0 + c * (TL + G)} * var(--su))`;
   t.style.top = `calc(${Y0 + r * (TH + G)} * var(--su))`;
   if (i === TARGET) t.style.borderRadius = '0';

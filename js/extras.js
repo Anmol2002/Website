@@ -32,6 +32,20 @@
     });
   }
 
+  /* ---------- prefetch the next page on hover / touch, so it is ready when the transition ends ---------- */
+  const pf = new Set([location.pathname]);
+  const prefetch = (ev) => {
+    const a = ev.target.closest && ev.target.closest('a[href]');
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+    let url; try { url = new URL(a.href, location.href); } catch (_) { return; }
+    if (url.origin !== location.origin || /\.(?!html?$)[a-z0-9]+$/i.test(url.pathname) || pf.has(url.pathname)) return;
+    if (navigator.connection && navigator.connection.saveData) return;
+    pf.add(url.pathname);
+    const l = document.createElement('link'); l.rel = 'prefetch'; l.href = url.pathname + url.search; document.head.appendChild(l);
+  };
+  document.addEventListener('pointerover', prefetch, { passive: true });
+  document.addEventListener('touchstart', prefetch, { passive: true });
+
   /* ---------- availability badge with live Mohali time ---------- */
   const fmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Kolkata' });
   const tick = () => document.querySelectorAll('.avail__t').forEach((b) => { b.textContent = 'Mohali ' + fmt.format(new Date()); });
