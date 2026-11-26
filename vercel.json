@@ -426,12 +426,12 @@
     },
     {
       "source": "/case-study/nailskillz",
-      "destination": "/work/nailskillz-beauty-ecommerce-website",
+      "destination": "/work",
       "permanent": true
     },
     {
       "source": "/case-study/nailskillz.html",
-      "destination": "/work/nailskillz-beauty-ecommerce-website",
+      "destination": "/work",
       "permanent": true
     },
     {
@@ -575,13 +575,18 @@
       "permanent": true
     },
     {
+      "source": "/work/nailskillz-beauty-ecommerce-website",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
       "source": "/work/nailskillz",
-      "destination": "/work/nailskillz-beauty-ecommerce-website",
+      "destination": "/work",
       "permanent": true
     },
     {
       "source": "/work/nailskillz.html",
-      "destination": "/work/nailskillz-beauty-ecommerce-website",
+      "destination": "/work",
       "permanent": true
     },
     {
