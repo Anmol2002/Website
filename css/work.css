@@ -509,3 +509,7 @@ html body .ix-next__a img{position:static;grid-column:2;grid-row:1 / span 3;alig
 .ix-sp__phones .wphone:only-child{flex-basis:min(40%,300px)}
 .ix-sp__phones .wphone:first-child:nth-last-child(2),.ix-sp__phones .wphone:first-child:nth-last-child(2) ~ .wphone{flex-basis:calc((100% - var(--g)) / 2.6)}
 @media (max-width:1023px){.ix-sp__phones .wphone:only-child{flex-basis:min(58%,260px)}}
+
+/* breadcrumb in the interactive hero (matches the blog / read-mode trail) */
+.ix .ix-crumbs{color:rgba(255,255,255,.85);font-family:Sora,sans-serif;font-size:13px;margin-bottom:22px}
+.ix .ix-crumbs a:hover{color:#fff;opacity:1}
