@@ -134,3 +134,17 @@
   .wlwork__head{flex-direction:column;align-items:flex-start}
   .wlwork__row{grid-template-columns:1fr}
 }
+
+/* services page: white-label banner (was inline styles, now responsive) */
+.srvwl{padding-top:0;padding-bottom:14rem}
+.srvwl__box{display:flex;justify-content:space-between;align-items:center;gap:4rem;padding:5rem 6rem}
+.srvwl__txt{min-width:0}
+.srvwl__txt .wlband__k{display:block}
+.srvwl__txt .wlband__h{display:block;font-size:6.4rem}
+@media (max-width:1023px){
+  .srvwl{padding-bottom:max(10rem,64px)}
+  .srvwl__box{flex-direction:column;align-items:stretch;gap:max(3.2rem,22px);padding:max(4.8rem,30px) max(4rem,24px)}
+  .srvwl__txt .wlband__k{letter-spacing:.2em;font-size:max(1.6rem,12px)}
+  .srvwl__txt .wlband__h{font-size:clamp(38px,11vw,64px);line-height:.95;margin-top:max(1.6rem,12px)}
+  .srvwl__box .wl-btn{width:100%;justify-content:center;white-space:normal}
+}
