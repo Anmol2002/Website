@@ -183,3 +183,7 @@ a:hover .bread svg{transform:translateX(.5rem)}
 .bqa__k{font-size:1.3rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or);font-weight:600;margin:0}
 .bp__body .bqa__a{margin:1rem 0 0;font-size:max(1.9rem,15px);line-height:1.6;color:var(--ink)}
 @media (max-width:1023px){.bqa{padding:3.2rem 3.4rem;border-left-width:.8rem}.bqa__k{font-size:2rem}.bp__body .bqa__a{font-size:max(2.8rem,15px)}}
+
+/* CTA box heading: keep white on the dark box (article bold rules were turning it dark) */
+html body .bcta b{color:#fff}
+@media (max-width:1023px){html body .bcta b{font-size:max(3.2rem,26px);line-height:1.1}}
