@@ -71,7 +71,7 @@
   const F = 1.5; // the plane is 1.5x the card (so its edges never show when tilted)
   const vbIndia = () => fit(IN[0], IN[1], IN[2], IN[3], 1.14);
   const vbPunjab = () => { const cx = (PB[0] + PB[2]) / 2 + 20, cy = (PB[1] + PB[3]) / 2 + 20, w = (PB[2] - PB[0]) * 1.9, h = (PB[3] - PB[1]) * 1.9; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
-  const vbMohali = () => { const w = (PB[2] - PB[0]) * 1.3, h = (PB[3] - PB[1]) * 1.05, cx = MO[0] - 26, cy = MO[1] + 2; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
+  const vbMohali = () => { const w = (PB[2] - PB[0]) * 1.42, h = (PB[3] - PB[1]) * 1.1, cx = MO[0] - 32, cy = MO[1] + 2; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
 
   let loaded = false;
   const load = () => {
@@ -86,6 +86,7 @@
     const statesG = svg.querySelector('.m-states');
     const top = svg.querySelector('.m-pb__top'), side = svg.querySelector('.m-pb__side');
     const labels = svg.querySelectorAll('.m-lbl text');
+    const pbLabel = svg.querySelector('.m-lbl__pb');
     const dot = svg.querySelector('.m-mohali');
 
     // hover: state name follows the pointer (desktop)
@@ -132,7 +133,8 @@
     tl.to(svg, { attr: { viewBox: vbPunjab }, duration: 1 }, 0)
       .to(plane, { rotationX: 46, rotationZ: -8, scale: 1.22, yPercent: 3, duration: 1 }, 0)
       .to(statesG, { opacity: 0.62, duration: 0.5 }, 0.35)
-      .to(top, { fill: '#FF5A1F', y: -3.2, duration: 0.55 }, 0.42)
+      .to([top, pbLabel], { y: -3.2, duration: 0.55 }, 0.42)
+      .to(top, { fill: '#FF5A1F', duration: 0.55 }, 0.42)
       .to(side, { fill: '#9c3510', duration: 0.55 }, 0.42)
       .to(labels, { opacity: 1, duration: 0.4, stagger: 0.04 }, 0.6)
       .to(svg, { attr: { viewBox: vbMohali }, duration: 0.8 }, 1.05)
