@@ -44,18 +44,112 @@
   } catch (_) {}
 })();
 
-/* Location: the map zooms from the world to India (full map, centred) when it comes into view; the pin then marks Mohali. */
+/* Location: scroll-driven map. It starts on all of India; as you scroll it zooms north and tilts into 3D,
+   Punjab lifts up in orange with the neighbouring state names, then it closes in and a pin drops on Mohali.
+   The SVG (real state boundaries) is fetched only when the map is close, to keep the page light. */
 (() => {
   const map = document.querySelector('.abx-loc__map');
-  const svg = map && map.querySelector('.abx-loc__svg');
-  if (!svg) return;
-  const india = svg.dataset.vbIndia;
-  const done = () => map.classList.add('is-zoomed');
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) { svg.setAttribute('viewBox', india); done(); return; }
-  ScrollTrigger.create({
-    trigger: map, start: 'top 70%', once: true,
-    onEnter: () => gsap.to(svg, { attr: { viewBox: india }, duration: 2.2, ease: 'power3.inOut', delay: 0.2, onComplete: done }),
-  });
+  if (!map) return;
+  const wrap = map.querySelector('.abx-loc__svgwrap');
+  const plane = map.querySelector('.abx-loc__plane');
+  const pin = map.querySelector('.abx-loc__pin');
+  const tag = map.querySelector('.abx-loc__tag');
+  const tip = map.querySelector('.abx-loc__tip');
+  const steps = [...map.querySelectorAll('.abx-loc__steps li')];
+  const nums = (s) => s.split(' ').map(Number);
+  const IN = nums(map.dataset.india), PB = nums(map.dataset.punjab), MO = nums(map.dataset.mohali);
+  const NAMES = { 'Jammu & Kashmir': 'Jammu & Kashmir · Ladakh', 'Arunanchal Pradesh': 'Arunachal Pradesh', 'Andaman & Nicobar Island': 'Andaman & Nicobar Islands', 'Dadara & Nagar Havelli': 'Dadra & Nagar Haveli', 'NCT of Delhi': 'Delhi' };
+
+  // a viewBox around a box (x1 y1 x2 y2) that matches the map's on-screen shape
+  const fit = (x1, y1, x2, y2, pad) => {
+    const r = map.clientWidth / Math.max(1, map.clientHeight);
+    let w = (x2 - x1) * pad * F, h = (y2 - y1) * pad * F;
+    if (w / h < r) w = h * r; else h = w / r;
+    const cx = (x1 + x2) / 2, cy = (y1 + y2) / 2;
+    return `${(cx - w / 2).toFixed(1)} ${(cy - h / 2).toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`;
+  };
+  const F = 1.5; // the plane is 1.5x the card (so its edges never show when tilted)
+  const vbIndia = () => fit(IN[0], IN[1], IN[2], IN[3], 1.14);
+  const vbPunjab = () => { const cx = (PB[0] + PB[2]) / 2 + 20, cy = (PB[1] + PB[3]) / 2 + 20, w = (PB[2] - PB[0]) * 1.9, h = (PB[3] - PB[1]) * 1.9; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
+  const vbMohali = () => { const w = (PB[2] - PB[0]) * 1.3, h = (PB[3] - PB[1]) * 1.05, cx = MO[0] - 26, cy = MO[1] + 2; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
+
+  let loaded = false;
+  const load = () => {
+    if (loaded) return; loaded = true;
+    fetch(map.dataset.src).then((r) => r.text()).then((txt) => { wrap.innerHTML = txt; build(); }).catch(() => {});
+  };
+
+  function build() {
+    const svg = wrap.querySelector('svg');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svg.setAttribute('viewBox', vbIndia());
+    const statesG = svg.querySelector('.m-states');
+    const top = svg.querySelector('.m-pb__top'), side = svg.querySelector('.m-pb__side');
+    const labels = svg.querySelectorAll('.m-lbl text');
+    const dot = svg.querySelector('.m-mohali');
+
+    // hover: state name follows the pointer (desktop)
+    if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      svg.addEventListener('pointermove', (e) => {
+        const p = e.target.closest('.m-states path, .m-pb path');
+        if (!p) { tip.classList.remove('is-on'); return; }
+        const n = p.dataset.n || 'Punjab', r = map.getBoundingClientRect();
+        tip.textContent = NAMES[n] || n;
+        tip.style.left = (e.clientX - r.left) + 'px'; tip.style.top = (e.clientY - r.top) + 'px';
+        tip.classList.add('is-on');
+      });
+      svg.addEventListener('pointerleave', () => tip.classList.remove('is-on'));
+    }
+
+    const placePin = () => {
+      const d = dot.getBoundingClientRect(), r = map.getBoundingClientRect();
+      pin.style.transform = `translate(${d.left + d.width / 2 - r.left}px, ${d.top + d.height / 2 - r.top}px)`;
+    };
+
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      svg.setAttribute('viewBox', vbPunjab()); top.style.fill = '#FF5A1F'; side.style.fill = '#9c3510';
+      map.classList.add('is-static'); steps.forEach((s, i) => s.classList.toggle('is-on', i === 2));
+      requestAnimationFrame(placePin); addEventListener('resize', () => { svg.setAttribute('viewBox', vbPunjab()); placePin(); });
+      return;
+    }
+
+    gsap.set(plane, { transformPerspective: 1400, transformOrigin: '50% 58%' });
+    gsap.from(statesG.children, { opacity: 0, duration: 0.7, ease: 'power2.out', stagger: { each: 0.025, from: 'random' } });
+
+    const setStep = (p) => {
+      const i = p < 0.36 ? 0 : p < 0.72 ? 1 : 2;
+      steps.forEach((s, k) => s.classList.toggle('is-on', k === i));
+      map.classList.toggle('is-moved', p > 0.03);
+    };
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.inOut' },
+      scrollTrigger: {
+        trigger: map, start: 'top 80%', end: 'center 42%', scrub: 0.9, invalidateOnRefresh: true,
+        onUpdate: (st) => setStep(st.progress),
+        onRefresh: placePin,
+      },
+    });
+    tl.to(svg, { attr: { viewBox: vbPunjab }, duration: 1 }, 0)
+      .to(plane, { rotationX: 46, rotationZ: -8, scale: 1.22, yPercent: 3, duration: 1 }, 0)
+      .to(statesG, { opacity: 0.62, duration: 0.5 }, 0.35)
+      .to(top, { fill: '#FF5A1F', y: -3.2, duration: 0.55 }, 0.42)
+      .to(side, { fill: '#9c3510', duration: 0.55 }, 0.42)
+      .to(labels, { opacity: 1, duration: 0.4, stagger: 0.04 }, 0.6)
+      .to(svg, { attr: { viewBox: vbMohali }, duration: 0.8 }, 1.05)
+      .to(plane, { rotationX: 52, rotationZ: -12, duration: 0.8 }, 1.05)
+      .fromTo(pin, { autoAlpha: 0, '--drop': 0 }, { autoAlpha: 1, duration: 0.25, ease: 'power1.out' }, 1.5)
+      .fromTo(pin.querySelector('.abx-loc__drop'), { y: -60, scale: 0.6 }, { y: 0, scale: 1, duration: 0.35, ease: 'back.out(2.2)' }, 1.5)
+      .fromTo(pin.querySelector('b'), { autoAlpha: 0, x: -10 }, { autoAlpha: 1, x: 0, duration: 0.25 }, 1.65)
+      .fromTo(tag, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: 'power2.out' }, 1.6);
+    tl.eventCallback('onUpdate', placePin); // follows the smoothed zoom, frame by frame
+    ScrollTrigger.refresh();
+    placePin();
+  }
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); load(); } }, { rootMargin: '900px 0px' });
+    io.observe(map);
+  } else load();
 })();
 
 /* Journey · story mode. The section pins and one scroll-scrubbed timeline plays 8 chapters:
