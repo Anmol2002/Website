@@ -71,7 +71,7 @@
   const F = 1.5; // the plane is 1.5x the card (so its edges never show when tilted)
   const vbIndia = () => fit(IN[0], IN[1], IN[2], IN[3], 1.14);
   const vbPunjab = () => { const cx = (PB[0] + PB[2]) / 2 + 20, cy = (PB[1] + PB[3]) / 2 + 20, w = (PB[2] - PB[0]) * 1.9, h = (PB[3] - PB[1]) * 1.9; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
-  const vbMohali = () => { const w = (PB[2] - PB[0]) * 1.42, h = (PB[3] - PB[1]) * 1.1, cx = MO[0] - 32, cy = MO[1] + 2; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
+  const vbMohali = () => { const w = (PB[2] - PB[0]) * 1.62, h = (PB[3] - PB[1]) * 1.22, cx = MO[0] - 44, cy = MO[1] + 4; return fit(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2, 1); };
 
   let loaded = false;
   const load = () => {
@@ -125,7 +125,7 @@
     const tl = gsap.timeline({
       defaults: { ease: 'power2.inOut' },
       scrollTrigger: {
-        trigger: map, start: 'top 80%', end: 'center 42%', scrub: 0.9, invalidateOnRefresh: true,
+        trigger: map, start: 'top 92%', end: 'bottom 96%', scrub: 0.6, invalidateOnRefresh: true,
         onUpdate: (st) => setStep(st.progress),
         onRefresh: placePin,
       },

@@ -317,7 +317,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @keyframes abxhint{50%{background-position:50% 60%}}
 .abx-loc__map.is-moved .abx-loc__hint{opacity:0}
 .abx-loc__pin{position:absolute;left:0;top:0;z-index:2;width:0;height:0;opacity:0;visibility:hidden;pointer-events:none}
-.abx-loc__pin i{position:absolute;left:-3.6rem;top:-3.6rem;width:7.2rem;height:7.2rem;border-radius:50%;border:2px solid #141414;opacity:0;animation:abxpulse 2.4s ease-out infinite}
+.abx-loc__pin i{position:absolute;left:-3.6rem;top:-3.6rem;width:7.2rem;height:7.2rem;border-radius:50%;border:2px solid #fff;opacity:0;animation:abxpulse 2.4s ease-out infinite}
 .abx-loc__pin i+i{animation-delay:1.2s}
 @keyframes abxpulse{0%{transform:scale(.2);opacity:.9}100%{transform:scale(1.6);opacity:0}}
 .abx-loc__drop{position:absolute;left:0;bottom:0;width:max(3.6rem,26px);height:max(3.6rem,26px);background:#141414;border-radius:50% 50% 50% 0;transform:rotate(-45deg);transform-origin:0 100%;box-shadow:0 8px 18px rgba(0,0,0,.45)}
